@@ -1,0 +1,9 @@
+coverage
+coveralls
+ipdb
+mock
+pre-commit
+pytest
+pytest-django
+requirements-tools
+tox
