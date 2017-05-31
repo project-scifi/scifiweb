@@ -22,10 +22,19 @@ update-requirements: venv
 
 .PHONY: dev
 dev: export SCIFIWEB_DEBUG ?= 1
-dev: venv
+dev: venv scifiweb/static/scss/site.scss.css
 	venv/bin/python manage.py runserver 0.0.0.0:8000
 
 .PHONY: clean
 clean:
 	rm -rf venv .tox
 	venv/bin/coverage erase
+
+.PHONY: scss
+scss: scifiweb/static/scss/site.scss.css
+
+# phony because it depends on other files, too many to express
+.PHONY: scifiweb/static/scss/site.scss.css
+scifiweb/static/scss/site.scss.css: scifiweb/static/scss/site.scss venv
+	# In prod, compile with --style compressed
+	venv/bin/sassc "$<" "$@"

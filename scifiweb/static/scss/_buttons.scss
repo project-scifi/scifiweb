@@ -1,0 +1,52 @@
+.btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 300px;
+}
+
+.btn-sm {
+    border-radius: 6px;
+}
+
+.btn-xl {
+    padding: 15px 30px;
+}
+
+
+.btn-default {
+    @include button-variant(white, $color-grey-dark, $color-grey-dark);
+
+    &.light {
+        @include button-variant($color-grey-dark, white, white);
+    }
+}
+
+.btn-default-outline {
+    @include button-outline-variant($color-grey-dark);
+}
+
+
+.btn-primary {
+    @include button-variant(white, $color-primary, $color-primary);
+
+    &.light {
+        @include button-variant($color-primary, white, white);
+    }
+}
+
+.btn-primary-outline {
+    @include button-outline-variant($color-primary);
+}
+
+
+.btn-secondary {
+    @include button-variant(white, $color-secondary, $color-secondary);
+
+    &.light {
+        @include button-variant($color-secondary, white, white);
+    }
+}
+
+.btn-secondary-outline {
+    @include button-outline-variant($color-secondary);
+}

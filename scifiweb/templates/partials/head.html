@@ -1,0 +1,25 @@
+{% load staticfiles %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% if description %}
+            <meta name="description" content="{{description}}">
+        {% endif %}
+        {% if full_title %}
+            <title>{{full_title}}</title>
+        {% else %}
+            <title>{% if title %}{{title}} &ndash; {% endif %}SCIFI Project</title>
+        {% endif %}
+
+        <!--
+        <link rel="canonical" href="https://scifi.org{{request.path}}"/>
+        -->
+
+        <link rel="stylesheet" href="{% static 'scss/site.scss.css' %}"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic,500,500italic"/>
+        <!--
+        <link rel="icon" href="{% static 'img/favicon/favicon-16.png' %}" sizes="16x16"/>
+        <link rel="icon" href="{% static 'img/favicon/favicon-32.png' %}" sizes="32x32"/>
+        -->
+    </head>

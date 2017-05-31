@@ -1,0 +1,7 @@
+@mixin serif-font() {
+    font-family: 'Helvetica Neue', Arial, serif;
+}
+
+@mixin sans-serif-font() {
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}

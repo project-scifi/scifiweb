@@ -1,0 +1,81 @@
+@import 'bootstrap/bootstrap';
+@import 'font-awesome/font-awesome';
+@import 'mixins';
+/*
+   Useful variables from Bootstrap:
+
+   $screen-xs-max: 767px
+
+   $screen-sm-min: 768px
+   $screen-sm-max: 991px
+
+   $screen-md-min: 992px
+   $screen-md-max: 1199px
+
+   $screen-lg-min: 1200px
+*/
+
+$color-blue: #003262;
+$color-gold: #fdb515;
+$color-grey: #555;
+$color-grey-light: #777;
+$color-grey-dark: #333;
+
+$color-primary: $color-blue;
+$color-secondary: $color-gold;
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    @include sans-serif-font;
+    -webkit-tap-highlight-color: $color-grey-dark;
+}
+
+hr {
+    max-width: 50px;
+    border-width: 3px;
+    border-color: $color-primary;
+
+    &.light {
+        border-color: white;
+    }
+}
+
+a {
+    color: $color-primary;
+
+    &:hover,
+    &:focus {
+        color: darken($color-primary, 0.1);
+    }
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+section {
+    padding: 50px 0;
+}
+
+::selection {
+    color: white;
+    background: $color-grey-dark;
+    text-shadow: none;
+}
+
+img::selection {
+    color: white;
+    background: transparent;
+}
+
+@import 'background';
+@import 'buttons';
+@import 'home';
+@import 'navbar';
