@@ -5,12 +5,13 @@
 
 {% include 'partials/head.html' %}
 
-    <body id="page-top">
+    <body>
         <nav class="navbar fixed-top navbar-toggleable-md scifi-navbar">
-            <button type="button" class="navbar-toggler navbar-toggler-right btn btn-primary-outline btn-sm" data-toggle="collapse" data-target=".navbar-collapse">
+            <input type="checkbox" id="navbarToggle"/>
+            <label for="navbarToggle" class="navbar-toggler navbar-toggler-right btn btn-primary-outline btn-sm">
                 &#9776;
-            </button>
-            <a class="navbar-brand" href="#page-top">SCIFI Project</a>
+            </label>
+            <a class="navbar-brand" href="{% url 'home' %}#">SCIFI Project</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">

@@ -28,3 +28,11 @@
         }
     }
 }
+
+.navbar > input {
+    display: none;
+
+    &:checked ~ .collapse {
+        display: block;
+    }
+}
