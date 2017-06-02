@@ -36,5 +36,5 @@ scss: scifiweb/static/scss/site.scss.css
 # phony because it depends on other files, too many to express
 .PHONY: scifiweb/static/scss/site.scss.css
 scifiweb/static/scss/site.scss.css: scifiweb/static/scss/site.scss venv
-	# In prod, compile with --style compressed
+	@# In prod, compile with --style compressed
 	venv/bin/sassc "$<" "$@"
