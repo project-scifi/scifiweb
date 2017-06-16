@@ -50,3 +50,16 @@
 .btn-secondary-outline {
     @include button-outline-variant($color-secondary);
 }
+
+
+.btn-tertiary {
+    @include button-variant(white, $color-tertiary, $color-tertiary);
+
+    &.light {
+        @include button-variant($color-tertiary, white, white);
+    }
+}
+
+.btn-tertiary-outline {
+    @include button-outline-variant($color-tertiary);
+}

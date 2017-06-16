@@ -15,14 +15,18 @@
    $screen-lg-min: 1200px
 */
 
+$color-purple: #553c62;
+$color-teal: #218f72;
 $color-blue: #003262;
-$color-gold: #fdb515;
 $color-grey: #555;
 $color-grey-light: #777;
 $color-grey-dark: #333;
 
-$color-primary: $color-blue;
-$color-secondary: $color-gold;
+$color-primary: $color-purple;
+$color-secondary: $color-teal;
+$color-tertiary: $color-blue;
+
+$navbar-height: 80px;
 
 html,
 body {
@@ -61,7 +65,7 @@ p {
 }
 
 section {
-    padding: 50px 0;
+    padding: $navbar-height 0;
 }
 
 ::selection {
