@@ -5,7 +5,7 @@
 
 {% include 'partials/head.html' %}
 
-    <body>
+    <body class="smooth-scroll">
         <nav class="navbar fixed-top navbar-toggleable-md scifi-navbar">
             <input type="checkbox" id="navbarToggle"/>
             <label for="navbarToggle" class="navbar-toggler navbar-toggler-right btn btn-primary-outline btn-sm">
@@ -18,25 +18,17 @@
                         <a class="nav-link" href="#mission">Mission</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#schools">Schools</a>
+                        <a class="nav-link" href="#how">How it works</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#sponsors">Sponsors</a>
+                        <a class="nav-link" href="#team">Meet the team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#team">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#involvement">Get involved</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
         {% block content %}{% endblock %}
-
-        <!-- TODO: Ditch all these nasty JS dependencies, or at least use them for something -->
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     </body>
