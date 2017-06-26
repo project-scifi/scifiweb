@@ -8,6 +8,7 @@
     min-height: auto;
     text-align: center;
     color: white;
+    // TODO: Need to create a URL rule for this
     background-image: url('../img/header.jpg');
     background-position: center;
     background-size: cover;
@@ -76,6 +77,40 @@ section {
 
 .section-heading {
     margin-top: 25px;
+}
+
+.bio-btn {
+    width: 100%;
+    margin-bottom: 20px;
+
+    overflow-wrap: break-all;
+    // I have no idea why this works
+    white-space: normal;
+}
+
+.bio-thumbnail {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+}
+
+.bio-image-column {
+    @media (max-width: map-get($grid-breakpoints, 'lg')) {
+        max-height: 225px;
+    }
+}
+
+.bio-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+    @media (max-width: map-get($grid-breakpoints, 'md')) {
+        margin-left: 0;
+        margin-bottom: 0;
+    }
 }
 
 .card-block {

@@ -7,8 +7,8 @@
         <div class="header-content-inner">
             <h1>Bringing lab gear to schools in need</h1>
             <hr class="light"/>
-            <p>Project SCIFI works together with schools and sponsors to promote science education at American high schools and expose students to real careers in science.</p>
-                <a class="btn btn-default btn-xl light sr-button" href="#mission">Learn more</a>
+            <p>Project SCIFI works together with schools and sponsors to promote science education at American schools and expose students to real careers in science.</p>
+            <a class="btn btn-default btn-xl light sr-button" href="#mission">Learn more</a>
         </div>
     </div>
 </header>
@@ -19,7 +19,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <h2 class="section-heading">Mission</h2>
                 <hr class="light"/>
-                <p>The Scientific Coat Initiative for Future Innovators promotes students’ scientific passions for higher education, provides teachers the resources necessary for hands-on scientific instruction, encourages the growth of mentor-mentee relationships, and fosters a visible community supporting young scientists’ endeavors.</p>
+                <p>The <b>Scientific Coat Initiative for Future Innovators</b> promotes students’ scientific passions for higher education, provides teachers the resources necessary for hands-on scientific instruction, encourages the growth of mentor-mentee relationships, and fosters a visible community supporting young scientists’ endeavors.</p>
                 <p>We achieve these goals by partnering with corporate and academic sponsors who endorse the purchase of laboratory coats embroidered with the sponsors’ logos. We then distribute these coats to qualifying under-resourced schools, along with other materials intended to aid educators in taking on a hands-on approach to scientific instruction.</p>
                 <p>Our motivation as a non-profit organization stems from our early exposure to science, which ultimately inspired us to pursue scientific educations and careers. Thus, our goal is to empower and inspire future generations of scientists by providing K-12 students the necessary tools to develop fundamental scientific reasoning, address societal problems, and further scientific instruction.</p>
 
@@ -58,42 +58,56 @@
             </div>
         </div>
     </div>
+    <!-- TODO: replace with flex box -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="logo-box">
-                    <i class="fa fa-4x fa-user-circle-o"></i>
-                    <h3>Person 1</h3>
-                    <p>Short bio. Corrupti odit voluptas molestias. Hic sit voluptas quae. Illum itaque eligendi a.</p>
+            {% for member in members %}
+                <div class="col-lg-3 text-center">
+                    <a class="btn btn-default-outline btn-md light bio-btn" id="{{member.id}}" href="#{{member.id}}Modal">
+                        <img class="bio-thumbnail" src="{% static member.thumbnail %}"></img>
+                        <h5>{{member.name}}</h5>
+                        <p>
+                            {% if member.roles %}
+                                {{member.roles|join:', '}}
+                            {% else %}
+                                Team member
+                            {% endif %}
+                        </p>
+                    </a>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="logo-box">
-                    <i class="fa fa-4x fa-user-circle-o"></i>
-                    <h3>Person 2</h3>
-                    <p>Short bio. Corrupti odit voluptas molestias. Hic sit voluptas quae. Illum itaque eligendi a.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="logo-box">
-                    <i class="fa fa-4x fa-user-circle-o"></i>
-                    <h3>Person 3</h3>
-                    <p>Short bio. Corrupti odit voluptas molestias. Hic sit voluptas quae. Illum itaque eligendi a.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="logo-box">
-                    <i class="fa fa-4x fa-user-circle-o"></i>
-                    <h3>Person 4</h3>
-                    <p>Short bio. Corrupti odit voluptas molestias. Hic sit voluptas quae. Illum itaque eligendi a.</p>
-                </div>
-            </div>
+                {% if forloop.counter1|divisibleby:4 and not forloop.last %}
+                    </div>
+                    <div class="row">
+                {% endif %}
+            {% endfor %}
         </div>
         <div class="col-lg-12 text-center">
             <a class="btn btn-default btn-xl light sr-button" href="#involvement">Become a part</a>
         </div>
     </div>
 </section>
+
+{% for member in members %}
+    <div class="scifi-modal" id="{{member.id}}Modal" aria-hidden="true">
+        <div class="scifi-modal-content container">
+            <div class="scifi-modal-header">
+                <a class="scifi-modal-close" href="#team" aria-label="Close">&times;</a>
+                <h5 class="scifi-modal-title">{{member.name}}</h5>
+            </div>
+            <div class="scifi-modal-body row flex-wrap-reverse">
+                <div class="col-lg">
+                    <p>{{member.bio}}</p>
+                </div>
+                <div class="col-lg bio-image-column text-center">
+                    <img class="bio-image" src="{% static member.image %}"></img>
+                </div>
+            </div>
+            <div class="scifi-modal-footer">
+                <a class="btn btn-sm btn-default-outline" href="#team">Close</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
 
 <section class="bg-tertiary" id="involvement">
     <div class="container">
@@ -105,7 +119,7 @@
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="card-block">
                     <h3 class="card-title">Sponsors</h3>
-                    <p class="card-text">Are you ready to invest into the scientists of tomorrow? Contact us at info@projectscifi.org to see how you can make a difference in science education</p>
+                    <p class="card-text">Are you ready to invest into the scientists of tomorrow? Contact us at <b>info@projectscifi.org</b> to see how you can make a difference in science education</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 text-center">
@@ -123,4 +137,5 @@
         </div>
     </div>
 </section>
+
 {% endblock %}

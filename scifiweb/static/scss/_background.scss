@@ -3,22 +3,9 @@
     background-color: white !important;
 }
 
-.bg-primary {
-    color: white;
-    background-color: $color-primary !important;
-}
-
-.bg-secondary {
-    color: white;
-    background-color: $color-secondary !important;
-}
-
-.bg-tertiary {
-    color: white;
-    background-color: $color-tertiary !important;
-}
-
-.bg-dark {
-    color: white;
-    background-color: $color-grey-dark !important;
+@each $name in 'dark' 'primary' 'secondary' 'tertiary' {
+    .bg-#{$name} {
+        color: white;
+        background-color: map-get($color-map, $name) !important;
+    }
 }

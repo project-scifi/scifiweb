@@ -1,32 +1,30 @@
 @import 'bootstrap/bootstrap';
 @import 'font-awesome/font-awesome';
 @import 'mixins';
-/*
-   Useful variables from Bootstrap:
-
-   $screen-xs-max: 767px
-
-   $screen-sm-min: 768px
-   $screen-sm-max: 991px
-
-   $screen-md-min: 992px
-   $screen-md-max: 1199px
-
-   $screen-lg-min: 1200px
-*/
 
 $color-purple: #553c62;
 $color-teal: #218f72;
 $color-blue: #003262;
-$color-grey: #555;
-$color-grey-light: #777;
+$color-grey: #777;
+$color-grey-light: #bbb;
 $color-grey-dark: #333;
 
 $color-primary: $color-purple;
 $color-secondary: $color-teal;
 $color-tertiary: $color-blue;
 
+// Useful in @each loops
+$color-map: (
+    'default': $color-grey-dark,
+    'dark': $color-grey-dark,
+    'primary': $color-primary,
+    'secondary': $color-secondary,
+    'tertiary': $color-tertiary,
+);
+
 $navbar-height: 80px;
+
+$transition-time: 0.3s;
 
 html,
 body {
@@ -56,6 +54,16 @@ a {
     &:focus {
         color: darken($color-primary, 0.1);
     }
+
+    &.light:not(.btn) {
+        color: white;
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            color: #ddd;
+        }
+    }
 }
 
 p {
@@ -82,4 +90,5 @@ img::selection {
 @import 'background';
 @import 'buttons';
 @import 'home';
+@import 'modal';
 @import 'navbar';

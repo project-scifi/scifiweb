@@ -1,65 +1,54 @@
 .btn {
-    font-weight: 700;
+    font-weight: bold;
     text-transform: uppercase;
     border-radius: 300px;
+
+    > img {
+        margin-bottom: 10px;
+    }
+
+    > p {
+        font-weight: normal;
+        text-transform: none;
+        margin-bottom: 0;
+    }
 }
 
 .btn-sm {
     border-radius: 6px;
 }
 
+.btn-md {
+    border-radius: 18px;
+    padding: 8px 16px;
+}
+
 .btn-xl {
     padding: 15px 30px;
 }
 
+@each $name in 'default' 'primary' 'secondary' 'tertiary' {
+    .btn-#{$name} {
+        @include button-variant(white, map-get($color-map, $name), map-get($color-map, $name));
 
-.btn-default {
-    @include button-variant(white, $color-grey-dark, $color-grey-dark);
-
-    &.light {
-        @include button-variant($color-grey-dark, white, white);
+        &.light {
+            @include button-variant(map-get($color-map, $name), white, white);
+            text-decoration: none;
+        }
     }
-}
 
-.btn-default-outline {
-    @include button-outline-variant($color-grey-dark);
-}
+    .btn-#{$name}-outline {
+        @include button-outline-variant(map-get($color-map, $name));
 
+        &.light {
+            color: white;
+            border-color: white;
 
-.btn-primary {
-    @include button-variant(white, $color-primary, $color-primary);
-
-    &.light {
-        @include button-variant($color-primary, white, white);
+            &:hover,
+            &:focus {
+                color: map-get($color-map, $name);
+                background-color: white;
+            }
+        }
     }
-}
-
-.btn-primary-outline {
-    @include button-outline-variant($color-primary);
-}
-
-
-.btn-secondary {
-    @include button-variant(white, $color-secondary, $color-secondary);
-
-    &.light {
-        @include button-variant($color-secondary, white, white);
-    }
-}
-
-.btn-secondary-outline {
-    @include button-outline-variant($color-secondary);
-}
-
-
-.btn-tertiary {
-    @include button-variant(white, $color-tertiary, $color-tertiary);
-
-    &.light {
-        @include button-variant($color-tertiary, white, white);
-    }
-}
-
-.btn-tertiary-outline {
-    @include button-outline-variant($color-tertiary);
 }
