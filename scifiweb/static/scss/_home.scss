@@ -25,7 +25,9 @@
 }
 
 .scifi-hero-title {
-    @extend .has-text-centered;
+    &.hero-head {
+        margin-top: 1.5em;
+    }
 
     .title {
         margin-bottom: 0.3em;
@@ -36,28 +38,11 @@
         border: 0.15em solid $border;
         border-radius: 0.2em;
     }
-
-    p {
-        @include desktop {
-            margin: auto 20%;
-        }
-    }
-}
-
-.hero-head.scifi-hero-title {
-    padding-top: 2em;
 }
 
 .hero-foot:last-child {
     // 41px is just the calculated height of the footer navbar; it's a hack
     padding-bottom: calc(1em + 41px);
-}
-
-.scifi-longquote {
-    p {
-        font-style: italic;
-        margin-bottom: 1em;
-    }
 }
 
 .enormous {
@@ -79,15 +64,4 @@
     align-items: flex-end;
     padding-bottom: 0;
     margin-bottom: -2.5rem;
-}
-
-// Bulma assumes that an "a" inside a hero is a tab or such.
-// We are sort of abusing heros, so we must fix this.
-.hero a.is-normal-link {
-    text-decoration: underline;
-
-    &:hover,
-    &:focus {
-        color: $grey-lighter;
-    }
 }

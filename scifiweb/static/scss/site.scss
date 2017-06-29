@@ -31,6 +31,10 @@ $radius-large: $radius;
 
 @import 'bulma/bulma';
 
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
     width: 100%;
@@ -42,12 +46,12 @@ hr {
     margin: 0.75em auto;
 }
 
-.is-uppercase {
-    text-transform: uppercase;
+p + p {
+    margin-bottom: 1em;
 }
 
-.smooth-scroll {
-    scroll-behavior: smooth;
+.is-uppercase {
+    text-transform: uppercase;
 }
 
 .button {
@@ -67,9 +71,25 @@ h6.title {
     font-weight: $weight-bold;   
 }
 
-.hero-body {
-    padding-top: 0;
-    padding-bottom: 0;
+.hero.is-fullheight > .hero-body {
+    padding-top: 0.5em;
+    padding-bottom:1.5em;
+
+    @include tablet {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+// Bulma assumes that an "a" inside a hero is a tab or such.
+// We are sort of abusing heros, so we must fix this.
+.hero p > a {
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+        color: $grey-lighter !important;
+    }
 }
 
 @import 'home';
