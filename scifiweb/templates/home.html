@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load filters %}
 
 {% block content %}
 
@@ -54,14 +55,12 @@
     </div>
 
     <div class="hero-body">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8 is-offset-2 scifi-hero-title has-text-centered">
-                    <h1 class="title is-uppercase">Bringing lab gear to schools in need</h1>
-                    <hr/>
-                    <p class="subtitle"><b>Project SCIFI</b> works together with schools and sponsors to promote science education at American schools and expose students to real careers in science.</p>
-                    <a class="button is-primary is-inverted is-medium is-hidden-mobile" href="#mission">Learn more</a>
-                </div>
+        <div class="columns">
+            <div class="column is-8 is-offset-2 scifi-hero-title has-text-centered">
+                <h1 class="title is-uppercase">Bringing lab gear to schools in need</h1>
+                <hr/>
+                <p class="subtitle"><strong>Project SCIFI</strong> works together with schools and sponsors to promote science education at American schools and expose students to real careers in science.</p>
+                <a class="button is-primary is-inverted is-medium is-hidden-mobile" href="#mission">Learn more</a>
             </div>
         </div>
     </div>
@@ -73,26 +72,24 @@
         <hr/>
     </div>
     <div class="hero-body">
-        <div class="container has-text-centered">
-            <div class="columns">
-                <div class="column is-1 is-offset-2 top-right-quote is-hidden-mobile">
-                    <h1 class="enormous">&ldquo;</h1>
-                </div>
-                <div class="column is-6">
-                    <i>
-                        <p>The <b>Scientific Coat Initiative for Future Innovators</b> promotes students’ scientific passions for higher education, provides teachers the resources necessary for hands-on scientific instruction, encourages the growth of mentor-mentee relationships, and fosters a visible community supporting young scientists’ endeavors.</p>
-                        <p>We achieve these goals by partnering with corporate and academic sponsors who endorse the purchase of laboratory coats embroidered with the sponsors’ logos. We then distribute these coats to qualifying under-resourced schools, along with other materials intended to aid educators in taking on a hands-on approach to scientific instruction.</p>
-                        <p>Our motivation as a non-profit organization stems from our early exposure to science, which ultimately inspired us to pursue scientific educations and careers. Thus, our goal is to empower and inspire future generations of scientists by providing K&ndash;12 students the necessary tools to develop fundamental scientific reasoning, address societal problems, and move on to further scientific instruction.</p>
-                    </i>
-                </div>
-                <div class="column is-1 bottom-left-quote is-hidden-mobile">
-                    <h1 class="enormous">&rdquo;</h1>
-                </div>
+        <div class="columns has-text-centered">
+            <div class="column is-1 is-offset-2 top-right-quote is-hidden-mobile">
+                <p class="enormous">&ldquo;</p>
+            </div>
+            <div class="column is-6">
+                <p><i>The <b>Scientific Coat Initiative for Future Innovators</b> promotes students’ scientific passions for higher education, provides teachers the resources necessary for hands-on scientific instruction, encourages the growth of mentor-mentee relationships, and fosters a visible community supporting young scientists’ endeavors.</i></p>
+                <p><i>We achieve these goals by partnering with corporate and academic sponsors who endorse the purchase of laboratory coats embroidered with the sponsors’ logos. We then distribute these coats to qualifying under-resourced schools, along with other materials intended to aid educators in taking on a hands-on approach to scientific instruction.</i></p>
+                <p><i>Our motivation as a non-profit organization stems from our early exposure to science, which ultimately inspired us to pursue scientific educations and careers. Thus, our goal is to empower and inspire future generations of scientists by providing K&ndash;12 students the necessary tools to develop fundamental scientific reasoning, address societal problems, and move on to further scientific instruction.</i></p>
+            </div>
+            <div class="column is-1 bottom-left-quote is-hidden-mobile">
+                <p class="enormous">&rdquo;</p>
             </div>
         </div>
     </div>
-    <div class="hero-foot has-text-centered is-hidden-mobile">
-        <a class="button is-secondary is-inverted is-medium" href="#how">See how we do it</a>
+    <div class="hero-foot is-hidden-mobile">
+        <div class="container has-text-centered">
+            <a class="button is-secondary is-inverted is-medium" href="#how">See how we do it</a>
+        </div>
     </div>
 </section>
 
@@ -103,11 +100,13 @@
     </div>
     <div class="hero-body">
         <div class="container has-text-centered">
-            <h1 class="title">Coming soon!</h1>
+            <h2 class="title">Coming soon!</h2>
         </div>
     </div>
-    <div class="hero-foot has-text-centered is-hidden-mobile">
-        <a class="button is-tertiary is-inverted is-medium" href="#team">Meet the team</a>
+    <div class="hero-foot is-hidden-mobile">
+        <div class="container has-text-centered">
+            <a class="button is-tertiary is-inverted is-medium" href="#team">Meet the team</a>
+        </div>
     </div>
 </section>
 
@@ -116,13 +115,109 @@
         <h2 class="title">Our team</h2>
         <hr/>
     </div>
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">Coming soon!</h1>
+    {% for chunk in members|chunkby:3 %}
+        <div class="hero-body is-hidden-mobile">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-10 is-offset-1">
+                        <div class="columns">
+                            {% for member in chunk %}
+                                <div class="column is-4">
+                                    <label for="{{member.id}}" class="media bio-thumbnail">
+                                        <figure class="media-left">
+                                            <p class="image is-96x96">
+                                                <img src="{% static member.thumbnail %}"/>
+                                            </p>
+                                        </figure>
+                                        <div class="media-content">
+                                            <p class="title is-5"><strong>{{member.name}}</strong></p>
+                                            <p class="subtitle is-6">
+                                                {% if member.roles %}
+                                                    {{member.roles|join:', '}}
+                                                {% else %}
+                                                    Team member
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="hero-foot has-text-centered is-hidden-touch">
-        <a class="button is-dark is-inverted is-medium" href="#involvement">Become a part</a>
+        {% for member in chunk %}
+            <input type="radio" name="members" value="" class="toggle-collapse is-hidden" id="{{member.id}}">
+            <div class="hero-body scifi-bio collapse">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-8 is-offset-2">
+                            <article class="content">
+                                <figure>
+                                    <img src="{% static member.image %}"/>
+                                </figure>
+                                <h2>{{member.name}}</h2>
+                                <p>{{member.bio}}</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <!--
+        Yes, we commit the awful, awful crime of duplicating an enormous chunk
+        of code just so we can reorder things on mobile. We even use useless
+        columns for the padding.
+    -->
+    {% for member in members %}
+        <div class="hero-body is-hidden-tablet">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <label for="{{member.id}}Mobile" class="media bio-thumbnail">
+                            <figure class="media-left">
+                                <p class="image is-96x96">
+                                    <img src="{% static member.thumbnail %}"/>
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <p class="title is-5"><strong>{{member.name}}</strong></p>
+                                <p class="subtitle is-6">
+                                    {% if member.roles %}
+                                        {{member.roles|join:', '}}
+                                    {% else %}
+                                        Team member
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="radio" name="membersMobile" value="" class="toggle-collapse is-hidden" id="{{member.id}}Mobile">
+        <div class="hero-body scifi-bio collapse">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <article class="content">
+                            <figure>
+                                <img src="{% static member.image %}"/>
+                            </figure>
+                            <h2>{{member.name}}</h2>
+                            <p>{{member.bio}}</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="hero-foot is-hidden-mobile">
+        <div class="container has-text-centered">
+            <a class="button is-dark is-inverted is-medium" href="#involvement">Become a part</a>
+        </div>
     </div>
 </section>
 
@@ -132,41 +227,41 @@
         <hr/>
     </div>
     <div class="hero-body">
-        <div class="container has-text-centered">
-            <div class="columns">
-                <div class="column is-8 is-offset-2">
-                    <div class="columns">
-                        <div class="column is-one-third">
-                            <h3 class="title">Sponsors</h3>
-                        </div>
-                        <div class="column">
-                            <p>Are you ready to invest in the scientists of tomorrow? Contact us at <b>info@projectscifi.org</b> to see how you can make a difference in science education.</p>
-                        </div>
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <h3 class="title">Sponsors</h3>
                     </div>
-                    <hr/>
-                    <div class="columns">
-                        <div class="column is-one-third">
-                            <h3 class="title">Schools</h3>
-                        </div>
-                        <div class="column">
-                            <p>Looking to build your school’s science program or think that <b>SCIFI</b> could help motivate your students to pursue their scientific interests? <a href="/#">Apply here!</a></p>
-                        </div>
+                    <div class="column">
+                        <p>Are you ready to invest in the scientists of tomorrow? Contact us at <b>info@projectscifi.org</b> to see how you can make a difference in science education.</p>
                     </div>
-                    <hr/>
-                    <div class="columns">
-                        <div class="column is-one-third">
-                            <h3 class="title">Join the team</h3>
-                        </div>
-                        <div class="column">
-                            <p>Are you passionate about promoting science, bettering education, and working with like-minded scientists? <a href="/#">Apply here</a> to become part of the initiative!</p>
-                        </div>
+                </div>
+                <hr/>
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <h3 class="title">Schools</h3>
+                    </div>
+                    <div class="column">
+                        <p>Looking to build your school’s science program or think that <b>SCIFI</b> could help motivate your students to pursue their scientific interests? <a href="/#">Apply here!</a></p>
+                    </div>
+                </div>
+                <hr/>
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <h3 class="title">Join the team</h3>
+                    </div>
+                    <div class="column">
+                        <p>Are you passionate about promoting science, bettering education, and working with like-minded scientists? <a href="/#">Apply here</a> to become part of the initiative!</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="hero-foot has-text-centered">
-        <h1 class="title">Thanks for supporting science education!</h1>
+    <div class="hero-foot">
+        <div class="container has-text-centered">
+            <h2 class="title">Thanks for supporting science education!</h2>
+        </div>
     </div>
 </section>
 

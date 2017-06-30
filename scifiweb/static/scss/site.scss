@@ -25,10 +25,6 @@ $colors: map_merge($colors, (
 
 $title-size: $size-2;
 
-$radius: 290486px;
-$radius-small: $radius;
-$radius-large: $radius;
-
 @import 'bulma/bulma';
 
 html {
@@ -47,7 +43,7 @@ hr {
 }
 
 p + p {
-    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 .is-uppercase {
@@ -58,6 +54,7 @@ p + p {
     height: auto;
     width: auto;
     padding: 0.5em 1.5em;
+    border-radius: 290486px;
     text-transform: uppercase;
     font-weight: $weight-bold;
 }
@@ -90,6 +87,20 @@ h6.title {
     &:focus {
         color: $grey-lighter !important;
     }
+}
+
+.collapse {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+}
+
+.toggle-collapse:checked + .collapse {
+    display: unset;
+    // Just needs to be sufficiently large
+    max-height: 200vh;
+    transition: max-height 0.4s ease-in;
 }
 
 @import 'home';

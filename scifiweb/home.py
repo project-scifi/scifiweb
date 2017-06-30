@@ -26,7 +26,7 @@ MEMBERS = (
             to have mentors who encouraged him to take AP Chemistry; which
             ultimately set him on a path to graduate from UC Berkeley in 2017
             with a degree in Chemical Biology. Currently, Stephen is a graduate
-            student at the Scripps Research Institute pursuing a PhD in Organic
+            student at the Scripps Research Institute pursuing a Ph.D in Organic
             Chemistry. In his free time, he enjoys exploring the outdoors on
             his dirt bike.
         """),
@@ -90,6 +90,37 @@ MEMBERS = (
             potential drug targets for immunotherapy with a lab at UCSF. He is
             excited to continue research and hopes to become an oncologist some
             day. In his free time, he enjoys photography and animals.
+        """),
+    ),
+    Member(
+        'mleone',
+        'Michael Leone',
+        (),
+        dedent("""
+            Michael is currently studying neurobiology in college. He works in
+            a lab that explores how certain genes regulate the development of
+            neurons. He enjoys science because it is constantly progressing and
+            evolving and to be a part of it is incredibly exciting. Running
+            experiments, collecting data, and then realizing that the data
+            you’re holding may contribute to this advancement in science is a
+            really cool feeling. He is a part of Sci-Fi because he wants more
+            people to have the opportunity to experience that same feeling. A
+            fun fact about Michael is that he’s played ice hockey for 16 years
+            and is currently on the Cal Ice Hockey team.
+        """),
+    ),
+    Member(
+        'mtran',
+        'Michelle Tazo Tran',
+        (),
+        dedent("""
+            Michelle grew up in Salt Lake City, Utah and had the opportunity to
+            study at the Academy for Math, Engineering & Science, a high school
+            that prioritized STEM education. This school helped fuel her
+            passion for the sciences, and she is currently studying at the
+            University of California, Berkeley majoring in Molecular
+            Toxicology. She spends the majority of her free time exploring San
+            Francisco's food scene.
         """),
     ),
 )
