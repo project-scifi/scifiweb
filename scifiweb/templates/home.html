@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% load filters %}
+{% load image %}
 
 {% block content %}
 
@@ -155,7 +156,7 @@
                         <div class="column is-8 is-offset-2">
                             <article class="content">
                                 <figure>
-                                    <img src="{% static member.image %}"/>
+                                    <img src="{% static member.image %}" {{member.image|dimensions}} {% if member.image|is_portrait %}class="is-pulled-left"{% endif %}/>
                                 </figure>
                                 <h2>{{member.name}}</h2>
                                 <p>{{member.bio}}</p>
@@ -204,7 +205,7 @@
                     <div class="column">
                         <article class="content">
                             <figure>
-                                <img src="{% static member.image %}"/>
+                                <img src="{% static member.image %}" {{member.image|dimensions}}/>
                             </figure>
                             <h2>{{member.name}}</h2>
                             <p>{{member.bio}}</p>
