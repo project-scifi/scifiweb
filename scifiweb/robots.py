@@ -11,13 +11,7 @@ def robots_dot_txt(request):
             Disallow: /
         """
     else:
-        resp = """\
-            User-Agent: *
-            Disallow: /login/calnet/
-            Disallow: /test/
-            Disallow: /tv/
-            Disallow: /api/
-        """
+        resp = "User-Agent: *"
 
     return HttpResponse(
         dedent(resp),

@@ -1,7 +1,9 @@
 import configparser
 import os
 import socket
+import warnings
 
+from django.core.cache import CacheKeyWarning
 from django.template.base import TemplateSyntaxError
 
 
@@ -108,18 +110,34 @@ LOGGING = {
         },
     },
     'loggers': {
+        'scifiweb': {
+            'handlers': ['console'],
+            'level': os.getenv('SCIFIWEB_LOG_LEVEL', 'INFO'),
+        },
         'django': {
             'handlers': ['console'],
-            'level': os.getenv('DJANGO-LOG_LEVEL', 'INFO'),
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
         },
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
+            'propagate': True,
         },
     },
 }
 
 DATABASES = {}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    } if DEBUG else {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
+# We don't use memcached, so these warnings are not helpful
+warnings.simplefilter('ignore', CacheKeyWarning)
 
 
 LANGUAGE_CODE = 'en-us'

@@ -2,6 +2,7 @@ from collections import namedtuple
 from textwrap import dedent
 
 from django.shortcuts import render
+from django.views.decorators.cache import cache_page
 
 
 class Member(namedtuple('Member', ('id', 'name', 'roles', 'bio'))):
@@ -170,6 +171,7 @@ MEMBERS = (
 )
 
 
+@cache_page(None)
 def home(request):
     return render(
         request,
