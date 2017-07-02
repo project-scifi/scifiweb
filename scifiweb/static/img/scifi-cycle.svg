@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="400" width="1200" version="1.1" viewBox="0 0 317.5 105.83333">
+ <g transform="translate(-.33051 -134.32)">
+  <g transform="matrix(.98797 0 0 .98797 11.406 1.7986)">
+   <g transform="matrix(.73846 0 0 .73846 83.622 26.984)">
+    <g transform="translate(3.451)">
+     <g transform="matrix(.84214 0 0 .84214 15.456 61.924)">
+      <g transform="matrix(1.3677 0 0 1.3677 -122.74 -51.147)">
+       <path fill="#fff" d="m103.32 183.61-5.0837 1.4542-6.6051 14.298 3.3982 1.0336 3.2069-6.7263v2.8437l-1.7926 12.707h13.753l-1.7926-12.707v-2.8437l3.2069 6.7263 3.3982-1.0336-6.6051-14.298z"/>
+       <path fill="#e6e6e6" d="m100.28 183.12c-0.15118 1.216-0.20278 2.4719-0.13351 3.7761l1.0418-0.33073-0.1323 0.59532c0.81928 0.53712 1.532 0.8611 2.2681 1.2318l-0.89764-3.9826z"/>
+       <path d="m106.37 183.12c0.15118 1.216 0.20278 2.4719 0.13351 3.7761l-1.0418-0.33073 0.1323 0.59532c-0.81928 0.53712-1.532 0.8611-2.2681 1.2318l0.89764-3.9826z" fill="#e6e6e6"/>
+       <path d="m103.32 188.39c-1.2444-1.2216-2.3572-2.7499-3.044-5.2724 0.90888-0.34282 1.7934-0.71003 3.044-0.71107m0 5.9835c1.2444-1.2216 2.3572-2.7499 3.044-5.2724-0.90888-0.34282-1.7934-0.71003-3.044-0.71107" fill="#b3b3b3"/>
+       <path fill="#b3b3b3" d="m104.59 189.82v2.0525c0 0.80489 0.65251 1.4574 1.4574 1.4574s1.4574-0.65251 1.4574-1.4574v-2.0525z"/>
+      </g>
+     </g>
+     <g transform="matrix(.74346 0 0 .74346 48.677 58.726)">
+      <rect height="22.622" width="46.17" y="269.28" x="56.29" fill="#fff"/>
+      <g fill="#ccc">
+       <rect height="1.5214" width="17.529" y="292.67" x="70.611"/>
+       <rect height="1.5214" width="15.478" y="291.15" x="71.636"/>
+       <rect height="1.5214" width="13.494" y="289.62" x="72.628"/>
+       <path d="m88.874 272.06h3.7042v5.6885h-3.7042z"/>
+       <path d="m100.14 272.06h-3.7042v5.6885h3.7042z"/>
+       <path d="m81.306 272.06h3.7042v5.6885h-3.7042z"/>
+       <path d="m73.739 272.06h3.7042v5.6885h-3.7042z"/>
+       <path d="m66.172 272.06h3.7042v5.6885h-3.7042z"/>
+       <path d="m58.605 272.06h3.7042v5.6885h-3.7042z"/>
+       <path d="m88.874 281.79h3.7042v5.6885h-3.7042z"/>
+       <path d="m100.14 281.79h-3.7042v5.6885h3.7042z"/>
+       <path d="m66.172 281.79h3.7042v5.6885h-3.7042z"/>
+       <path d="m58.605 281.79h3.7042v5.6885h-3.7042z"/>
+       <rect ry=".046772" height="1.8841" width="47.386" y="267.4" x="55.682"/>
+      </g>
+      <path d="m75.402 280.6v9.0289h7.9463v-9.0289h-3.9731z" fill="#b3b3b3"/>
+     </g>
+     <g transform="matrix(.30332 0 0 .30332 -24.164 102)">
+      <path fill="#e6e6e6" d="m189.28 243.69h118.14v4.101h-118.14z"/>
+      <path fill="#e6e6e6" d="m192.46 239.59h111.79v4.101h-111.79z"/>
+      <path fill="#fff" d="m195.85 202.8h103.81v36.79h-103.81z"/>
+      <g fill="#f2f2f2">
+       <path d="m195.85 236.88h11.412v2.7128h-11.412z"/>
+       <path d="m195.85 202.8h11.412v2.7128h-11.412z"/>
+       <path d="m204.23 205.53h1.6536v31.352h-1.6536z"/>
+      </g>
+      <path fill="#ccc" d="m202.58 205.53h1.6536v31.352h-1.6536z"/>
+      <path fill="#f2f2f2" d="m200.92 205.53h1.6536v31.352h-1.6536z"/>
+      <path fill="#ccc" d="m199.27 205.53h1.6536v31.352h-1.6536z"/>
+      <path fill="#f2f2f2" d="m197.62 205.53h1.6536v31.352h-1.6536z"/>
+      <g fill="#f2f2f2">
+       <path d="m225.97 236.88h11.412v2.7128h-11.412z"/>
+       <path d="m225.97 202.8h11.412v2.7128h-11.412z"/>
+       <path d="m234.35 205.53h1.6536v31.352h-1.6536z"/>
+      </g>
+      <path fill="#ccc" d="m232.7 205.53h1.6536v31.352h-1.6536z"/>
+      <path fill="#f2f2f2" d="m231.04 205.53h1.6536v31.352h-1.6536z"/>
+      <path fill="#ccc" d="m229.39 205.53h1.6536v31.352h-1.6536z"/>
+      <path fill="#f2f2f2" d="m227.74 205.53h1.6536v31.352h-1.6536z"/>
+      <g fill="#f2f2f2">
+       <path d="m210.91 236.88h11.412v2.7128h-11.412z"/>
+       <path d="m210.91 202.8h11.412v2.7128h-11.412z"/>
+       <path d="m219.29 205.53h1.6536v31.352h-1.6536z"/>
+      </g>
+      <path fill="#ccc" d="m217.64 205.53h1.6536v31.352h-1.6536z"/>
+      <path fill="#f2f2f2" d="m215.98 205.53h1.6536v31.352h-1.6536z"/>
+      <path fill="#ccc" d="m214.33 205.53h1.6536v31.352h-1.6536z"/>
+      <path fill="#f2f2f2" d="m212.68 205.53h1.6536v31.352h-1.6536z"/>
+      <g fill="#f2f2f2">
+       <path d="m299.66 236.88h-11.412v2.7128h11.412z"/>
+       <path d="m299.66 202.8h-11.412v2.7128h11.412z"/>
+       <path d="m291.28 205.53h-1.6536v31.352h1.6536z"/>
+      </g>
+      <path fill="#ccc" d="m292.93 205.53h-1.6536v31.352h1.6536z"/>
+      <path fill="#f2f2f2" d="m294.59 205.53h-1.6536v31.352h1.6536z"/>
+      <path fill="#ccc" d="m296.24 205.53h-1.6536v31.352h1.6536z"/>
+      <path fill="#f2f2f2" d="m297.89 205.53h-1.6536v31.352h1.6536z"/>
+      <g fill="#f2f2f2">
+       <path d="m269.54 236.88h-11.412v2.7128h11.412z"/>
+       <path d="m269.54 202.8h-11.412v2.7128h11.412z"/>
+       <path d="m261.16 205.53h-1.6536v31.352h1.6536z"/>
+      </g>
+      <path fill="#ccc" d="m262.81 205.53h-1.6536v31.352h1.6536z"/>
+      <path fill="#f2f2f2" d="m264.46 205.53h-1.6536v31.352h1.6536z"/>
+      <path fill="#ccc" d="m266.12 205.53h-1.6536v31.352h1.6536z"/>
+      <path fill="#f2f2f2" d="m267.77 205.53h-1.6536v31.352h1.6536z"/>
+      <g fill="#f2f2f2">
+       <path d="m284.6 236.88h-11.412v2.7128h11.412z"/>
+       <path d="m284.6 202.8h-11.412v2.7128h11.412z"/>
+       <path d="m276.22 205.53h-1.6536v31.352h1.6536z"/>
+      </g>
+      <path fill="#ccc" d="m277.87 205.53h-1.6536v31.352h1.6536z"/>
+      <path fill="#f2f2f2" d="m279.53 205.53h-1.6536v31.352h1.6536z"/>
+      <path fill="#ccc" d="m281.18 205.53h-1.6536v31.352h1.6536z"/>
+      <path fill="#f2f2f2" d="m282.83 205.53h-1.65v31.352h1.6536z"/>
+      <path d="m247.75 219.67c-4.467-0.0001-8.0884 3.5592-8.0884 7.9499v11.972h16.177v-11.972c-0.00002-4.3907-3.6214-7.95-8.0884-7.9499z" fill="#ccc"/>
+      <path fill="#f2f2f2" d="m195.85 198.49h103.82v4.3084h-103.82z"/>
+      <path d="m247.75 168.59-2.8019 1.4588-51.452 26.784c-0.63574 0.33095-0.88078 1.1094-0.54984 1.7451 0.33094 0.63573 1.1089 0.88078 1.7446 0.54983l53.058-27.621 53.059 27.621c0.63573 0.33095 1.4136 0.0859 1.7446-0.54983 0.33095-0.63574 0.0859-1.4142-0.54984-1.7451l-51.44-26.79z" fill="#f2f2f2"/>
+      <path d="m247.75 171.5 51.91 26.989h-103.81z" fill="#fff"/>
+      <path d="m247.75 176.7 33.575 17.457h-67.149z" fill="#e6e6e6"/>
+     </g>
+     <g transform="translate(-7.0721 -28.339)">
+      <path d="m125.25 217.51-0.78802 14.349h2.6518l0.97726-10.929v-3.42zm5.6826 0.006 0.75972 14.351-2.6517-0.005-0.95571-10.931 0.007-3.42z" fill="#ccc"/>
+      <g transform="matrix(.64610 0 0 .64610 61.334 88.889)">
+       <path fill="#fff" d="m103.32 183.61-5.0837 1.4542-6.6051 14.298 3.3982 1.0336 3.2069-6.7263v2.8437l-1.7926 12.707h13.753l-1.7926-12.707v-2.8437l3.2069 6.7263 3.3982-1.0336-6.6051-14.298z"/>
+       <path fill="#e6e6e6" d="m100.28 183.12c-0.15118 1.216-0.20278 2.4719-0.13351 3.7761l1.0418-0.33073-0.1323 0.59532c0.81928 0.53712 1.532 0.8611 2.2681 1.2318l-0.89764-3.9826z"/>
+       <path d="m106.37 183.12c0.15118 1.216 0.20278 2.4719 0.13351 3.7761l-1.0418-0.33073 0.1323 0.59532c-0.81928 0.53712-1.532 0.8611-2.2681 1.2318l0.89764-3.9826z" fill="#e6e6e6"/>
+       <path d="m103.32 188.39c-1.2444-1.2216-2.3572-2.7499-3.044-5.2724 0.90888-0.34282 1.7934-0.71003 3.044-0.71107m0 5.9835c1.2444-1.2216 2.3572-2.7499 3.044-5.2724-0.90888-0.34282-1.7934-0.71003-3.044-0.71107" fill="#b3b3b3"/>
+       <path fill="#b3b3b3" d="m104.59 189.82v2.0525c0 0.80489 0.65251 1.4574 1.4574 1.4574s1.4574-0.65251 1.4574-1.4574v-2.0525z"/>
+      </g>
+      <path fill="#ececec" d="m131.02 205.15c-0.15423 1.5959-1.1043 3.6766-2.7002 3.5224-1.5959-0.15423-3.2333-2.485-3.0791-4.0809 0.15423-1.5959 1.573-2.7646 3.1689-2.6104 1.5959 0.15423 2.7646 1.573 2.6104 3.1689z"/>
+      <g transform="matrix(.80590 0 0 .80590 55.282 56.479)">
+       <path d="m106.72 201.36-0.89304 16.262h3.0051l1.1075-12.386v-3.8757zm6.44 0.006 0.86095 16.263-3.0051-0.006-1.0831-12.388 0.008-3.8757z" fill="#ccc"/>
+       <g transform="matrix(.73220 0 0 .73220 34.285 55.607)">
+        <path fill="#fff" d="m103.32 183.61-5.0837 1.4542-6.6051 14.298 3.3982 1.0336 3.2069-6.7263v2.8437l-1.7926 12.707h13.753l-1.7926-12.707v-2.8437l3.2069 6.7263 3.3982-1.0336-6.6051-14.298z"/>
+        <path d="m100.28 183.12c-0.15118 1.216-0.20278 2.4719-0.13351 3.7761l1.0418-0.33073-0.1323 0.59532c0.81928 0.53712 1.532 0.8611 2.2681 1.2318l-0.89764-3.9826z" fill="#e6e6e6"/>
+        <path d="m106.37 183.12c0.15118 1.216 0.20278 2.4719 0.13351 3.7761l-1.0418-0.33073 0.1323 0.59532c-0.81928 0.53712-1.532 0.8611-2.2681 1.2318l0.89764-3.9826z" fill="#e6e6e6"/>
+        <path d="m103.32 188.39c-1.2444-1.2216-2.3572-2.7499-3.044-5.2724 0.90888-0.34282 1.7934-0.71003 3.044-0.71107m0 5.9835c1.2444-1.2216 2.3572-2.7499 3.044-5.2724-0.90888-0.34282-1.7934-0.71003-3.044-0.71107" fill="#b3b3b3"/>
+        <path d="m104.59 189.82v2.0525c0 0.80489 0.65251 1.4574 1.4574 1.4574s1.4574-0.65251 1.4574-1.4574v-2.0525z" fill="#b3b3b3"/>
+       </g>
+       <path d="m106.76 186.54c-0.27868 1.7955 0.18034 4.3468 1.9758 4.6254 1.7955 0.27868 4.2476-1.8207 4.5262-3.6162 0.27868-1.7955-0.95095-3.477-2.7464-3.7556-1.7955-0.27868-3.477 0.95096-3.7556 2.7465z" fill="#ececec"/>
+      </g>
+     </g>
+     <g fill="#fff">
+      <path d="m78.175 151.63-2.0222 2.7017c-0.000157 0.00002-0.0002 0.00018-0.000458 0.00026l-3.7202 4.9697 4.9701 3.7199 2.7022 2.0231-0.32987-2.2942c11.953-1.0138 23.249 3.3426 31.388 11.15-6.6012 7.2182-8.1014 18.166-2.9552 27.08 6.3557 11.008 20.468 14.79 31.476 8.4344 11.008-6.3557 14.789-20.468 8.4329-31.476-6.0392-10.46-19.08-14.395-29.809-9.3082-10.09-10.28-24.518-16.03-39.787-14.58zm39.692 19.997c9.8611-5.6933 22.434-2.3245 28.127 7.5366 5.6933 9.8611 2.3244 22.434-7.5366 28.127-9.8611 5.6933-22.436 2.3255-28.129-7.536-5.6933-9.8611-2.3227-22.435 7.538-28.128z" stroke-width=".18358"/>
+      <g stroke-width=".18358">
+       <path d="m145.37 216.42-2.7017-2.0222c-0.00002-0.00015-0.00018-0.00019-0.00027-0.00046l-4.9697-3.7202-3.7199 4.9701-2.0231 2.7022 2.2942-0.32988c1.0138 11.953-3.3426 23.249-11.15 31.388-7.2182-6.6012-18.166-8.1015-27.08-2.9552-11.008 6.3557-14.79 20.468-8.4344 31.476 6.3557 11.008 20.468 14.789 31.476 8.4329 10.46-6.0392 14.395-19.08 9.3082-29.809 10.28-10.084 16.032-24.515 14.577-39.784zm-19.997 39.692c5.6933 9.8611 2.3245 22.434-7.5366 28.127-9.8611 5.6933-22.434 2.3244-28.127-7.5366-5.6933-9.8611-2.3255-22.436 7.536-28.129 9.8611-5.6933 22.435-2.3227 28.128 7.538z"/>
+       <path d="m80.575 283.62 2.0222-2.7017c0.000159-0.00002 0.000203-0.00019 0.000458-0.00026l3.7202-4.9697-4.9701-3.7199-2.7022-2.0231 0.32988 2.2942c-11.953 1.0138-23.249-3.3426-31.388-11.15 6.6012-7.2182 8.1015-18.166 2.9552-27.08-6.3557-11.008-20.468-14.79-31.476-8.4344-11.008 6.3557-14.789 20.468-8.4328 31.476 6.0392 10.46 19.081 14.395 29.809 9.3082 10.084 10.28 24.515 16.032 39.784 14.577zm-39.691-20c-9.8611 5.6933-22.434 2.3245-28.127-7.5366-5.6933-9.8611-2.3245-22.434 7.5366-28.127 9.8611-5.6933 22.436-2.3255 28.129 7.536 5.6933 9.8611 2.3227 22.435-7.5385 28.128z"/>
+       <path d="m13.379 218.83 2.7017 2.0222c0.000024 0.00015 0.000188 0.00019 0.000267 0.00044l4.9697 3.7202 3.7199-4.9701 2.0231-2.7022-2.2942 0.32987c-1.0137-11.953 3.3426-23.249 11.15-31.388 7.2182 6.6012 18.166 8.1015 27.08 2.9552 11.008-6.3557 14.79-20.468 8.4344-31.476-6.3557-11.008-20.468-14.789-31.476-8.4329-10.46 6.0392-14.395 19.08-9.3082 29.809-10.28 10.084-16.032 24.515-14.577 39.784zm19.997-39.692c-5.6933-9.8611-2.3245-22.434 7.5366-28.127 9.8611-5.6933 22.434-2.3244 28.127 7.5366 5.6933 9.8611 2.3255 22.436-7.5356 28.129-9.8611 5.6933-22.435 2.3227-28.128-7.538z"/>
+      </g>
+     </g>
+     <g fill="#ffffff" transform="matrix(.55355 0 0 .55355 36.304 96.188)">
+      <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="7.3159px" line-height="1.25" y="212.10652" x="47.148422" font-family="sans-serif"><tspan style="font-variant-numeric:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-feature-settings:normal" font-family="Roboto" font-size="6.9881px" y="212.10652" x="47.148422" stroke-width=".30483" fill="#ffffff">PROJECT</tspan></text>
+      <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="26.206px" line-height="1.25" y="232.54546" x="46.87056" font-family="Roboto"><tspan style="letter-spacing:0px" font-family="RobotoBold" font-size="26.206px" y="232.54546" x="46.87056" stroke-width=".75479" fill="#ffffff">SCIFI</tspan></text>
+     </g>
+     <g transform="rotate(-30 79.375 217.62)">
+      <circle cx="79.375" stroke="#fff" cy="217.62" r="20.749" stroke-width="2.1167" fill="none"/>
+      <g fill="#fff">
+       <path d="m300 174.97-25.613 25.613h9.0098v20.932h33.207v-20.932h9.0059z" transform="matrix(.26458 0 0 .26458 0 138.25)"/>
+       <path d="m112.46 217.62-6.7768-6.7768v2.3838h-5.5382v8.786h5.5382v2.3828z"/>
+       <path d="m79.375 250.71 6.7768-6.7768h-2.3838v-5.5382h-8.786v5.5382h-2.3828z"/>
+       <path d="m46.293 217.62 6.7768 6.7768v-2.3838h5.5382v-8.786h-5.5382v-2.3828z"/>
+      </g>
+     </g>
+    </g>
+   </g>
+   <g font-size="10.583px" transform="translate(64.787 -36.555)" font-family="Roboto" fill="#000000">
+    <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" line-height="0.5" y="203.34145" x="135.8078"><tspan y="203.34145" x="135.8078"><tspan font-size="4.2333px" line-height="0.5" y="203.34145" x="135.8078" stroke-width=".26458" fill="#ffffff">Students run exciting experiments that challenge them </tspan></tspan><tspan y="208.91582" x="135.8078"><tspan font-size="4.2333px" line-height="0.5" y="208.91582" x="135.8078" stroke-width=".26458" fill="#ffffff">to think critically like scientists. Our goal is for these </tspan></tspan><tspan y="214.49019" x="135.8078"><tspan font-size="4.2333px" line-height="0.5" y="214.49019" x="135.8078" stroke-width=".26458" fill="#ffffff">students, inspired by their early experiences, to become </tspan></tspan><tspan y="220.06454" x="135.8078"><tspan font-size="4.2333px" line-height="0.5" y="220.06454" x="135.8078" stroke-width=".26458" fill="#ffffff">the innovators and science advocates of tomorrow.</tspan></tspan></text>
+    <text style="word-spacing:0px;letter-spacing:0px" font-weight="500" xml:space="preserve" line-height="1.25" y="196.82155" x="135.57835"><tspan font-family="Roboto" font-weight="500" font-size="6.35px" y="196.82155" x="135.57835" stroke-width=".26458" fill="#ffffff">Students</tspan></text>
+   </g>
+   <g transform="translate(67.172 -36.361)" font-family="Roboto">
+    <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10.583px" line-height="0.5" y="259.47559" x="122.50573" fill="#000000"><tspan y="259.47559" x="122.50573"><tspan font-size="4.2333px" line-height="0.5" y="259.47559" x="122.50573" stroke-width=".26458" fill="#ffffff">Schools receive enough coats to outfit one or more </tspan></tspan><tspan y="265.04996" x="122.50573"><tspan font-size="4.2333px" line-height="0.5" y="265.04996" x="122.50573" stroke-width=".26458" fill="#ffffff">laboratory classrooms. Along with other materials we </tspan></tspan><tspan y="270.6243" x="122.50573"><tspan font-size="4.2333px" line-height="0.5" y="270.6243" x="122.50573" stroke-width=".26458" fill="#ffffff">provide, these coats enable schools to teach science in </tspan></tspan><tspan font-size="4.2333px" y="276.19867" x="122.50573" fill="#ffffff"><tspan line-height="0.5" y="276.19867" x="122.50573">an engaging, dynamic manner.</tspan></text>
+    <text stroke-width=".26458" style="word-spacing:0px;letter-spacing:0px" font-weight="500" xml:space="preserve" font-size="6.35px" line-height="1.25" y="252.95567" x="122.27629" fill="#ffffff"><tspan y="252.95567" x="122.27629">Schools</tspan><tspan y="266.18484" x="122.27629"/></text>
+   </g>
+   <g font-size="10.583px" transform="translate(-160.93 -51.782)" font-family="Roboto" fill="#000000">
+    <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" line-height="0.5" y="203.34145" x="163.12383"><tspan y="203.34145" x="163.12383"><tspan font-size="4.2333px" line-height="0.5" y="203.34145" x="163.12383" stroke-width=".26458" fill="#ffffff">Sponsors support their communities by purchasing </tspan></tspan><tspan y="208.91582" x="163.12383"><tspan font-size="4.2333px" line-height="0.5" y="208.91582" x="163.12383" stroke-width=".26458" fill="#ffffff">laboratory coats embroidered with their trademark </tspan></tspan><tspan y="214.49019" x="163.12383"><tspan font-size="4.2333px" line-height="0.5" y="214.49019" x="163.12383" stroke-width=".26458" fill="#ffffff">logo, thus demonstrating their commitment to the </tspan></tspan><tspan font-size="4.2333px" y="220.06454" x="163.12383" fill="#ffffff"><tspan line-height="0.5" y="220.06454" x="163.12383">scientists of the future.</tspan></text>
+    <text style="word-spacing:0px;letter-spacing:0px" font-weight="500" xml:space="preserve" line-height="1.25" y="196.82155" x="162.89439"><tspan font-family="Roboto" font-weight="500" font-size="6.35px" y="196.82155" x="162.89439" stroke-width=".26458" fill="#ffffff">Sponsors</tspan></text>
+   </g>
+   <g font-size="10.583px" transform="translate(-141.38 10.59)" font-family="Roboto" fill="#000000">
+    <text style="word-spacing:0px;letter-spacing:0px" font-weight="500" xml:space="preserve" line-height="1.25" y="196.82155" x="135.57835"><tspan font-family="Roboto" font-weight="500" font-size="6.35px" y="196.82155" x="135.57835" stroke-width=".26458" fill="#ffffff">Lab coats</tspan></text>
+    <text style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" line-height="0.5" y="203.34145" x="135.8078"><tspan y="203.34145" x="135.8078"><tspan font-size="4.2333px" line-height="0.5" y="203.34145" x="135.8078" stroke-width=".26458" fill="#ffffff">These coats represent the scientific community&apos;s </tspan></tspan><tspan y="208.91582" x="135.8078"><tspan font-size="4.2333px" line-height="0.5" y="208.91582" x="135.8078" stroke-width=".26458" fill="#ffffff">support for the endeavors of young minds as they </tspan></tspan><tspan font-size="4.2333px" y="214.49019" x="135.8078" fill="#ffffff"><tspan line-height="0.5" y="214.49019" x="135.8078">actively apply the scientific method in their education.</tspan></text>
+   </g>
+  </g>
+ </g>
+</svg>

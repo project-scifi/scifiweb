@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="127.04" width="127.05" version="1.1" viewBox="0 0 33.614418 33.613459">
+ <g transform="translate(-90.845 -191.99)">
+  <flowRoot style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" transform="matrix(.26458 0 0 .26458 62.862 68.628)" line-height="1.25" font-family="Roboto" fill="#000000"><flowRegion><rect y="328" width="130" x="3594" height="140"/></flowRegion><flowPara/></flowRoot>
+  <g transform="matrix(.98797 0 0 .98797 2.7189 2.8176)">
+   <g transform="matrix(.73846 0 0 .73846 83.622 26.984)">
+    <g transform="matrix(.74346 0 0 .74346 -28.423 37.756)">
+     <rect height="22.622" width="46.17" y="269.28" x="56.29" fill="#fff"/>
+     <g fill="#ccc">
+      <rect height="1.5214" width="17.529" y="292.67" x="70.611"/>
+      <rect height="1.5214" width="15.478" y="291.15" x="71.636"/>
+      <rect height="1.5214" width="13.494" y="289.62" x="72.628"/>
+      <path d="m88.874 272.06h3.7042v5.6885h-3.7042z"/>
+      <path d="m100.14 272.06h-3.7042v5.6885h3.7042z"/>
+      <path d="m81.306 272.06h3.7042v5.6885h-3.7042z"/>
+      <path d="m73.739 272.06h3.7042v5.6885h-3.7042z"/>
+      <path d="m66.172 272.06h3.7042v5.6885h-3.7042z"/>
+      <path d="m58.605 272.06h3.7042v5.6885h-3.7042z"/>
+      <path d="m88.874 281.79h3.7042v5.6885h-3.7042z"/>
+      <path d="m100.14 281.79h-3.7042v5.6885h3.7042z"/>
+      <path d="m66.172 281.79h3.7042v5.6885h-3.7042z"/>
+      <path d="m58.605 281.79h3.7042v5.6885h-3.7042z"/>
+      <rect ry=".046772" height="1.8841" width="47.386" y="267.4" x="55.682"/>
+     </g>
+     <path fill="#b3b3b3" d="m75.402 280.6v9.0289h7.9463v-9.0289h-3.9731z"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

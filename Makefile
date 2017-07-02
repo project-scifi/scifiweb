@@ -37,4 +37,4 @@ scss: scifiweb/static/scss/site.scss.css
 .PHONY: scifiweb/static/scss/site.scss.css
 scifiweb/static/scss/site.scss.css: scifiweb/static/scss/site.scss venv
 	@# In prod, compile with --style compressed
-	venv/bin/sassc "$<" "$@"
+	venv/bin/sassc --sourcemap "$<" "$@"

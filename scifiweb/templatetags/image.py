@@ -12,16 +12,22 @@ def _image_dimensions(path):
 
 @register.filter
 def dimensions(value):
-    """Reads the dimensions from an image path (relative to
-    `STATIC_URL`) and renders `width` and `height` attributes for an
-    `<img>` element."""
+    """Reads the dimensions from a static image path and renders `width`
+    and `height` attributes for an `<img>` element."""
     width, height = _image_dimensions(value)
     return mark_safe('width="{}" height="{}"'.format(width, height))
 
 
 @register.filter
 def is_portrait(value):
-    """Tells whether an image is taller than wide based on its path
-    (relative to `STATIC_URL`)."""
+    """Tells whether an image is taller than wide based on its static
+    path."""
     width, height = _image_dimensions(value)
     return height > width
+
+
+@register.simple_tag
+def svg(path):
+    """Inlines the content of an SVG given its static path."""
+    with open('scifiweb/static/' + path) as f:
+        return mark_safe(f.read())

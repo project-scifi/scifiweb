@@ -78,9 +78,11 @@
                 <p class="enormous">&ldquo;</p>
             </div>
             <div class="column is-6">
-                <p><i>The <b>Scientific Coat Initiative for Future Innovators</b> promotes students’ scientific passions for higher education, provides teachers the resources necessary for hands-on scientific instruction, encourages the growth of mentor-mentee relationships, and fosters a visible community supporting young scientists’ endeavors.</i></p>
-                <p><i>We achieve these goals by partnering with corporate and academic sponsors who endorse the purchase of laboratory coats embroidered with the sponsors’ logos. We then distribute these coats to qualifying under-resourced schools, along with other materials intended to aid educators in taking on a hands-on approach to scientific instruction.</i></p>
-                <p><i>Our motivation as a non-profit organization stems from our early exposure to science, which ultimately inspired us to pursue scientific educations and careers. Thus, our goal is to empower and inspire future generations of scientists by providing K&ndash;12 students the necessary tools to develop fundamental scientific reasoning, address societal problems, and move on to further scientific instruction.</i></p>
+                <div class="content">
+                    <p><i>The <b>Scientific Coat Initiative for Future Innovators</b> promotes students’ scientific passions for higher education, provides teachers the resources necessary for hands-on scientific instruction, encourages the growth of mentor-mentee relationships, and fosters a visible community supporting young scientists’ endeavors.</i></p>
+                    <p><i>We achieve these goals by partnering with corporate and academic sponsors who endorse the purchase of laboratory coats embroidered with the sponsors’ logos. We then distribute these coats to qualifying under-resourced schools, along with other materials intended to aid educators in taking on a hands-on approach to scientific instruction.</i></p>
+                    <p><i>Our motivation as a non-profit organization stems from our early exposure to science, which ultimately inspired us to pursue scientific educations and careers. Thus, our goal is to empower and inspire future generations of scientists by providing K&ndash;12 students the necessary tools to develop fundamental scientific reasoning, address societal problems, and move on to further scientific instruction.</i></p>
+                </div>
             </div>
             <div class="column is-1 bottom-left-quote is-hidden-mobile">
                 <p class="enormous">&rdquo;</p>
@@ -99,9 +101,67 @@
         <h2 class="title">How it works</h2>
         <hr/>
     </div>
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h2 class="title">Coming soon!</h2>
+    <div class="hero-body is-hidden-mobile">
+        <figure class="container">
+            {% svg 'img/scifi-cycle.svg' %}
+        </figure>
+    </div>
+    <div class="hero-body is-hidden-tablet">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="media">
+                        <figure class="media-left">
+                            <p class="image is-128x128 is-circle has-border">
+                                {% svg 'img/sponsor.svg' %}
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <h3 class="title is-5 is-marginless"><strong>Sponsors</strong></h3>
+                            <p>Sponsors support their communities by purchasing laboratory coats embroidered with their trademark logo, thus demonstrating their commitment to the scientists of the future.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="media">
+                        <figure class="media-left">
+                            <p class="image is-128x128 is-circle has-border">
+                                {% svg 'img/coat.svg' %}
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <h3 class="title is-5 is-marginless"><strong>Lab coats</strong></h3>
+                            <p>These coats represent the scientific community's support for the endeavors of young minds as they actively apply the scientific method in their education.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="media">
+                        <figure class="media-left">
+                            <p class="image is-128x128 is-circle has-border">
+                                {% svg 'img/school.svg' %}
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <h3 class="title is-5 is-marginless"><strong>Schools</strong></h3>
+                            <p>Schools receive enough coats to outfit one or more laboratory classrooms. Along with other materials we provide, these coats enable schools to teach science in an engaging, dynamic manner.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="media">
+                        <figure class="media-left">
+                            <p class="image is-128x128 is-circle has-border">
+                                {% svg 'img/student.svg' %}
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <h3 class="title is-5 is-marginless"><strong>Students</strong></h3>
+                            <p>Students run exciting experiments that challenge them to think critically like scientists. Our goal is for these students, inspired by their early experiences, to become the innovators and science advocates of tomorrow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="hero-foot is-hidden-mobile">
@@ -168,9 +228,9 @@
         {% endfor %}
     {% endfor %}
     <!--
-        Yes, we commit the awful, awful crime of duplicating an enormous chunk
-        of code just so we can reorder things on mobile. We even use useless
-        columns for the padding.
+        Yes, we commit the awful crime of duplicating an enormous chunk of code
+        just so we can reorder things on mobile. We even use useless columns
+        for the padding.
     -->
     {% for member in members %}
         <div class="hero-body is-hidden-tablet">
