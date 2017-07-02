@@ -19,7 +19,7 @@ MEMBERS = (
     Member(
         'sharwood',
         'Stephen Harwood',
-        ('President', 'CEO'),
+        ('President',),
         dedent("""
             Stephen grew up in the small town of Weaverville, California where
             he developed an interest in Chemistry and Biology. He was fortunate
@@ -34,7 +34,7 @@ MEMBERS = (
     Member(
         'afarzad',
         'Ali Farzad',
-        (),
+        ('Chief Financial Officer',),
         dedent("""
             Ali Farzad is originally from Washington, D.C, where he attended a
             high school that fostered a strong scientific background in all its
@@ -43,6 +43,52 @@ MEMBERS = (
             their time in high school. He currently studies Public Health at UC
             Berkeley and during his free time enjoys spending time with his
             friends.
+        """),
+    ),
+    Member(
+        'mtran',
+        'Michelle Tazo Tran',
+        ('Board Secretary',),
+        dedent("""
+            Michelle grew up in Salt Lake City, Utah and had the opportunity to
+            study at the Academy for Math, Engineering & Science, a high school
+            that prioritized STEM education. This school helped fuel her
+            passion for the sciences, and she is currently studying at the
+            University of California, Berkeley majoring in Molecular
+            Toxicology. She spends the majority of her free time exploring San
+            Francisco's food scene.
+        """),
+    ),
+    Member(
+        'psahrapima',
+        'Parmis Sahrapima',
+        ('Educational Chair',),
+        dedent("""
+            Parmis currently resides in Los Angeles, California where she grew
+            up with a great interest for science. Being originally born and
+            raised in Iran, where pursuing science was not the norm for women,
+            she was determined to pursue science and medicine as a career.
+            Parmis is currently a senior at UC Berkeley majoring in Molecular
+            and Cell Biology, with an emphasis in Immunology and Pathogenesis.
+            She has been part of the Lishko lab since December 2015, where she
+            has been working on projects devoted to understanding and fixing
+            male infertility. During her free time, Parmis likes to read, work
+            out, and travel.
+        """),
+    ),
+    Member(
+        'shassanin',
+        'Samir Hassanin',
+        ('Chief Networking Officer',),
+        dedent("""
+            Samir is a Bay Area local from Fremont, California. He is a fourth
+            year public health student at UC Berkeley, where he discovered that
+            his passion lies in health policy and management. Currently, he is
+            working as an undergraduate research assistant in the Prevention
+            Research Center at Stanford Medical School. Aside from conducting
+            community research, Samir’s academic interests lie in teaching,
+            learning, and surveying topics in comparative healthcare systems.
+            In his free time, he enjoys sleeping.
         """),
     ),
     Member(
@@ -110,17 +156,15 @@ MEMBERS = (
         """),
     ),
     Member(
-        'mtran',
-        'Michelle Tazo Tran',
+        'robertli',
+        'Robert Li',
         (),
         dedent("""
-            Michelle grew up in Salt Lake City, Utah and had the opportunity to
-            study at the Academy for Math, Engineering & Science, a high school
-            that prioritized STEM education. This school helped fuel her
-            passion for the sciences, and she is currently studying at the
-            University of California, Berkeley majoring in Molecular
-            Toxicology. She spends the majority of her free time exploring San
-            Francisco's food scene.
+            Robert grew up in the city of San Ramon, California. During high
+            school he developed a passion for the STEM and medicine. He is
+            currently a second year student at the University of California,
+            Berkeley, pursuing a degree in Molecular and Cell Biology. In his
+            free time, he enjoys exercising, reading, and pencil drawing.
         """),
     ),
 )

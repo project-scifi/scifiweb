@@ -9,10 +9,11 @@
     @each $name, $pair in $colors {
         $color: nth($pair, 1);
         $color-invert: nth($pair, 2);
+
         .tabs > ul > li.is-#{$name} {
             background-color: $color;
 
-            & > a {
+            > a {
                 color: $color-invert;
 
                 &:hover,
@@ -83,12 +84,8 @@
         padding-bottom: 3rem;
     }
 
-    & + .hero-foot {
+    + .hero-foot {
         margin-top: 1rem;
-    }
-
-    p {
-        color: white;
     }
 
     h1,
@@ -108,13 +105,12 @@
 
 @each $name, $pair in $colors {
     $color: nth($pair, 1);
-    .hero.is-#{$name} {
-        label.bio-thumbnail {
-            &:hover,
-            &:focus {
-                cursor: pointer;
-                background-color: lighten($color, 10%);
-            }
+
+    .hero.is-#{$name} .bio-thumbnail {
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            background-color: lighten($color, 10%);
         }
     }
 }
