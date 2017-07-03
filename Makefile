@@ -21,7 +21,6 @@ update-requirements: venv
 	venv/bin/upgrade-requirements
 
 .PHONY: dev
-dev: export SCIFIWEB_DEBUG ?= 1
 dev: venv scifiweb/static/scss/site.scss.css
 	venv/bin/python manage.py runserver 0.0.0.0:8000
 

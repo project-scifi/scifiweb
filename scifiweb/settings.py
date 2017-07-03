@@ -1,15 +1,33 @@
+import configparser
 import os
 import socket
 
 from django.template.base import TemplateSyntaxError
 
 
+DEFAULT_CONFIG = {
+    'django': {
+        'debug': True,
+        'secret': 'not-a-secret',
+        'static_url': '/static/',
+    },
+}
+
+
+config = configparser.RawConfigParser()
+config_path = os.environ.get('SCIFIWEB_CONFIG')
+if config_path:
+    config.read(config_path)
+else:
+    config.read_dict(DEFAULT_CONFIG)
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DEBUG = os.environ.get('SCIFIWEB_DEBUG') == '1'
 
-SECRET_KEY = 'not-a-secret&zbldkgh^t36tqa@$e*-16asoa!u(%$%2)asbmj71h^s##eq6e'
+DEBUG = config.getboolean('django', 'debug')
+SECRET_KEY = config.get('django', 'secret')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['projectscifi.org']
 if DEBUG:
     ALLOWED_HOSTS += [
         socket.getfqdn(),
@@ -83,12 +101,20 @@ LOGGING = {
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
-        }
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+        },
     },
     'loggers': {
         'django': {
             'handlers': ['console'],
             'level': os.getenv('DJANGO-LOG_LEVEL', 'INFO'),
+        },
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
         },
     },
 }
@@ -105,7 +131,21 @@ USE_TZ = True
 X_FRAME_OPTIONS = 'DENY'
 
 
-STATIC_URL = '/static/'
+STATIC_URL = config.get('django', 'static_url')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+if not DEBUG:
+    EMAIL_HOST = config.get('email', 'host')
+    EMAIL_HOST_USER = config.get('email', 'user')
+    EMAIL_HOST_PASSWORD = config.get('email', 'password')
+    EMAIL_USE_TLS = config.get('email', 'use_tls')
+
+    ADMINS = [('Webmaster', 'webmaster@projectscifi.org')]
+    SERVER_EMAIL = EMAIL_HOST_USER
+
+    # We don't use cookies yet but these might be forgotten later on
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True

@@ -6,6 +6,7 @@ coverage==4.4.1
 coveralls==1.1
 decorator==4.0.11
 docopt==0.6.2
+identify==1.0.2
 idna==2.5
 ipdb==0.10.3
 ipython==6.1.0
@@ -17,7 +18,7 @@ pbr==3.1.1
 pexpect==4.2.1
 pickleshare==0.7.4
 pluggy==0.4.0
-pre-commit==0.14.3
+pre-commit==0.15.0
 prompt-toolkit==1.0.14
 ptyprocess==0.5.2
 py==1.4.34
@@ -31,6 +32,7 @@ setuptools==36.0.1
 simplegeneric==0.8.1
 tox==2.7.0
 traitlets==4.3.2
+typing==3.6.1
 urllib3==1.21.1
 virtualenv==15.1.0
 wcwidth==0.1.7
