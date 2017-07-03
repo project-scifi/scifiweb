@@ -27,8 +27,22 @@
     </div>
 </nav>
 
-<section class="hero is-primary is-fullheight" id="scifi">
-    <div class="hero-head">
+<section class="hero is-primary is-fullheight layered" id="scifi">
+    <div class="container background is-hidden-mobile">
+        <div class="columns">
+            <div class="column">
+                <div class="is-pulled-left">
+                    {% svg 'img/space-left.svg' %}
+                </div>
+            </div>
+            <div class="column">
+                <div class="is-pulled-right">
+                    {% svg 'img/space-right.svg' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-head foreground">
         <header class='nav'>
             <div class="container">
                 <div class="nav-left">
@@ -54,8 +68,7 @@
             </div>
         </header>
     </div>
-
-    <div class="hero-body">
+    <div class="hero-body foreground">
         <div class="columns">
             <div class="column is-8 is-offset-2 scifi-hero-title has-text-centered">
                 <h1 class="title is-uppercase">Bringing lab gear to schools in need</h1>
@@ -67,12 +80,26 @@
     </div>
 </section>
 
-<section class="hero is-secondary is-fullheight" id="mission">
-    <div class="hero-head scifi-hero-title has-text-centered">
+<section class="hero is-secondary is-fullheight layered" id="mission">
+    <div class="container background is-hidden-mobile">
+        <div class="columns">
+            <div class="column">
+                <div class="is-pulled-left">
+                    {% svg 'img/science-left.svg' %}
+                </div>
+            </div>
+            <div class="column">
+                <div class="is-pulled-right">
+                    {% svg 'img/science-right.svg' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-head scifi-hero-title has-text-centered foreground">
         <h2 class="title">Mission</h2>
         <hr/>
     </div>
-    <div class="hero-body">
+    <div class="hero-body foreground">
         <div class="columns has-text-centered">
             <div class="column is-1 is-offset-2 top-right-quote is-hidden-mobile">
                 <p class="enormous">&ldquo;</p>
@@ -89,7 +116,7 @@
             </div>
         </div>
     </div>
-    <div class="hero-foot is-hidden-mobile">
+    <div class="hero-foot is-hidden-mobile foreground">
         <div class="container has-text-centered">
             <a class="button is-secondary is-inverted is-medium" href="#how">See how we do it</a>
         </div>
@@ -282,12 +309,17 @@
     </div>
 </section>
 
-<section class="hero is-success is-fullheight" id="involvement">
-    <div class="hero-head scifi-hero-title has-text-centered">
+<section class="hero is-success is-fullheight layered" id="involvement">
+    <div class="container background is-hidden-mobile">
+        <div class="is-pulled-left">
+        {% svg 'img/heart-left.svg' %}
+        </div>
+    </div>
+    <div class="hero-head scifi-hero-title has-text-centered foreground">
         <h2 class="title">Get involved</h2>
         <hr/>
     </div>
-    <div class="hero-body">
+    <div class="hero-body foreground">
         <div class="columns">
             <div class="column is-8 is-offset-2">
                 <div class="columns">
@@ -319,7 +351,7 @@
             </div>
         </div>
     </div>
-    <div class="hero-foot">
+    <div class="hero-foot foreground">
         <div class="container has-text-centered">
             <h2 class="title">Thanks for supporting science education!</h2>
         </div>
