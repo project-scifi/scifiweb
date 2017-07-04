@@ -157,6 +157,20 @@ MEMBERS = (
         """),
     ),
     Member(
+        'mpaoletti',
+        'Marcus Paoletti',
+        (),
+        dedent("""
+            Since a young age, Marcus has loved exploring the world. He went to
+            Berkeley High School, where he was introduced to biotechnology by
+            his AP Biology teacher. Her guidance sparked his interest in
+            microbiology, and still motivates him today as he pursues an
+            undergraduate degree in Molecular and Cellular Biology at UC
+            Berkeley. Outside of school, Marcus enjoys backpacking and
+            traveling.
+        """)
+    ),
+    Member(
         'robertli',
         'Robert Li',
         (),
@@ -166,6 +180,32 @@ MEMBERS = (
             currently a second year student at the University of California,
             Berkeley, pursuing a degree in Molecular and Cell Biology. In his
             free time, he enjoys exercising, reading, and pencil drawing.
+        """),
+    ),
+    Member(
+        'rmakwana',
+        'Rikki Makwana',
+        (),
+        dedent("""
+            Rikhil, or Rikki, moved around a few times throughout his
+            childhood, but ended up settling in Yorba Linda, California, where
+            his passion for biology and the other sciences flourished
+            throughout middle school and high school. He is currently pursuing
+            a degree in Molecular and Cell Biology at the University of
+            California, Berkeley, whilst also finding time to volunteer at
+            schools in the Oakland/Berkeley area where he teaches students
+            about chemistry and ecology.
+        """),
+    ),
+    Member(
+        'spatel',
+        'Shawn Patel',
+        (),
+        dedent("""
+            Shawn grew up in Riverside. He developed an interest in space very
+            early in life watching a lot of sci-fi movies. Once he grew up, his
+            interests in science shifted towards the biological side. Shawn one
+            day hopes to pursue his dream of working for NASA.
         """),
     ),
 )

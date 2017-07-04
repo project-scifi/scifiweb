@@ -52,16 +52,14 @@ hr {
 }
 
 .collapse {
-    display: none;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.4s ease-out;
 }
 
 .toggle-collapse:checked + .collapse {
-    display: unset;
     // Just needs to be sufficiently large
-    max-height: 200vh;
+    max-height: 2000px;
     transition: max-height 0.4s ease-in;
 }
 
