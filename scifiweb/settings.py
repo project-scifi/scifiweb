@@ -131,7 +131,7 @@ DATABASES = {}
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-    } if DEBUG else {
+    } if not DEBUG else {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
