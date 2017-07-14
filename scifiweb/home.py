@@ -78,6 +78,22 @@ MEMBERS = (
         """),
     ),
     Member(
+        'spatil',
+        'Shashank Patil',
+        ('Chief Executive Officer',),
+        dedent("""
+            Shashank grew up in the suburbs of Fremont, California, and
+            developed an early aptitude for science through reading comic books
+            and watching shows like Bill Nye. He was lucky enough to have an
+            incredible AP Biology teacher who solidified his growing interest
+            in the health sciences. His mentors encouraged him to pursue his
+            passions, which ultimately led him to graduate from UC Berkeley
+            with degrees in Molecular & Cell Biology, Integrative Biology, and
+            Psychology. in 2016. Since then, he has been working as a teacher
+            and a researcher in the Bay Area, both of which he loves.
+        """)
+    ),
+    Member(
         'shassanin',
         'Samir Hassanin',
         ('Chief Networking Officer',),
@@ -196,6 +212,21 @@ MEMBERS = (
             schools in the Oakland/Berkeley area where he teaches students
             about chemistry and ecology.
         """),
+    ),
+    Member(
+        'sgriffin',
+        'Sandon Griffin',
+        (),
+        dedent("""
+            Sandon grew up in Newport Beach, California. He developed an
+            interest in the mind and brain during high school, which led him to
+            pursue degrees in Psychology and Neurobiology at UC Berkeley.
+            Currently, Sandon works at the Helen Wills Neuroscience Institute,
+            where he studies how emotions are encoded in the human brain. In
+            the future, he hopes to become a physician scientist and develop
+            new brain-computer interface treatments. In his free time, Sandon
+            enjoys carpentry, ice hockey, and playing with his cat.
+        """)
     ),
     Member(
         'spatel',
