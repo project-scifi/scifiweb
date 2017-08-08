@@ -48,7 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'scifiweb',
+    'scifiweb.info',
 ]
 
 MIDDLEWARE = [
@@ -151,7 +153,7 @@ X_FRAME_OPTIONS = 'DENY'
 
 STATIC_URL = config.get('django', 'static_url')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'scifiweb/static'),
 ]
 
 

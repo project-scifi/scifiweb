@@ -1,0 +1,12 @@
+{% extends 'info/article.html' %}
+{% load article %}
+
+{% block title %}Information{% endblock %}
+
+{% block article_outer %}
+<article class="content">
+    <p>Welcome to the Project SCIFI information pages! Here you can learn more about us or the schools, sponsors, and partners we work with.</p>
+    <h3>Index</h3>
+    {% article_tree %}
+</article>
+{% endblock %}

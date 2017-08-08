@@ -43,3 +43,6 @@ linters:
 
     SelectorFormat:
         enabled: false
+
+    NameFormat:
+        enabled: false

@@ -25,10 +25,6 @@
     }
 }
 
-.hero .nav svg {
-    fill: white;
-}
-
 .scifi-hero-title {
     &.hero-head {
         margin-top: 1.5em;
@@ -69,6 +65,19 @@
     // 41px is just the calculated height of the footer navbar; it's a hack
     padding-bottom: calc(1em + 41px);
 }
+
+@each $name, $color-dark in (
+    "primary": $primary-darker,
+    "complement": $complement-darker,
+    "secondary": $secondary-darker,
+    "subcomplement": $subcomplement-darker,
+) {
+    .hero.layered.is-#{$name} .background svg {
+        fill: $color-dark;
+        stroke: $color-dark;
+    }
+}
+
 
 .enormous {
     font-size: 6em;

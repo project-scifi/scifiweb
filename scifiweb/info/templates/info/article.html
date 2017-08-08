@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load article %}
+
+{% block content %}
+
+    <!-- {% block title %}{% endblock %} -->
+
+    <section class="section">
+        <div class="container">
+            {% article_breadcrumb article.name %}
+            {% block article_outer %}
+                <div class="columns">
+                    <div class="column is-two-thirds">
+                        <article class="content">
+                            {% block article %}{% endblock %}
+                        </article>
+                    </div>
+                    <div class="column">
+                        {% block sidebar %}
+                            {% include 'info/partials/sidebar.html' %}
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    </section>
+
+{% endblock %}

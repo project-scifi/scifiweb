@@ -1,0 +1,7 @@
+$link-tree-item-active-color: $text-strong;
+
+.link-tree .is-active > a {
+    color: $link-tree-item-active-color;
+    cursor: default;
+    pointer-events: none;
+}

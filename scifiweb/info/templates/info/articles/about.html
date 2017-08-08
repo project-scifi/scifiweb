@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load article %}
+{% load image %}
+
+<!-- {% block title %}About us{% endblock %} -->
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            {% article_breadcrumb article.name %}
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    <article class="content">
+                        <h2>Our mission</h2>
+                        <p>The <b>Scientific Coat Initiative for Future Innovators</b> promotes students’ scientific passions for higher education, provides teachers the resources necessary for hands-on scientific instruction, encourages the growth of mentor-mentee relationships, and fosters a visible community supporting young scientists’ endeavors.</p>
+                        <p>We achieve these goals by partnering with corporate and academic sponsors who endorse the purchase of laboratory coats embroidered with the sponsors’ logos. We then distribute these coats to qualifying under-resourced schools, along with other materials intended to aid educators in taking on a hands-on approach to scientific instruction.</p>
+                        <p>Our motivation as a non-profit organization stems from our early exposure to science, which ultimately inspired us to pursue scientific educations and careers. Thus, our goal is to empower and inspire future generations of scientists by providing K–12 students the necessary tools to develop fundamental scientific reasoning, address societal problems, and move onto further scientific instruction.</p>
+                    </article>
+                </div>
+                <div class="column is-hidden-mobile">
+                    {% include 'info/partials/sidebar.html' %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <figure class="hero is-subcomplement is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h2 class="title">How it works</h2>
+                <div class="is-hidden-mobile">
+                    {% svg 'img/scifi-cycle.svg' %}
+                </div>
+                <div class="columns is-hidden-tablet">
+                    <div class="column">
+                        <div class="media">
+                            <figure class="media-left">
+                                <p class="image is-128x128 is-circle has-border">
+                                    {% svg 'img/sponsor.svg' %}
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <h3 class="title is-5 is-marginless"><strong>Sponsors</strong></h3>
+                                <p>Sponsors support their communities by purchasing laboratory coats embroidered with their trademark logo, thus demonstrating their commitment to the scientists of the future.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="media">
+                            <figure class="media-left">
+                                <p class="image is-128x128 is-circle has-border">
+                                    {% svg 'img/coat.svg' %}
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <h3 class="title is-5 is-marginless"><strong>Lab coats</strong></h3>
+                                <p>These coats represent the scientific community's support for the endeavors of young minds as they actively apply the scientific method in their education.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="media">
+                            <figure class="media-left">
+                                <p class="image is-128x128 is-circle has-border">
+                                    {% svg 'img/school.svg' %}
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <h3 class="title is-5 is-marginless"><strong>Schools</strong></h3>
+                                <p>Schools receive enough coats to outfit one or more laboratory classrooms. Along with other materials we provide, these coats enable schools to teach science in an engaging, dynamic manner.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="media">
+                            <figure class="media-left">
+                                <p class="image is-128x128 is-circle has-border">
+                                    {% svg 'img/student.svg' %}
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <h3 class="title is-5 is-marginless"><strong>Students</strong></h3>
+                                <p>Students run exciting experiments that challenge them to think critically like scientists. Our goal is for these students, inspired by their early experiences, to become the innovators and science advocates of tomorrow.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </figure>
+
+{% endblock %}

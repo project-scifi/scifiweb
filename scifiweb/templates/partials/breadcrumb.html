@@ -1,0 +1,9 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+        {% for link in components %}
+            <li {% if forloop.last %}class="is-active"{% endif %}>
+                <a href="{{link.url}}">{{link.text}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -1,10 +1,119 @@
 {% load staticfiles %}
+{% load filters %}
+{% load image %}
 
 <!doctype html>
 <html lang="en-US">
     {% include 'partials/head.html' %}
 
     <body>
+        {% block navbar %}
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="{% url 'home' %}#">
+                        {% svg 'img/scifi-logo-level.svg' %}
+                    </a>
+                </div>
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="{% url 'info/about' %}">About</a>
+                        <a class="navbar-item" href="http://news.projectscifi.org">News</a>
+                        <a class="navbar-item" href="{% url 'info' %}">More info</a>
+                        <a class="navbar-item" href="{% url 'info/about/contact' %}">Contact</a>
+                    </div>
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="{% url 'home' %}#">
+                            <span class="icon">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="{% url 'home' %}#">
+                            <span class="icon">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        {% endblock %}
+
+        {% block hero %}
+            <header class="hero is-primary">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">{% if title %}{{title}}{% endif %}</h1>
+                        {% if subtitle %}
+                            <h2 class="subtitle">{{subtitle}}</h2>
+                        {% endif %}
+                    </div>
+                </div>
+            </header>
+        {% endblock %}
+
         {% block content %}{% endblock %}
+
+        <!-- Adds padding for the sticky footer -->
+        <div class="flex-padding"></div>
+
+        {% block footer %}
+            <footer class="footer">
+                <div class="container">
+                    <div class="content has-text-centered">
+                        <p>Thank you for supporting science education!</p>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <h6 class="is-title is-6">About Project SCIFI</h2>
+                            <ul>
+                                <li><a href="{% url 'info/about' %}">Overview</a></li>
+                                <li><a href="http://news.projectscifi.org">News</a></li>
+                                <li><a href="{% url 'info/about/contact' %}">Join the team</a></li>
+                                <li><a href="{% url 'info/about/contact' %}">Contact us</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h6 class="is-title is-6">Schools</h6>
+                            <ul>
+                                <li><a href="{% url 'info/about/contact' %}">Get lab coats</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h6 class="is-title is-6">Sponsors</h6>
+                            <ul>
+                                <li><a href="{% url 'info/about/contact' %}">Become a sponsor</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h6 class="is-title is-6">Partners</h6>
+                            <ul>
+                                <li><a href="{% url 'info/about/contact' %}">Partner with us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="level">
+                        <div class="level-left">
+                            <div class="content is-small">
+                                <p>
+                                    Copyright © 2017 Project SCIFI.<br/>
+                                    Issue with the website? Email <a href="mailto:webmaster@projectscifi.org">webmaster@projectscifi.org</a> or contact via <a href="https://github.com/project-scifi/scifiweb">GitHub</a>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="level-right">
+                            <a class="level-item" href="{% url 'home' %}#">
+                                <span class="icon">
+                                    <i class="fa fa-facebook"></i>
+                                </span>
+                            </a>
+                            <a class="level-item" href="{% url 'home' %}#">
+                                <span class="icon">
+                                    <i class="fa fa-twitter"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        {% endblock %}
     </body>
 </html>

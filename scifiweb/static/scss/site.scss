@@ -1,27 +1,68 @@
 @import 'font-awesome/font-awesome';
 @import 'bulma/sass/utilities/initial-variables';
-
-$blue: hsl(225, 80%, 45%);
-$green: hsl(150, 90%, 30%);
-$orange: hsl(12, 100%, 45%);
-$purple: hsl(280, 70%, 30%);
-
 @import 'bulma/sass/utilities/functions';
+
+// Colors
+
+$primary-lighter:   #804a7a;
+$primary-light:     #75276c;
+$primary:           #670d5c;
+$primary-dark:      #57004c;
+$primary-darker:    #43003B;
+
+$complement-lighter:    #5d9857;
+$complement-light:      #378b2e;
+$complement:            #197a0f;
+$complement-dark:       #0a6600;
+$complement-darker:     #085000;
+
+$secondary-lighter: #b9886b;
+$secondary-light:   #a96238;
+$secondary:         #954312;
+$secondary-dark:    #7d2f00;
+$secondary-darker:  #612400;
+
+$subcomplement-lighter: #42736e;
+$subcomplement-light:   #236962;
+$subcomplement:         #0b5c54;
+$subcomplement-dark:    #004e45;
+$subcomplement-darker:  #003c36;
+
+$primary-invert: findColorInvert($primary);
+$complement-invert: findColorInvert($complement);
+$secondary-invert: findColorInvert($secondary);
+$subcomplement-invert: findColorInvert($subcomplement);
+
+$blue: $subcomplement;
+$green: $complement;
+$red: $secondary;
+$orange: $secondary;
+$purple: $primary;
+
+$link: $complement;
+$link-invert: findColorInvert($link);
+$link-visited: $complement;
+
 @import 'bulma/sass/utilities/derived-variables';
-
-$primary: $purple;
-$secondary: $orange;
-$tertiary: $blue;
-
-$primary-invert: $purple-invert;
-$secondary-invert: $orange-invert;
-$tertiary-invert: $blue-invert;
 
 $colors: map-merge($colors, (
     "primary": ($primary, $primary-invert),
+    "complement": ($complement, $complement-invert),
     "secondary": ($secondary, $secondary-invert),
-    "tertiary": ($tertiary, $tertiary-invert),
+    "subcomplement": ($subcomplement, $subcomplement-invert),
 ));
+
+$navbar-background-color: $grey-darker;
+$navbar-item-color: $white;
+$navbar-item-hover-color: $white;
+$navbar-item-hover-background-color: $grey-dark;
+$navbar-item-active-color: $white;
+$navbar-item-background-color: transparent;
+
+$footer-background-color: $dark;
+$footer-background-color-invert: findColorInvert($footer-background-color);
+
+// Sizes
 
 $title-size: $size-2;
 
@@ -37,6 +78,18 @@ body {
     height: 100%;
 }
 
+body {
+    // The sticky footer works by wrapping the whole page in a flexbox
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    > * {
+        // Prevent direct children from shrinking to their min height
+        flex-shrink: 0;
+    }
+}
+
 svg {
     width: 100%;
     max-height: 100%;
@@ -45,10 +98,6 @@ svg {
 hr {
     box-sizing: border-box;
     margin: 0.75em auto;
-}
-
-.is-uppercase {
-    text-transform: uppercase;
 }
 
 .collapse {
@@ -114,7 +163,6 @@ hr {
         }
     }
 
-
     // Bulma assumes that an "a" inside a hero is a tab or such.
     // We are sort of abusing heros, so we must fix this.
     p > a {
@@ -135,4 +183,39 @@ hr {
     }
 }
 
+.footer {
+    color: $footer-background-color-invert;
+    padding: 2rem 1.5rem;
+
+    a {
+        color: $text-light;
+
+        &:hover,&:active {
+            color: $white;
+        }
+    }
+}
+
+.navbar-menu {
+    text-transform: uppercase;
+    font-weight: $weight-bold;
+}
+
+.nav-item,.navbar-item svg {
+    fill: $navbar-item-color;
+
+    &:hover {
+        fill: $navbar-item-hover-color;
+    }
+
+    &:active {
+        fill: $navbar-item-active-color;
+    }
+}
+
+.flex-padding {
+    flex-grow: 1;
+}
+
+@import 'component';
 @import 'home';
