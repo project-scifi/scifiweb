@@ -39,9 +39,9 @@ $red: $secondary;
 $orange: $secondary;
 $purple: $primary;
 
-$link: $complement;
+$link: $secondary;
 $link-invert: findColorInvert($link);
-$link-visited: $complement;
+$link-visited: $secondary;
 
 @import 'bulma/sass/utilities/derived-variables';
 
@@ -57,7 +57,7 @@ $navbar-item-color: $white;
 $navbar-item-hover-color: $white;
 $navbar-item-hover-background-color: $grey-dark;
 $navbar-item-active-color: $white;
-$navbar-item-background-color: transparent;
+$navbar-item-active-background-color: $grey-dark;
 
 $footer-background-color: $dark;
 $footer-background-color-invert: findColorInvert($footer-background-color);
@@ -106,10 +106,18 @@ hr {
     transition: max-height 0.4s ease-out;
 }
 
-.toggle-collapse:checked + .collapse {
-    // Just needs to be sufficiently large
-    max-height: 2000px;
-    transition: max-height 0.4s ease-in;
+.toggle-collapse:checked {
+    + .collapse {
+        // Just needs to be sufficiently large
+        max-height: 2000px;
+        transition: max-height 0.4s ease-in;
+    }
+
+    // Navbar toggle magic
+    ~ .navbar-brand > .navbar-burger,
+    ~ .navbar-menu {
+        @extend .is-active;
+    }
 }
 
 .has-border {
@@ -210,6 +218,29 @@ hr {
 
     &:active {
         fill: $navbar-item-active-color;
+    }
+}
+
+// Fix burger on dark background
+.navbar-burger {
+    span {
+        background-color: $navbar-item-color;
+    }
+
+    &:hover {
+        background-color: $navbar-item-hover-background-color;
+
+        span {
+            background-color: $navbar-item-hover-color;
+        }
+    }
+
+    &.is-active {
+        background-color: $navbar-item-active-background-color;
+
+        span {
+            background-color: $navbar-item-active-color;
+        }
     }
 }
 

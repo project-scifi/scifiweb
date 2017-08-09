@@ -9,10 +9,26 @@
     <body>
         {% block navbar %}
             <nav class="navbar">
+                <input type="checkbox" class="toggle-collapse is-hidden" id="navbarToggle"/>
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{% url 'home' %}#">
                         {% svg 'img/scifi-logo-level.svg' %}
                     </a>
+                    <a class="navbar-item is-hidden-desktop" href="{% url 'home' %}#">
+                        <span class="icon">
+                            <i class="fa fa-facebook"></i>
+                        </span>
+                    </a>
+                    <a class="navbar-item is-hidden-desktop" href="{% url 'home' %}#">
+                        <span class="icon">
+                            <i class="fa fa-twitter"></i>
+                        </span>
+                    </a>
+                    <label for="navbarToggle" class="navbar-burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
                 </div>
                 <div class="navbar-menu">
                     <div class="navbar-start">
@@ -21,7 +37,7 @@
                         <a class="navbar-item" href="{% url 'info' %}">More info</a>
                         <a class="navbar-item" href="{% url 'info/about/contact' %}">Contact</a>
                     </div>
-                    <div class="navbar-end">
+                    <div class="navbar-end is-hidden-mobile">
                         <a class="navbar-item" href="{% url 'home' %}#">
                             <span class="icon">
                                 <i class="fa fa-facebook"></i>
@@ -100,16 +116,20 @@
                             </div>
                         </div>
                         <div class="level-right">
-                            <a class="level-item" href="{% url 'home' %}#">
-                                <span class="icon">
-                                    <i class="fa fa-facebook"></i>
-                                </span>
-                            </a>
-                            <a class="level-item" href="{% url 'home' %}#">
-                                <span class="icon">
-                                    <i class="fa fa-twitter"></i>
-                                </span>
-                            </a>
+                            <div class="level is-mobile">
+                                <div class="level-left">
+                                    <a class="level-item" href="{% url 'home' %}#">
+                                        <span class="icon">
+                                            <i class="fa fa-facebook"></i>
+                                        </span>
+                                    </a>
+                                    <a class="level-item" href="{% url 'home' %}#">
+                                        <span class="icon">
+                                            <i class="fa fa-twitter"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
