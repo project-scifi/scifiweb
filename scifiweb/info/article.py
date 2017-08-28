@@ -1,6 +1,7 @@
 import os
 from collections import namedtuple
 
+from django.conf import settings
 from django.shortcuts import render
 from django.template import Context
 from django.template.loader import get_template
@@ -8,11 +9,10 @@ from django.template.loader_tags import BlockNode
 from django.template.loader_tags import ExtendsNode
 
 from scifiweb.caching import cache
-from scifiweb.settings import BASE_DIR
 
 
 ARTICLES_ROOT = os.path.join(
-    BASE_DIR, 'scifiweb/info/templates/info/articles/'
+    settings.BASE_DIR, 'scifiweb/info/templates/info/articles/'
 )
 
 

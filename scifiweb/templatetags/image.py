@@ -1,11 +1,11 @@
 import os
 
 from django import template
+from django.conf import settings
 from django.utils.safestring import mark_safe
 from PIL import Image
 
 from scifiweb.caching import cache
-from scifiweb.settings import BASE_DIR
 
 
 register = template.Library()
@@ -13,7 +13,9 @@ register = template.Library()
 
 @cache()
 def _image_dimensions(path):
-    return Image.open(os.path.join(BASE_DIR, 'scifiweb/static/', path)).size
+    return Image.open(
+        os.path.join(settings.BASE_DIR, 'scifiweb/static/', path)
+    ).size
 
 
 @register.filter
@@ -36,5 +38,5 @@ def is_portrait(value):
 @cache()
 def svg(path):
     """Inlines the content of an SVG given its static path."""
-    with open(os.path.join(BASE_DIR, 'scifiweb/static/', path)) as f:
+    with open(os.path.join(settings.BASE_DIR, 'scifiweb/static/', path)) as f:
         return mark_safe(f.read())

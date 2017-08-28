@@ -91,7 +91,7 @@ MEMBERS = (
             with degrees in Molecular & Cell Biology, Integrative Biology, and
             Psychology. in 2016. Since then, he has been working as a teacher
             and a researcher in the Bay Area, both of which he loves.
-        """)
+        """),
     ),
     Member(
         'shassanin',
@@ -184,7 +184,7 @@ MEMBERS = (
             undergraduate degree in Molecular and Cellular Biology at UC
             Berkeley. Outside of school, Marcus enjoys backpacking and
             traveling.
-        """)
+        """),
     ),
     Member(
         'robertli',
@@ -226,7 +226,7 @@ MEMBERS = (
             the future, he hopes to become a physician scientist and develop
             new brain-computer interface treatments. In his free time, Sandon
             enjoys carpentry, ice hockey, and playing with his cat.
-        """)
+        """),
     ),
     Member(
         'spatel',
