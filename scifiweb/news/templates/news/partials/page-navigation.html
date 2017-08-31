@@ -1,0 +1,29 @@
+<nav class="pagination" role="navigation" aria-label="pagination">
+    {% if previous %}
+        <a class="pagination-previous" href="{{previous.link.url}}">Previous</a>
+    {% endif %}
+    {% if next %}
+        <a class="pagination-next" href="{{next.link.url}}">Next</a>
+    {% endif %}
+    <ul class="pagination-list">
+        {% for page in page_links %}
+            <li>
+                {% if page == '...' %}
+                    <span class="pagination-ellipsis">&hellip;</span>
+                {% else %}
+                    <a
+                        {% if page.current %}
+                            class="pagination-link is-current"
+                            aria-label="Page {{page.link.text}}"
+                            aria-current="page"
+                        {% else %}
+                            class="pagination-link"
+                            href="{{page.link.url}}"
+                            aria-label="Go to page {{page.link.text}}"
+                        {% endif %}
+                    >{{page.link.text}}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load post %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-three-quarters">
+                    <div class="content">
+                        <p><i>{{post.date|format_post_date}}</i></p>
+                        <p>{{post.content|forward_blog_links}}</p>
+                        <p>
+                            {% for tag in post.tags %}
+                                {% post_tag tag %}
+                            {% endfor %}
+                        </p>
+                        <hr/>
+                        <p><i>
+                            Posted {{post.modified|format_post_time}} by {% post_author post.author %}
+                            {% if post.categories %}
+                                in {% category_list post.categories %}
+                            {% endif %}
+                            {% if post.modified %}
+                                <br/>
+                                Last updated {{post.modified|format_post_date}} at {{post.modified|format_post_time}}
+                            {% endif %}
+                        </i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

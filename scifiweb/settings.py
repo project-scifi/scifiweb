@@ -18,10 +18,9 @@ DEFAULT_CONFIG = {
 
 config = configparser.RawConfigParser()
 config_path = os.environ.get('SCIFIWEB_CONFIG')
+config.read_dict(DEFAULT_CONFIG)
 if config_path:
     config.read(config_path)
-else:
-    config.read_dict(DEFAULT_CONFIG)
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -51,6 +50,7 @@ INSTALLED_APPS = [
 
     'scifiweb',
     'scifiweb.info',
+    'scifiweb.news',
 ]
 
 MIDDLEWARE = [
@@ -128,11 +128,22 @@ LOGGING = {
     },
 }
 
-DATABASES = {}
+# The database is only used for caching
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': config.get('database', 'host'),
+        'USER': config.get('database', 'user'),
+        'PASSWORD': config.get('database', 'password'),
+        'NAME': config.get('database', 'name'),
+        'CONN_MAX_AGE': None,
+    }
+} if not DEBUG else {}
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cache',
     } if not DEBUG else {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }

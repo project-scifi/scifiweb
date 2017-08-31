@@ -1,0 +1,23 @@
+Results
+{% if search %}
+    for "{{search}}"
+{% endif %}
+{% if author_names %}
+    by "{{author_names|join:'", "'}}"
+{% endif %}
+{% if tag_names %}
+    tagged "{{tag_names|join:'", "'}}"
+{% endif %}
+{% if category_names %}
+    in "{{category_names|join:'", "'}}"
+{% endif %}
+{% if before_date and after_date and before_date == after_date %}
+    on {{before_date|date:'F j, o'}}
+{% else %}
+    {% if after_date %}
+        starting {{after_date|date:'F j, o'}}
+    {% endif %}
+    {% if before_date %}
+        up to {{before_date|date:'F j, o'}}
+    {% endif %}
+{% endif %}

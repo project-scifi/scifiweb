@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load post %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <form method="get">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" name="search" type="text" placeholder="Search"
+                                    {% if 'search' in search_params and search_params.search %}
+                                        value="{{search_params.search}}"
+                                    {% endif %}
+                                />
+                            </div>
+                            <div class="control">
+                                <button type="submit" class="button is-small is-primary" aria-label="Submit search">
+                                    <span class="icon is-small">
+                                        <i class="fa fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="columns is-mobile">
+                            <div class="column">
+                                <div class="field">
+                                    <label class="label is-small">Order</label>
+                                    <div class="control is-expanded">
+                                        <div class="select is-small">
+                                            <select name="order">
+                                                <option value="desc" {% is_selected search_params 'order' 'desc' %}>Descending</option>
+                                                <option value="asc" {% is_selected search_params 'order' 'asc' %}>Ascending</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="field">
+                                    <label class="label is-small">Order by</label>
+                                    <div class="control">
+                                        <div class="select is-small">
+                                            <select name="orderby">
+                                                <option value="date" {% is_selected search_params 'orderby' 'date' %}>Date</option>
+                                                <option value="relevance" {% is_selected search_params 'orderby' 'relevance' %}>Relevance</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="column">
+                    {% for post in posts %}
+                        <div class="content">
+                            <p class="title is-4">
+                                <a href="{{post.permalink}}">{{post.title}}</a>
+                            </p>
+                            <p class="subtitle is-6">
+                                Posted {{post.date|format_post_date}}
+                                by {% post_author post.author %}
+                                {% if post.categories %}
+                                    in {% category_list post.categories %}
+                                {% endif %}
+                            </p>
+                            <p>{{post.excerpt|forward_blog_links}}</p>
+                            <p>
+                                {% for tag in post.tags %}
+                                    {% post_tag tag %}
+                                {% endfor %}
+                            </p>
+                        </div>
+                        <hr/>
+                    {% empty %}
+                        <div class="content has-text-centered">
+                            <p>No results found.</p>
+                        </div>
+                    {% endfor %}
+                    {% page_info page_params total_pages total_posts %}
+                    {% page_navigation search_params page_params total_pages %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

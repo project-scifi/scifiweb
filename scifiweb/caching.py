@@ -65,3 +65,28 @@ def _make_function_call_key(fn, args, kwargs):
         tuple(args),
         tuple((k, v) for k, v in sorted(kwargs.items())),
     )
+
+
+def retry(n, exceptions):
+    """A handy decorator which will retry a function call a fixed number
+    of times should it fail by raising an exception.
+
+    Only exceptions of the specified type (or types) will trigger a
+    retry. If the function raises an exception on the final try, the
+    exception is not caught.
+    """
+    if isinstance(exceptions, list):
+        exceptions = tuple(exceptions)
+    elif not isinstance(exceptions, tuple):
+        exceptions = (exceptions,)
+
+    def outer(fn):
+        def inner(*args, **kwargs):
+            for _ in range(n):
+                try:
+                    return fn(*args, **kwargs)
+                except exceptions:
+                    continue
+            return fn(*args, **kwargs)
+        return inner
+    return outer

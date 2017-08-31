@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% load filters %}
 {% load image %}
 
 <!doctype html>
@@ -24,6 +23,11 @@
                             <i class="fa fa-twitter"></i>
                         </span>
                     </a>
+                    <a class="navbar-item is-hidden-desktop" href="{% url 'home' %}#">
+                        <span class="icon">
+                            <i class="fa fa-linkedin"></i>
+                        </span>
+                    </a>
                     <label for="navbarToggle" class="navbar-burger">
                         <span></span>
                         <span></span>
@@ -33,7 +37,7 @@
                 <div class="navbar-menu">
                     <div class="navbar-start">
                         <a class="navbar-item" href="{% url 'info/about' %}">About</a>
-                        <a class="navbar-item" href="http://news.projectscifi.org">News</a>
+                        <a class="navbar-item" href="{% url 'news' %}">News</a>
                         <a class="navbar-item" href="{% url 'info' %}">More info</a>
                         <a class="navbar-item" href="{% url 'info/about/contact' %}">Contact</a>
                     </div>
@@ -48,6 +52,11 @@
                                 <i class="fa fa-twitter"></i>
                             </span>
                         </a>
+                        <a class="navbar-item" href="{% url 'home' %}#">
+                            <span class="icon">
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -57,7 +66,13 @@
             <header class="hero is-primary">
                 <div class="hero-body">
                     <div class="container">
-                        <h1 class="title">{% if title %}{{title}}{% endif %}</h1>
+                        <h1 class="title">
+                            {% if hero_title %}
+                                {{hero_title}}
+                            {% elif title %}
+                                {{title}}
+                            {% endif %}
+                        </h1>
                         {% if subtitle %}
                             <h2 class="subtitle">{{subtitle}}</h2>
                         {% endif %}
@@ -79,10 +94,10 @@
                     </div>
                     <div class="columns">
                         <div class="column">
-                            <h6 class="is-title is-6">About Project SCIFI</h2>
+                            <h6 class="is-title is-6">About Project SCIFI</h6>
                             <ul>
                                 <li><a href="{% url 'info/about' %}">Overview</a></li>
-                                <li><a href="http://news.projectscifi.org">News</a></li>
+                                <li><a href="{% url 'news' %}">News</a></li>
                                 <li><a href="{% url 'info/about/contact' %}">Join the team</a></li>
                                 <li><a href="{% url 'info/about/contact' %}">Contact us</a></li>
                             </ul>
@@ -126,6 +141,11 @@
                                     <a class="level-item" href="{% url 'home' %}#">
                                         <span class="icon">
                                             <i class="fa fa-twitter"></i>
+                                        </span>
+                                    </a>
+                                    <a class="level-item" href="{% url 'home' %}#">
+                                        <span class="icon">
+                                            <i class="fa fa-linkedin"></i>
                                         </span>
                                     </a>
                                 </div>
