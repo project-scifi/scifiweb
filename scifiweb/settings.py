@@ -12,9 +12,13 @@ DEFAULT_CONFIG = {
         'debug': True,
         'secret': 'not-a-secret',
         'static_url': '/static/',
+        'debug_use_cache': False,
+    },
+    'logging': {
+        'scifiweb_log_level': 'INFO',
+        'django_log_level': 'INFO',
     },
 }
-
 
 config = configparser.RawConfigParser()
 config_path = os.environ.get('SCIFIWEB_CONFIG')
@@ -39,6 +43,9 @@ if DEBUG:
         '::1',
     ]
 
+ROOT_URLCONF = 'scifiweb.urls'
+WSGI_APPLICATION = 'scifiweb.wsgi.application'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -62,8 +69,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-ROOT_URLCONF = 'scifiweb.urls'
 
 
 class InvalidReferenceInTemplate(str):
@@ -95,8 +100,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'scifiweb.wsgi.application'
-
 
 # Log exceptions to stderr (you can find this code on StackOverflow)
 LOGGING = {
@@ -114,11 +117,11 @@ LOGGING = {
     'loggers': {
         'scifiweb': {
             'handlers': ['console'],
-            'level': os.getenv('SCIFIWEB_LOG_LEVEL', 'INFO'),
+            'level': config.get('logging', 'scifiweb_log_level'),
         },
         'django': {
             'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'level': config.get('logging', 'django_log_level'),
         },
         'django.request': {
             'handlers': ['mail_admins'],
@@ -128,23 +131,19 @@ LOGGING = {
     },
 }
 
-# The database is only used for caching
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': config.get('database', 'host'),
-        'USER': config.get('database', 'user'),
-        'PASSWORD': config.get('database', 'password'),
-        'NAME': config.get('database', 'name'),
-        'CONN_MAX_AGE': None,
-    }
-} if not DEBUG else {}
 
+DATABASES = {}
+
+
+DEBUG_USE_CACHE = config.getboolean('django', 'debug_use_cache')
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'cache',
-    } if not DEBUG else {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': config.get('django', 'redis_uri'),
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+    } if not DEBUG or DEBUG_USE_CACHE else {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }

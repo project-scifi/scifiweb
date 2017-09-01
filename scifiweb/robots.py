@@ -11,7 +11,11 @@ def robots_dot_txt(request):
             Disallow: /
         """
     else:
-        resp = "User-Agent: *"
+        # Cache news homepage but block search results
+        resp = """\
+            User-Agent: *
+            Disallow: /news/?
+        """
 
     return HttpResponse(
         dedent(resp),

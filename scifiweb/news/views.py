@@ -238,7 +238,7 @@ def render_search(request):
     # the same search params but different page number
 
     # The min, max and default are set by WordPress, not us
-    MIN_PER_PAGE = 1
+    MIN_PER_PAGE = 10
     MAX_PER_PAGE = 100
     DEFAULT_PER_PAGE = 10
     try:

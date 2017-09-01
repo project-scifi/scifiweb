@@ -29,9 +29,9 @@ def cache_lookup(key):
 
 
 def cache_lookup_with_fallback(key, fallback, ttl):
-    """Returns the value of a key if it is in the cache, or calls a
-    fallback function and updates the cache with its result if it is not
-    in the cache, returning that instead."""
+    """Returns the value of a key if it is in the cache, otherwise
+    update the cache with a fallback function and return that.
+    """
     try:
         result = cache_lookup(key)
     except KeyError:
@@ -40,19 +40,33 @@ def cache_lookup_with_fallback(key, fallback, ttl):
     return result
 
 
-def cache(ttl=None):
-    """Caching function decorator, with an optional ttl.
+def cache(ttl=None, key=None):
+    """Caching function decorator, with an optional ttl and custom key
+    function.
 
-    The optional ttl (in seconds) specifies how long cache entries
-    should live. If not specified, cache entries last until the site
-    rolls.
+    The ttl (in seconds) specifies how long cache entries should live.
+    If not specified, cache entries last until the cache server
+    restarts.
+
+    The custom key function should have the call signature of the
+    cached function and produce a unique key for the given call.
+
+    The cached function is wrapped in a `CachedFunction` instance; see
+    there for more ways to interact with the cache.
     """
     def outer(fn):
+        if key:
+            make_key = key
+        else:
+            # It's dumb, but flake8 doesn't let you assign a lambda
+            def make_key(*args, **kwargs):
+                return _make_function_call_key(fn, args, kwargs)
+
         def inner(*args, **kwargs):
             return cache_lookup_with_fallback(
-                _make_function_call_key(fn, args, kwargs),
+                make_key(*args, **kwargs),
                 lambda: fn(*args, **kwargs),
-                ttl=ttl,
+                ttl,
             )
         return inner
     return outer
@@ -61,7 +75,7 @@ def cache(ttl=None):
 def _make_function_call_key(fn, args, kwargs):
     """Return a key for a cached function call."""
     return (
-        '{fn.__module__}#{fn.__name__}'.format(fn=fn),
+        '{fn.__module__}.{fn.__qualname__}'.format(fn=fn),
         tuple(args),
         tuple((k, v) for k, v in sorted(kwargs.items())),
     )

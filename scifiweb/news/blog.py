@@ -1,18 +1,27 @@
 import datetime
+import logging
 from collections import namedtuple
 
 import requests
 from cached_property import cached_property
+from django.core.cache import cache as django_cache
 from django.shortcuts import reverse
 from django.utils.safestring import mark_safe
 
+from scifiweb.caching import cache
 from scifiweb.caching import retry
 from scifiweb.utils import pathappend
+
+
+_logger = logging.getLogger(__name__)
 
 
 BLOG_API_URL = 'https://wp.projectscifi.org/wp-json/wp/v2/'
 
 API_DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S'
+
+# Universal among API types
+CACHE_TTL = 60
 
 
 class Post(namedtuple('Post', (
@@ -33,33 +42,26 @@ class Post(namedtuple('Post', (
     """
     @staticmethod
     def from_api_object(obj):
-        """Constructs a post from a WordPress API JSON object.
-
-        Note that this expects links to be embedded in the query result,
-        i.e. set `_embed=1` when making the API request.
-        """
-        def get_terms(taxon):
-            return [
-                Term.from_api_object(term)
-                for term_list in obj['_embedded']['wp:term']
-                for term in term_list
-                if term['taxonomy'] == taxon
-            ]
-
-        return Post(
+        """Constructs a post from a WordPress API JSON object."""
+        post = Post(
             id=obj['id'],
             slug=obj['slug'],
             date=datetime.datetime.strptime(obj['date'], API_DATETIME_FORMAT),
-            modified=datetime.datetime.strptime(
-                obj['modified'], API_DATETIME_FORMAT
-            ),
+            modified=datetime.datetime.strptime(obj['modified'], API_DATETIME_FORMAT),
             title=obj['title']['rendered'],
-            author=User.from_api_object(obj['_embedded']['author'][0]),
+            author=get_user_by_id(int(obj['author'])),
             content=mark_safe(obj['content']['rendered']),
             excerpt=mark_safe(obj['excerpt']['rendered']),
-            categories=get_terms('category'),
-            tags=get_terms('post_tag'),
+            categories=[get_category_by_id(int(id)) for id in obj['categories']],
+            tags=[get_tag_by_id(int(id)) for id in obj['tags']],
         )
+
+        # Update caches
+        # XXX: @cached functions update the cache with the same value twice
+        django_cache.set(('wp_post_by_id', post.id), post, CACHE_TTL)
+        django_cache.set(('wp_post_id_by_slug', post.slug), post.id, CACHE_TTL)
+
+        return post
 
     @cached_property
     def permalink(self):
@@ -78,11 +80,13 @@ class User(namedtuple('User', (
     'slug',
     'name',
 ))):
-    """Represents the WordPress user, i.e. the author of a post."""
+    """Represents a WordPress user, i.e. the author of a post."""
     @staticmethod
     def from_api_object(obj):
         """Constructs a user from a WordPress API JSON object."""
-        return User(id=obj['id'], name=obj['name'], slug=obj['slug'])
+        user = User(id=obj['id'], name=obj['name'], slug=obj['slug'])
+        django_cache.set(('wp_user_by_id', user.id), user, CACHE_TTL)
+        return user
 
 
 class Term(namedtuple('Term', (
@@ -96,17 +100,19 @@ class Term(namedtuple('Term', (
 
     Terms have the usual name, id, and "slug" fields, as well as a
     "taxonomy" field which indicates the type of term. Every post has
-    exactly one category, but may have zero or more tags.
+    at least one category, but may have zero or more tags.
     """
     @staticmethod
     def from_api_object(obj):
         """Constructs a term from a WordPress API JSON object."""
-        return Term(
+        term = Term(
             id=obj['id'],
             name=obj['name'],
             slug=obj['slug'],
             taxonomy=obj['taxonomy'],
         )
+        django_cache.set(('wp_term_by_id', term.id), term, CACHE_TTL)
+        return term
 
 
 @retry(5, requests.ConnectionError)
@@ -125,11 +131,10 @@ def query_endpoint(endpoint, params=None, **kwargs):
     if not params:
         params = {}
 
-    response = requests.get(
-        pathappend(kwargs.get('base_api_url', BLOG_API_URL), endpoint),
-        params,
-        timeout=1,
-    )
+    url = pathappend(kwargs.get('base_api_url', BLOG_API_URL), endpoint)
+    _logger.debug('Hit endpoint: {}'.format(url))
+
+    response = requests.get(url, params, timeout=1)
     response.raise_for_status()
     output = response.json()
 
@@ -174,17 +179,15 @@ def get_posts(params=None, **kwargs):
     For a list of available arguments, see
     https://developer.wordpress.org/rest-api/reference/posts/#list-posts
 
-    Extra kwargs will be passed to `query_endpoint`. By default, the
-    `_embed` parameter is passed and the `Post.from_api_object` function
-    is used to construct the list.
+    Extra kwargs will be passed to `query_endpoint`.
     """
     if not params:
         params = {}
-    params.setdefault('_embed', True)
     kwargs.setdefault('constructor', Post.from_api_object)
     return query_endpoint('posts', params, **kwargs)
 
 
+@cache(ttl=CACHE_TTL, key=lambda id: ('wp_post_by_id', id))
 def get_post_by_id(id):
     """Retrieves a post given its unique identifier as an integer.
 
@@ -194,10 +197,19 @@ def get_post_by_id(id):
     Post(id=1, slug='hello-world', ...)
     """
     return query_keyed_endpoint(
-        'posts', int(id),
-        params={'_embed': True},
+        'posts', id,
         constructor=Post.from_api_object,
     )
+
+
+@cache(ttl=CACHE_TTL, key=lambda slug: ('wp_post_id_by_slug', slug))
+def _get_post_id_by_slug(slug):
+    """Retrieves the ID of the post with the given slug.
+
+    This exists solely for caching purposes.
+    """
+    results = get_posts(params={'slug': slug})
+    return results[0].id if results else None
 
 
 def get_post_by_slug(slug):
@@ -208,8 +220,7 @@ def get_post_by_slug(slug):
     >>> get_post_by_slug('hello-world')
     Post(id=1, slug='hello-world', ...)
     """
-    results = get_posts(params={'slug': slug})
-    return results[0] if results else None
+    return get_post_by_id(_get_post_id_by_slug(slug))
 
 
 def get_users(params=None, **kwargs):
@@ -222,6 +233,7 @@ def get_users(params=None, **kwargs):
     return query_endpoint('users', params, **kwargs)
 
 
+@cache(ttl=CACHE_TTL, key=lambda id: ('wp_user_by_id', id))
 def get_user_by_id(id):
     """Retrieves a user given its unique identifier as an integer.
 
@@ -230,7 +242,6 @@ def get_user_by_id(id):
     >>> get_tag_by_id(1)
     User(id=1, slug='mmcallister', ...)
     """
-    id = int(id)
     return query_keyed_endpoint('users', id, constructor=User.from_api_object)
 
 
@@ -244,6 +255,7 @@ def get_tags(params=None, **kwargs):
     return query_endpoint('tags', params, **kwargs)
 
 
+@cache(ttl=CACHE_TTL, key=lambda id: ('wp_term_by_id', id))
 def get_tag_by_id(id):
     """Retrieves a tag given its unique identifier as an integer.
 
@@ -252,7 +264,6 @@ def get_tag_by_id(id):
     >>> get_tag_by_id(1)
     Term(id=4, slug='test', ...)
     """
-    id = int(id)
     return query_keyed_endpoint('tags', id, constructor=Term.from_api_object)
 
 
@@ -266,6 +277,7 @@ def get_categories(params=None, **kwargs):
     return query_endpoint('categories', params, **kwargs)
 
 
+@cache(ttl=CACHE_TTL, key=lambda id: ('wp_term_by_id', id))
 def get_category_by_id(id):
     """Retrieves a category given its unique identifier as an integer.
 
@@ -274,7 +286,6 @@ def get_category_by_id(id):
     >>> get_category_by_id(1)
     Term(id=1, slug='uncategorized', ...)
     """
-    id = int(id)
     return query_keyed_endpoint(
         'categories', id,
         constructor=Term.from_api_object

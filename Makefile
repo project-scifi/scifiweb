@@ -26,7 +26,7 @@ dev: venv scifiweb/static/scss/site.scss.css
 
 .PHONY: clean
 clean:
-	rm -rf venv .tox
+	rm -rf venv .tox scifiweb/static/scss/site.scss.css
 	venv/bin/coverage erase
 
 .PHONY: scss
