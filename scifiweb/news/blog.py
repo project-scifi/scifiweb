@@ -21,7 +21,7 @@ BLOG_API_URL = 'https://wp.projectscifi.org/wp-json/wp/v2/'
 API_DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S'
 
 # Universal among API types
-CACHE_TTL = 60
+_CACHE_TTL = 600
 
 
 class Post(namedtuple('Post', (
@@ -58,8 +58,8 @@ class Post(namedtuple('Post', (
 
         # Update caches
         # XXX: @cached functions update the cache with the same value twice
-        django_cache.set(('wp_post_by_id', post.id), post, CACHE_TTL)
-        django_cache.set(('wp_post_id_by_slug', post.slug), post.id, CACHE_TTL)
+        django_cache.set(('wp_post_by_id', post.id), post, _CACHE_TTL)
+        django_cache.set(('wp_post_id_by_slug', post.slug), post.id, _CACHE_TTL)
 
         return post
 
@@ -85,7 +85,7 @@ class User(namedtuple('User', (
     def from_api_object(obj):
         """Constructs a user from a WordPress API JSON object."""
         user = User(id=obj['id'], name=obj['name'], slug=obj['slug'])
-        django_cache.set(('wp_user_by_id', user.id), user, CACHE_TTL)
+        django_cache.set(('wp_user_by_id', user.id), user, _CACHE_TTL)
         return user
 
 
@@ -111,7 +111,7 @@ class Term(namedtuple('Term', (
             slug=obj['slug'],
             taxonomy=obj['taxonomy'],
         )
-        django_cache.set(('wp_term_by_id', term.id), term, CACHE_TTL)
+        django_cache.set(('wp_term_by_id', term.id), term, _CACHE_TTL)
         return term
 
 
@@ -187,7 +187,7 @@ def get_posts(params=None, **kwargs):
     return query_endpoint('posts', params, **kwargs)
 
 
-@cache(ttl=CACHE_TTL, key=lambda id: ('wp_post_by_id', id))
+@cache(ttl=_CACHE_TTL, key=lambda id: ('wp_post_by_id', id))
 def get_post_by_id(id):
     """Retrieves a post given its unique identifier as an integer.
 
@@ -202,7 +202,7 @@ def get_post_by_id(id):
     )
 
 
-@cache(ttl=CACHE_TTL, key=lambda slug: ('wp_post_id_by_slug', slug))
+@cache(ttl=_CACHE_TTL, key=lambda slug: ('wp_post_id_by_slug', slug))
 def _get_post_id_by_slug(slug):
     """Retrieves the ID of the post with the given slug.
 
@@ -233,7 +233,7 @@ def get_users(params=None, **kwargs):
     return query_endpoint('users', params, **kwargs)
 
 
-@cache(ttl=CACHE_TTL, key=lambda id: ('wp_user_by_id', id))
+@cache(ttl=_CACHE_TTL, key=lambda id: ('wp_user_by_id', id))
 def get_user_by_id(id):
     """Retrieves a user given its unique identifier as an integer.
 
@@ -255,7 +255,7 @@ def get_tags(params=None, **kwargs):
     return query_endpoint('tags', params, **kwargs)
 
 
-@cache(ttl=CACHE_TTL, key=lambda id: ('wp_term_by_id', id))
+@cache(ttl=_CACHE_TTL, key=lambda id: ('wp_term_by_id', id))
 def get_tag_by_id(id):
     """Retrieves a tag given its unique identifier as an integer.
 
@@ -277,7 +277,7 @@ def get_categories(params=None, **kwargs):
     return query_endpoint('categories', params, **kwargs)
 
 
-@cache(ttl=CACHE_TTL, key=lambda id: ('wp_term_by_id', id))
+@cache(ttl=_CACHE_TTL, key=lambda id: ('wp_term_by_id', id))
 def get_category_by_id(id):
     """Retrieves a category given its unique identifier as an integer.
 
