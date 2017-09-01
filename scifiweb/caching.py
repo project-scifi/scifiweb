@@ -1,4 +1,5 @@
 import logging
+import random
 
 from django.core.cache import cache as django_cache
 
@@ -37,28 +38,36 @@ def cache_lookup_with_fallback(key, fallback, ttl):
     except KeyError:
         result = fallback()
         django_cache.set(key, result, ttl)
+        _logger.debug('TTL is: {} {}'.format(ttl, key))
     return result
 
 
-def cache(ttl=None, key=None):
+def cache(ttl=None, key=None, randomize=True):
     """Caching function decorator, with an optional ttl and custom key
     function.
 
     The ttl (in seconds) specifies how long cache entries should live.
-    If not specified, cache entries last until the cache server
-    restarts.
+    If not specified, cache entries last until flushed.
 
     The custom key function should have the call signature of the
     cached function and produce a unique key for the given call.
 
-    The cached function is wrapped in a `CachedFunction` instance; see
-    there for more ways to interact with the cache.
+    By default, TTLs are augmented by a random factor to prevent a cache
+    stampede where many keys expire at once. This can be disabled per-
+    function.
     """
+    if ttl and randomize:
+        rand = random.Random()
+
+        # It's dumb, but flake8 doesn't let you assign a lambda
+        def make_ttl(): return rand.randint(ttl, int(1.1 * ttl))
+    else:
+        def make_ttl(): return ttl
+
     def outer(fn):
         if key:
             make_key = key
         else:
-            # It's dumb, but flake8 doesn't let you assign a lambda
             def make_key(*args, **kwargs):
                 return _make_function_call_key(fn, args, kwargs)
 
@@ -66,7 +75,7 @@ def cache(ttl=None, key=None):
             return cache_lookup_with_fallback(
                 make_key(*args, **kwargs),
                 lambda: fn(*args, **kwargs),
-                ttl,
+                make_ttl(),
             )
         return inner
     return outer
