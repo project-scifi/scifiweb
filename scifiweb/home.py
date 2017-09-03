@@ -1,8 +1,10 @@
+import random
 from collections import namedtuple
 from textwrap import dedent
 
 from django.shortcuts import render
-from django.views.decorators.cache import cache_page
+
+import scifiweb.news.blog as blog
 
 
 class Member(namedtuple('Member', ('id', 'name', 'roles', 'bio'))):
@@ -242,13 +244,13 @@ MEMBERS = (
 )
 
 
-@cache_page(None)
 def home(request):
     return render(
         request,
         'home.html',
         {
             'full_title': 'Project SCIFI',
-            'members': MEMBERS,
+            'members': random.sample(MEMBERS, 4),
+            'posts': blog.get_posts(per_page=5),
         },
     )

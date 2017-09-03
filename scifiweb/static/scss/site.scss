@@ -62,8 +62,6 @@ $navbar-item-active-background-color: $grey-dark;
 $footer-background-color: $dark;
 $footer-background-color-invert: findColorInvert($footer-background-color);
 
-// Sizes
-
 $title-size: $size-2;
 
 @import 'bulma/bulma';
@@ -91,7 +89,6 @@ body {
 }
 
 svg {
-    width: 100%;
     max-height: 100%;
 }
 
@@ -120,133 +117,11 @@ hr {
     }
 }
 
-.has-border {
-    border-width: 0.5em;
-    border-color: white;
-    border-style: solid;
-
-    @each $name, $pair in $colors {
-        $color: nth($pair, 1);
-        $color-invert: nth($pair, 2);
-
-        &.is-#{$name} {
-            border-color: $color;
-        }
-    }
-}
-
-.image.is-circle {
-    border-radius: 290486px;
-}
-
-.container {
-    max-width: 100%;
-}
-
-.title {
-    font-weight: $weight-bold;
-}
-
-.button {
-    height: auto;
-    width: auto;
-    padding: 0.5em 1.5em;
-    border-radius: 290486px;
-    text-transform: uppercase;
-    font-weight: $weight-bold;
-
-    &.is-small {
-        border-radius: 290486px;
-    }
-}
-
-.hero {
-    &.is-fullheight > .hero-body {
-        padding-top: 0.5em;
-        padding-bottom: 1.5em;
-
-        @include tablet {
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-    }
-
-    // Bulma assumes that an "a" inside a hero is a tab or such.
-    // We are sort of abusing heros, so we must fix this.
-    p > a {
-        text-decoration: underline;
-
-        &:hover,
-        &:focus {
-            color: $grey-lighter !important;
-        }
-    }
-
-    @each $name, $pair in $colors {
-        $color-invert: nth($pair, 2);
-
-        &.is-#{$name} .content {
-            color: $color-invert;
-        }
-    }
-}
-
-.footer {
-    color: $footer-background-color-invert;
-    padding: 2rem 1.5rem;
-
-    a {
-        color: $text-light;
-
-        &:hover,&:active {
-            color: $white;
-        }
-    }
-}
-
-.navbar-menu {
-    text-transform: uppercase;
-    font-weight: $weight-bold;
-}
-
-.nav-item,.navbar-item svg {
-    fill: $navbar-item-color;
-
-    &:hover {
-        fill: $navbar-item-hover-color;
-    }
-
-    &:active {
-        fill: $navbar-item-active-color;
-    }
-}
-
-// Fix burger on dark background
-.navbar-burger {
-    span {
-        background-color: $navbar-item-color;
-    }
-
-    &:hover {
-        background-color: $navbar-item-hover-background-color;
-
-        span {
-            background-color: $navbar-item-hover-color;
-        }
-    }
-
-    &.is-active {
-        background-color: $navbar-item-active-background-color;
-
-        span {
-            background-color: $navbar-item-active-color;
-        }
-    }
-}
-
 .flex-padding {
     flex-grow: 1;
 }
 
-@import 'component';
-@import 'home';
+@import 'components';
+@import 'modifiers';
+@import 'pages/home';
+@import 'pages/info/team';

@@ -1,14 +1,11 @@
 import os
 from collections import namedtuple
+from functools import partial
 
 from django.conf import settings
 from django.shortcuts import render
-from django.template import Context
-from django.template.loader import get_template
-from django.template.loader_tags import BlockNode
-from django.template.loader_tags import ExtendsNode
 
-from scifiweb.caching import cache
+from scifiweb.utils import render_block
 
 
 ARTICLES_ROOT = os.path.join(
@@ -16,99 +13,102 @@ ARTICLES_ROOT = os.path.join(
 )
 
 
-class Article(namedtuple('Article', ('name', 'title', 'template', 'url_name'))):
+class Article(namedtuple('Article', ('name', 'title', 'view'))):
     @staticmethod
     def from_template(template_path):
-        """Loads an article from the path to its template.
+        """Constructs an article from the path to its template.
 
-        The given template path is relative to `info/articles/`, i.e.
+        The given template path is relative to `info/articles/`, e.g.
         `about/contact.html` creates the page `/info/about/contact/`
-        under using the template `info/articles/about/contact.html`.
+        using the template `info/articles/about/contact.html`.
+
+        The view function must take an `article` object and a `request`.
         """
+        assert not template_path.startswith('/')
         name = os.path.splitext(template_path)[0]
-        template = 'info/articles/' + template_path
-        title = _render_block(template, 'title')
-        url_name = 'info/' + name
-        return Article(name, title, template, url_name)
+        template = os.path.join('info/articles/', template_path)
+        title = render_block(template, 'title')
+        return Article(name, title, article_view(template))
 
     @property
-    def renderer(self):
-        """Returns a view function for the article."""
-        return lambda request: render(
+    def url_name(self):
+        """Returns the canonical URL rule name for this article, e.g.
+        for `about/contact` it's `info/about/contact`."""
+        assert not self.name.startswith('/')
+        if self.name:
+            return 'info/' + self.name
+        else:
+            return 'info'
+
+    @property
+    def render(self):
+        return partial(self.view, self)
+
+
+def article_view(template):
+    """Returns a partial view function for a generic article."""
+    def inner(article, request):
+        return render(
             request,
-            self.template,
+            template,
             {
-                'title': self.title,
-                'article': self,
+                'title': article.title,
+                'article': article,
             }
         )
 
-
-def _render_block(template_name, block_name):
-    """This code snippet renders the contents of the named block from a
-    template, which may extend other templates."""
-    def inner_render(template):
-        for node in template.nodelist:
-            if isinstance(node, BlockNode) and node.name == block_name:
-                return node.render(Context())
-            elif isinstance(node, ExtendsNode):
-                return inner_render(node)
-        raise Exception(
-            "Node '{}' could not be found in template '{}'."
-            .format(block_name, template_name)
-        )
-
-    return inner_render(get_template(template_name).template)
+    return inner
 
 
-Node = namedtuple('Node', ('article', 'children'))
-
-
-def get_articles():
-    """Returns all articles in a list"""
-    return _articles_and_tree()[0]
-
-
-def get_article_tree():
-    """Returns a tree structure containing the hierarchy of articles."""
-    return _articles_and_tree()[1]
-
-
-@cache()
-def _articles_and_tree():
-    articles = {'': INDEX}
-    article_tree = Node(INDEX, [])
-
-    def find_nodes(path):
-        nodes = {}
-
-        # Handle files first...
-        for f in os.listdir(os.path.join(ARTICLES_ROOT, path)):
-            relpath = os.path.join(path, f)
-            fullpath = os.path.join(ARTICLES_ROOT, relpath)
-
+def get_normal_articles():
+    """Walks the filesystem to find generic articles that don't require
+    their own view function."""
+    articles = []
+    for dirpath, _, filenames in os.walk(ARTICLES_ROOT):
+        for f in filenames:
+            fullpath = os.path.join(dirpath, f)
             if os.path.isfile(fullpath):
-                article = Article.from_template(relpath)
-                articles[article.name] = article
-                nodes[article.name] = Node(article, [])
+                relpath = os.path.relpath(fullpath, ARTICLES_ROOT)
+                articles.append(Article.from_template(relpath))
 
-        # ... then directories
-        for f in os.listdir(os.path.join(ARTICLES_ROOT, path)):
-            relpath = os.path.join(path, f)
-            fullpath = os.path.join(ARTICLES_ROOT, relpath)
-
-            if os.path.isdir(fullpath):
-                nodes[relpath].children.extend(find_nodes(relpath))
-
-        return nodes.values()
-
-    article_tree.children.extend(find_nodes(''))
-    return articles, article_tree
+    return articles
 
 
-INDEX = Article(
-    name='',
-    title=_render_block('info/index.html', 'title'),
-    template='info/index.html',
-    url_name='info',
-)
+def article_tree(articles):
+    """Nests all articles into a tree based on name."""
+    class ArticleNode(dict):
+        article = None
+
+        @property
+        def children(self):
+            return self.values()
+
+        def __format__(self, _):
+            return "ArticleNode(article='{}',{})".format(
+                self.article.name, super().__format__(_),
+            )
+
+    def set_recursive(tree, components, article):
+        if not components:
+            tree.article = article
+        else:
+            if components[0] not in tree:
+                tree[components[0]] = ArticleNode()
+            set_recursive(tree[components[0]], components[1:], article)
+
+    article_tree = ArticleNode()
+    for article in articles:
+        if article.name == '':
+            article_tree.article = article
+        else:
+            set_recursive(article_tree, article.name.split('/'), article)
+
+    def assert_recursive(tree):
+        # Every directory needs a .html file
+        assert tree.article, \
+            'Missing index article for category. {}'.format(article_tree)
+        for child in tree.children:
+            assert_recursive(child)
+
+    assert_recursive(article_tree)
+    return article_tree

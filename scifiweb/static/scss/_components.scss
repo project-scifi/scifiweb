@@ -1,0 +1,134 @@
+.container {
+    max-width: 100%;
+}
+
+.button {
+    height: auto;
+    width: auto;
+    padding: 0.5em 1.5em;
+    border-radius: 290486px;
+    text-transform: uppercase;
+    font-weight: $weight-bold;
+
+    &.is-small {
+        border-radius: 290486px;
+    }
+}
+
+.hero {
+    &.is-fullheight > .hero-body {
+        padding-top: 0.5em;
+        padding-bottom: 1.5em;
+
+        @include tablet {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    // Bulma assumes that an "a" inside a hero is a tab or such.
+    // We are sort of abusing heros, so we must fix this.
+    p > a {
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            color: $grey-lighter !important;
+        }
+    }
+
+    @each $name, $pair in $colors {
+        $color-invert: nth($pair, 2);
+
+        &.is-#{$name} .content {
+            color: $color-invert;
+        }
+    }
+}
+
+.footer {
+    color: $footer-background-color-invert;
+    padding: 2rem 1.5rem;
+
+    a {
+        color: $text-light;
+
+        &:hover,&:active {
+            color: $white;
+        }
+    }
+}
+
+.nav-item,.navbar-menu {
+    text-transform: uppercase;
+    font-weight: $weight-bold;
+}
+
+.nav-item,.navbar-item svg {
+    fill: $navbar-item-color;
+
+    &:hover {
+        fill: $navbar-item-hover-color;
+    }
+
+    &:active {
+        fill: $navbar-item-active-color;
+    }
+}
+
+// Fix burger on dark background
+.navbar-burger {
+    span {
+        background-color: $navbar-item-color;
+    }
+
+    &:hover {
+        background-color: $navbar-item-hover-background-color;
+
+        span {
+            background-color: $navbar-item-hover-color;
+        }
+    }
+
+    &.is-active {
+        background-color: $navbar-item-active-background-color;
+
+        span {
+            background-color: $navbar-item-active-color;
+        }
+    }
+}
+
+.menu-label {
+    @each $name, $pair in $colors {
+        $color: nth($pair, 1);
+
+        &.is-#{$name} {
+            color: $color;
+
+            &:hover {
+                color: $link-hover;
+            }
+
+            &:focus {
+                color: $link-focus;
+            }
+        }
+    }
+
+    &.is-active {
+        color: $text-strong;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    + .menu-list {
+        // Something breaks margins on .menu-label, perhaps the sticky footer
+        margin-top: 0.5em;
+    }
+}
+
+.menu-list .is-active {
+    cursor: default;
+    pointer-events: none;
+}

@@ -1,0 +1,22 @@
+.has-border {
+    border-width: 0.5em;
+    border-color: white;
+    border-style: solid;
+
+    @each $name, $pair in $colors {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
+
+        &.is-#{$name} {
+            border-color: $color;
+        }
+    }
+}
+
+.is-bold {
+    font-weight: $weight-bold !important;
+}
+
+.is-circle {
+    border-radius: 290486px;
+}

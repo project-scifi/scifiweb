@@ -1,0 +1,51 @@
+.is-layered {
+    position: relative;
+}
+
+.is-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    img,
+    svg {
+        height: 100vh;
+    }
+}
+
+.is-foreground {
+    z-index: 1;
+}
+
+@each $name, $color-dark in (
+    "primary": $primary-darker,
+    "complement": $complement-darker,
+    "secondary": $secondary-darker,
+    "subcomplement": $subcomplement-darker,
+) {
+    .hero.is-layered.is-#{$name} .is-background svg {
+        fill: $color-dark;
+        stroke: $color-dark;
+    }
+}
+
+@each $name, $pair in $colors {
+    $color: nth($pair, 1);
+
+    .hero.is-#{$name} .scifi-bio-thumbnail {
+        &:hover,
+        &:focus {
+            background-color: lighten($color, 10%);
+        }
+    }
+}
+
+.scifi-bio-thumbnail {
+    align-items: center;
+
+    + .scifi-bio-thumbnail {
+        padding-top: 0;
+        border-top: 0;
+    }
+}

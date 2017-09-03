@@ -1,0 +1,13 @@
+<nav class="menu">
+    {% for link, nodes in categories %}
+        <a
+            href="{{link.url}}"
+            class="menu-label {{link.classes|join:' '}}"
+        >{{link.text}}</a>
+        <ul class="menu-list">
+            {% for node in nodes %}
+                {% include 'partials/link-tree.html' with node=node %}
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</nav>

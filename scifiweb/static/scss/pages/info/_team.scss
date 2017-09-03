@@ -1,0 +1,14 @@
+.scifi-bio {
+    img {
+        max-height: 384px;
+        object-fit: contain;
+    }
+
+    figure {
+        margin: 0 1.3333em;
+    }
+
+    + .scifi-bio {
+        margin-top: 1.3333em;
+    }
+}

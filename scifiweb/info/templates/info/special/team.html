@@ -1,0 +1,24 @@
+{% extends 'info/article.html' %}
+{% load static %}
+{% load image %}
+
+{% block article %}
+    <p>Project SCIFI is run by an incredible team of scientists and engineers who are passionate about their involvement in making scientific education available to youths everywhere.</p>
+    <h2>Team bios</h2>
+    {% for member in members %}
+        <section class="scifi-bio" id="{{member.id}}">
+            <div class="is-clearfix">
+                <figure {% if member.image|is_portrait %}class="is-pulled-left"{% endif %}>
+                    <img
+                        src="{% static member.image %}"
+                        alt="{{member.name}}"
+                    />
+                </figure>
+                <h3 class="title">{{member.name}}</h3>
+                <p class="subtitle">{{member.roles|join:', '}}</p>
+                <p>{{member.bio}}</p>
+            </div>
+            <hr/>
+        </section>
+    {% endfor %}
+{% endblock %}

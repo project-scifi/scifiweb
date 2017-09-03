@@ -2,236 +2,134 @@
 {% load staticfiles %}
 {% load common %}
 {% load image %}
+{% load post %}
 
-{% block navbar %}
-<nav class="scifi-footer-nav">
-    <div class="tabs is-fullwidth">
-        <ul>
-            <li class="is-primary">
-                <a href="/#scifi">SCIFI</a>
-            </li>
-            <li class="is-secondary">
-                <a href="/#mission">Mission</a>
-            </li>
-            <li class="is-subcomplement">
-                <a href="/#how">Process</a>
-            </li>
-            <li class="is-dark">
-                <a href="/#team">Team</a>
-            </li>
-            <li class="is-complement">
-                <a href="/#involvement">Involvement</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-{% endblock %}
+{% block navbar %}{% endblock %}
 
-{% block hero %}{% endblock %}
-
-{% block content %}
-
-<section class="hero is-primary is-fullheight layered" id="scifi">
-    <div class="container background is-hidden-mobile">
-        <div class="columns">
-            <div class="column">
-                <div class="is-pulled-left">
+{% block hero %}
+    <header class="hero is-primary is-fullheight is-layered">
+        <div class="container is-background is-hidden-mobile">
+            <div class="columns">
+                <div class="column">
                     {% svg 'img/space-left.svg' %}
                 </div>
-            </div>
-            <div class="column">
-                <div class="is-pulled-right">
-                    {% svg 'img/space-right.svg' %}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hero-head foreground">
-        <header class='nav'>
-            <div class="container">
-                <div class="nav-left">
-                    <a class="nav-item" href="/#">
-                        {% svg 'img/scifi-logo-level.svg' %}
-                    </a>
-                </div>
-                <div class="nav-right">
-                    <div class="nav-item is-hidden-mobile">
-                        <a class="button is-small is-primary is-inverted" href="#involvement">Get involved!</a>
-                    </div>
-                    <a class="nav-item" href="/#">
-                        <span class="icon">
-                            <i class="fa fa-twitter"></i>
-                        </span>
-                    </a>
-                    <a class="nav-item" href="/#">
-                        <span class="icon">
-                            <i class="fa fa-facebook"></i>
-                        </span>
-                    </a>
-                    <a class="nav-item" href="https://github.com/project-scifi">
-                        <span class="icon">
-                            <i class="fa fa-github"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </header>
-    </div>
-    <div class="hero-body foreground">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8 is-offset-2 scifi-hero-title has-text-centered">
-                    <h1 class="title is-uppercase">Bringing lab gear to schools in need</h1>
-                    <hr/>
-                    <p class="subtitle"><strong>Project SCIFI</strong> works together with schools and sponsors to promote hands-on science education at American schools and expose students to real careers in science.</p>
-                    <a class="button is-primary is-inverted is-medium is-hidden-mobile" href="#mission">Learn more</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="hero is-secondary is-fullheight layered" id="mission">
-    <div class="container background is-hidden-mobile">
-        <div class="columns">
-            <div class="column">
-                <div class="is-pulled-left">
-                    {% svg 'img/science-left.svg' %}
-                </div>
-            </div>
-            <div class="column">
-                <div class="is-pulled-right">
-                    {% svg 'img/science-right.svg' %}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hero-head scifi-hero-title has-text-centered foreground">
-        <h2 class="title">Mission</h2>
-        <hr/>
-    </div>
-    <div class="hero-body foreground">
-        <div class="container">
-            <div class="columns has-text-centered">
-                <div class="column is-1 is-offset-2 top-right-quote is-hidden-mobile">
-                    <p class="enormous">&ldquo;</p>
-                </div>
-                <div class="column is-6">
-                    <div class="content">
-                        <p><i>The <b>Scientific Coat Initiative for Future Innovators</b> promotes students’ scientific passions for higher education, provides teachers the resources necessary for hands-on scientific instruction, encourages the growth of mentor-mentee relationships, and fosters a visible community supporting young scientists’ endeavors.</i></p>
-                        <p><i>We achieve these goals by partnering with corporate and academic sponsors who endorse the purchase of laboratory coats embroidered with the sponsors’ logos. We then distribute these coats to qualifying under-resourced schools, along with other materials intended to aid educators in taking on a hands-on approach to scientific instruction.</i></p>
-                        <p><i>Our motivation as a non-profit organization stems from our early exposure to science, which ultimately inspired us to pursue scientific educations and careers. Thus, our goal is to empower and inspire future generations of scientists by providing K&ndash;12 students the necessary tools to develop fundamental scientific reasoning, address societal problems, and move onto further scientific instruction.</i></p>
-                    </div>
-                </div>
-                <div class="column is-1 bottom-left-quote is-hidden-mobile">
-                    <p class="enormous">&rdquo;</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hero-foot is-hidden-mobile foreground">
-        <div class="container has-text-centered">
-            <a class="button is-secondary is-inverted is-medium" href="#how">See how we do it</a>
-        </div>
-    </div>
-</section>
-
-<section class="hero is-subcomplement is-fullheight" id="how">
-    <div class="hero-head scifi-hero-title has-text-centered">
-        <h2 class="title">How it works</h2>
-        <hr/>
-    </div>
-    <div class="hero-body is-hidden-mobile">
-        <figure class="container">
-            {% svg 'img/scifi-cycle.svg' %}
-        </figure>
-    </div>
-    <div class="hero-body is-hidden-tablet">
-        <div class="container">
-            <div class="columns">
                 <div class="column">
-                    <div class="media">
-                        <figure class="media-left">
-                            <p class="image is-128x128 is-circle has-border">
-                                {% svg 'img/sponsor.svg' %}
-                            </p>
-                        </figure>
-                        <div class="media-content">
-                            <h3 class="title is-5 is-marginless"><strong>Sponsors</strong></h3>
-                            <p>Sponsors support their communities by purchasing laboratory coats embroidered with their trademark logo, thus demonstrating their commitment to the scientists of the future.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="media">
-                        <figure class="media-left">
-                            <p class="image is-128x128 is-circle has-border">
-                                {% svg 'img/coat.svg' %}
-                            </p>
-                        </figure>
-                        <div class="media-content">
-                            <h3 class="title is-5 is-marginless"><strong>Lab coats</strong></h3>
-                            <p>These coats represent the scientific community's support for the endeavors of young minds as they actively apply the scientific method in their education.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="media">
-                        <figure class="media-left">
-                            <p class="image is-128x128 is-circle has-border">
-                                {% svg 'img/school.svg' %}
-                            </p>
-                        </figure>
-                        <div class="media-content">
-                            <h3 class="title is-5 is-marginless"><strong>Schools</strong></h3>
-                            <p>Schools receive enough coats to outfit one or more laboratory classrooms. Along with other materials we provide, these coats enable schools to teach science in an engaging, dynamic manner.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="media">
-                        <figure class="media-left">
-                            <p class="image is-128x128 is-circle has-border">
-                                {% svg 'img/student.svg' %}
-                            </p>
-                        </figure>
-                        <div class="media-content">
-                            <h3 class="title is-5 is-marginless"><strong>Students</strong></h3>
-                            <p>Students run exciting experiments that challenge them to think critically like scientists. Our goal is for these students, inspired by their early experiences, to become the innovators and science advocates of tomorrow.</p>
-                        </div>
+                    <div class="is-pulled-right">
+                        <!-- Unfortunately Chrome has broken SVG support, so this only looks right in FF. -->
+                        {% svg 'img/space-right.svg' %}
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="hero-foot is-hidden-mobile">
-        <div class="container has-text-centered">
-            <a class="button is-subcomplement is-inverted is-medium" href="#team">Meet the team</a>
+        <div class="hero-head is-foreground">
+            <nav class='nav'>
+                <div class="container">
+                    <div class="nav-left">
+                        <a class="nav-item" href="/#">
+                            {% svg 'img/scifi-logo-level.svg' %}
+                        </a>
+                        <a class="nav-item is-uppercase" href="{% url 'info/about' %}">
+                            About
+                        </a>
+                        <a class="nav-item is-uppercase" href="{% url 'news' %}">
+                            News
+                        </a>
+                        <a class="nav-item is-uppercase" href="{% url 'info' %}">
+                            More info
+                        </a>
+                        <a class="nav-item is-uppercase" href="{% url 'info/about/contact' %}">
+                            Contact
+                        </a>
+                    </div>
+                    <div class="nav-right">
+                        <a class="nav-item" href="https://www.facebook.com/ProjectSCIFI/">
+                            <span class="icon">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                        <a class="nav-item" href="https://www.linkedin.com/company/18138272/">
+                            <span class="icon">
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
         </div>
-    </div>
-</section>
-
-<section class="hero is-dark is-fullheight" id="team">
-    <div class="hero-head scifi-hero-title has-text-centered">
-        <h2 class="title">Our team</h2>
-        <hr/>
-    </div>
-    {% for chunk in members|chunkby:3 %}
-        <div class="hero-body is-hidden-mobile">
+        <div class="hero-body is-foreground">
             <div class="container">
                 <div class="columns">
-                    <div class="column is-10 is-offset-1">
-                        <div class="columns">
-                            {% for member in chunk %}
-                                <div class="column is-4">
-                                    <label for="{{member.id}}" class="media bio-thumbnail">
-                                        <figure class="media-left">
-                                            <p class="image is-96x96">
-                                                <img src="{% static member.thumbnail %}"/>
-                                            </p>
-                                        </figure>
-                                        <div class="media-content">
-                                            <p class="title is-5"><strong>{{member.name}}</strong></p>
+                    <div class="column is-8 is-offset-2 has-text-centered">
+                        <h1 class="title is-uppercase is-bold">Bringing lab gear to schools in need</h1>
+                        <p/>
+                        <p class="subtitle"><strong>Project SCIFI</strong> works together with schools and sponsors to promote hands-on science education at American schools and expose students to real careers in science.</p>
+                        <a class="button is-primary is-inverted is-medium is-hidden-mobile" href="{% url 'info/about' %}">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <section class="hero is-dark is-small">
+        <div class="hero-body has-text-centered">
+            <p>Project SCIFI is on <b>GoFundMe</b>! Please <a href="https://www.gofundme.com/project-scifi-help-stem-education">check it out</a>!</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    <h3 class="title is-4">How do I get involved?</h3>
+                    <div class="content">
+                        <h4>Schools</h4>
+                        <p>Schools receive enough coats to outfit one or more laboratory classrooms. Along with other materials we provide, these coats enable schools to teach science in an engaging, dynamic manner.</p>
+                        <p><a href="{% url 'info/about/contact' %}">Get material &raquo;</a></p>
+                        <h4>Sponsors</h4>
+                        <p>Sponsors support their communities by purchasing laboratory coats embroidered with their trademark logo, thus demonstrating their commitment to the scientists of the future.</p>
+                        <p><a href="{% url 'info/about/contact' %}">Become a sponsor &raquo;</a></p>
+                        <h4>Partners</h4>
+                        <p>Partnership is a mutual relationships where SCIFI collaborates with another organization to spread awareness, share resources, and support the missions of both organizations.</p>
+                        <p><a href="{% url 'info/about/contact' %}">Partner with us &raquo;</a></p>
+                        <h4>Team members</h4>
+                        <p>Project SCIFI thrives on the efforts of scientists who want to put real science experiences on the agenda for K–12 students. If you're in the bay area and want to help, consider joining us as a member.</p>
+                        <p><a href="{% url 'info/about/contact' %}">Join the team &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="column">
+                    <aside>
+                        <div class="content">
+                            <h3 class="title is-4">News</h3>
+                            {% for post in posts %}
+                                    <p>
+                                        <big><b><a href="{{post.permalink}}">{{post.title}}</a></b></big>
+                                        <br/>
+                                        {{post.date|format_post_date}}
+                                    </p>
+                            {% endfor %}
+                            <p><a href="{% url 'news' %}">See more news &raquo;</a></p>
+                        </div>
+                        <!-- Magic spacing -->
+                        <div class="content"></div>
+                    </aside>
+                    <aside class="hero is-dark is-small">
+                        <div class="hero-body">
+                            <h3 class="title is-4">Meet the team</h3>
+                            {% for member in members %}
+                                <a
+                                    class="media scifi-bio-thumbnail"
+                                    href="{% url 'info/about/team' %}#{{member.id}}"
+                                >
+                                    <figure class="media-left">
+                                        <p class="image is-64x64">
+                                            <img src="{% static member.thumbnail %}"/>
+                                        </p>
+                                    </figure>
+                                    <div class="media-content">
+                                        <span>
+                                            <p class="title is-5">{{member.name}}</p>
                                             <p class="subtitle is-6">
                                                 {% if member.roles %}
                                                     {{member.roles|join:', '}}
@@ -239,140 +137,16 @@
                                                     Team member
                                                 {% endif %}
                                             </p>
-                                        </div>
-                                    </label>
-                                </div>
+                                        </span>
+                                    </div>
+                                </a>
                             {% endfor %}
+                            <div class="content"></div>
+                            <p><a href="{% url 'info/about/team' %}">See all team members &raquo;</a></p>
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </div>
         </div>
-        {% for member in chunk %}
-            <input type="radio" name="members" value="" class="toggle-collapse is-hidden" id="{{member.id}}">
-            <div class="hero-body scifi-bio collapse">
-                <div class="container">
-                    <div class="columns">
-                        <div class="column is-8 is-offset-2">
-                            <article class="content">
-                                <figure>
-                                    <img src="{% static member.image %}" {{member.image|dimensions}} {% if member.image|is_portrait %}class="is-pulled-left"{% endif %}/>
-                                </figure>
-                                <h2>{{member.name}}</h2>
-                                <p>{{member.bio}}</p>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    {% endfor %}
-    <!--
-        Yes, we commit the awful crime of duplicating an enormous chunk of code
-        just so we can reorder things on mobile. We even use useless columns
-        for the padding.
-    -->
-    {% for member in members %}
-        <div class="hero-body is-hidden-tablet">
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <label for="{{member.id}}Mobile" class="media bio-thumbnail">
-                            <figure class="media-left">
-                                <p class="image is-96x96">
-                                    <img src="{% static member.thumbnail %}"/>
-                                </p>
-                            </figure>
-                            <div class="media-content">
-                                <p class="title is-5"><strong>{{member.name}}</strong></p>
-                                <p class="subtitle is-6">
-                                    {% if member.roles %}
-                                        {{member.roles|join:', '}}
-                                    {% else %}
-                                        Team member
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <input type="radio" name="membersMobile" value="" class="toggle-collapse is-hidden" id="{{member.id}}Mobile">
-        <div class="hero-body scifi-bio collapse">
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <article class="content">
-                            <figure>
-                                <img src="{% static member.image %}" {{member.image|dimensions}}/>
-                            </figure>
-                            <h2>{{member.name}}</h2>
-                            <p>{{member.bio}}</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-    <div class="hero-foot is-hidden-mobile">
-        <div class="container has-text-centered">
-            <a class="button is-dark is-inverted is-medium" href="#involvement">Become a part</a>
-        </div>
-    </div>
-</section>
-
-<section class="hero is-complement is-fullheight layered" id="involvement">
-    <div class="container background is-hidden-mobile">
-        <div class="is-pulled-left">
-        {% svg 'img/heart-left.svg' %}
-        </div>
-    </div>
-    <div class="hero-head scifi-hero-title has-text-centered foreground">
-        <h2 class="title">Get involved</h2>
-        <hr/>
-    </div>
-    <div class="hero-body foreground">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8 is-offset-2">
-                    <div class="columns">
-                        <div class="column is-one-third">
-                            <h3 class="title">Sponsors</h3>
-                        </div>
-                        <div class="column">
-                            <p>Are you ready to invest in the scientists of tomorrow? Contact us at <b>info@projectscifi.org</b> to see how you can make a difference in science education.</p>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="columns">
-                        <div class="column is-one-third">
-                            <h3 class="title">Schools</h3>
-                        </div>
-                        <div class="column">
-                            <p>Looking to build your school’s science program or think that <b>SCIFI</b> could help motivate your students to pursue their scientific interests? Send an email to <b>info@projectscifi.org</b>!
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="columns">
-                        <div class="column is-one-third">
-                            <h3 class="title">Join the team</h3>
-                        </div>
-                        <div class="column">
-                            <p>Are you passionate about promoting science, bettering education, and working with like-minded scientists? <a href="{% url 'info/about/contact' %}">Get in touch</a> to become part of the initiative!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hero-foot foreground">
-        <div class="container has-text-centered">
-            <h2 class="title">Thanks for supporting science education!</h2>
-        </div>
-    </div>
-</section>
-
+    </section>
 {% endblock %}
-
-{% block footer %}{% endblock %}

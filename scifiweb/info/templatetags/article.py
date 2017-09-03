@@ -1,46 +1,37 @@
+from collections import namedtuple
+
 from django import template
 from django.core.urlresolvers import reverse
 
-from scifiweb.info.article import get_article_tree
-from scifiweb.info.article import get_articles
+from scifiweb.info.urls import get_article_tree
+from scifiweb.info.urls import get_articles
 from scifiweb.utils import Link
 
 
 register = template.Library()
 
 
-def _order_tag(ordered):
-    return 'ol' if ordered else 'ul'
+@register.inclusion_tag('partials/menu.html')
+def article_tree(highlight=None):
+    """Renders the article hierarchy as a nested menu with links."""
+    LinkNode = namedtuple('Node', ('link', 'children'))
 
+    def to_link_node(node):
+        return LinkNode(
+            Link(
+                node.article.title, reverse(node.article.url_name),
+                classes=['is-active'] if node.article.name == highlight else []
+            ),
+            tuple(to_link_node(child) for child in node.children),
+        )
 
-@register.inclusion_tag('info/partials/link-tree.html')
-def article_tree(highlight=None, ordered=False):
-    """Renders the article hierarchy as a nested-list tree of links."""
-    # Flatten the tree into a list of links and indentation "commands"
-    def node_commands(node):
-        commands = []
-        if node.article.name == highlight:
-            # 'a' for 'active'
-            commands.append('lia')
-        else:
-            commands.append('li')
-        commands.append(Link(node.article.title, reverse(node.article.url_name)))
-        if node.children:
-            commands.append('>')
-            for child in node.children:
-                commands.extend(node_commands(child))
-            commands.append('<')
-        commands.append('/li')
-        return commands
+    categories = list(map(to_link_node, get_article_tree().children))
 
-    tree = get_article_tree()
-    commands = []
-    for node in tree.children:
-        commands.extend(node_commands(node))
+    for cat in categories:
+        cat.link.classes.extend(('is-secondary', 'is-size-6'))
 
     return {
-        'commands': commands,
-        'list_tag': _order_tag(ordered)
+        'categories': categories,
     }
 
 
@@ -48,8 +39,10 @@ def article_tree(highlight=None, ordered=False):
 def article_breadcrumb(name):
     pieces = name.split('/') if name else []
     names = ['/'.join(pieces[:i]) for i in range(len(pieces) + 1)]
-    articles = get_articles()
-    articles = [articles[name] for name in names]
+    articles = [get_articles()[name] for name in names]
     return {
-        'components': [Link(article.title, reverse(article.url_name)) for article in articles]
+        'components': [
+            Link(article.title, reverse(article.url_name))
+            for article in articles
+        ]
     }

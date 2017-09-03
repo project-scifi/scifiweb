@@ -2,21 +2,20 @@
 {% load article %}
 {% load image %}
 
-<!-- {% block title %}About us{% endblock %} -->
+<!-- {% block title %}About{% endblock %} -->
 
 {% block content %}
-
     <section class="section">
         <div class="container">
             {% article_breadcrumb article.name %}
             <div class="columns">
                 <div class="column is-two-thirds">
-                    <article class="content">
+                    <div class="content">
                         <h2>Our mission</h2>
                         <p>The <b>Scientific Coat Initiative for Future Innovators</b> promotes students’ scientific passions for higher education, provides teachers the resources necessary for hands-on scientific instruction, encourages the growth of mentor-mentee relationships, and fosters a visible community supporting young scientists’ endeavors.</p>
                         <p>We achieve these goals by partnering with corporate and academic sponsors who endorse the purchase of laboratory coats embroidered with the sponsors’ logos. We then distribute these coats to qualifying under-resourced schools, along with other materials intended to aid educators in taking on a hands-on approach to scientific instruction.</p>
                         <p>Our motivation as a non-profit organization stems from our early exposure to science, which ultimately inspired us to pursue scientific educations and careers. Thus, our goal is to empower and inspire future generations of scientists by providing K–12 students the necessary tools to develop fundamental scientific reasoning, address societal problems, and move onto further scientific instruction.</p>
-                    </article>
+                    </div>
                 </div>
                 <div class="column is-hidden-mobile">
                     {% include 'info/partials/sidebar.html' %}
@@ -24,7 +23,6 @@
             </div>
         </div>
     </section>
-
     <figure class="hero is-subcomplement is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -89,11 +87,21 @@
             </div>
         </div>
     </figure>
-
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    <div class="content">
+                        <h2>Who we are</h2>
+                        <p>Project SCIFI is an all-volunteer organization run by students and scientists who love what they do and want to give young minds the chance to experience science the way they do. <a href="{% url 'info/about/team' %}">Click here to see bios for each of our team members.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="section is-hidden-tablet">
         <div class="container">
             {% include 'info/partials/sidebar.html' %}
         </div>
     </section>
-
 {% endblock %}
