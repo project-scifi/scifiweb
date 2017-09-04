@@ -241,6 +241,20 @@ MEMBERS = (
             day hopes to pursue his dream of working for NASA.
         """),
     ),
+    Member(
+        'cswerdlick',
+        'Chase Swerdlick',
+        (),
+        dedent("""
+            Chase comes to us from the faraway town of Cromwell, CT. From an
+            early age, he was consistently drawn to the uncertainty and
+            certainty that came with science. He is currently pursuing a degree
+            in Molecular and Cellular Neurobiology at UC Berkeley and hopes to
+            attend medical school after he graduates in 2020. In his free time,
+            Chase de-stresses by getting on the ice and shooting some hockey
+            pucks.
+        """)
+    )
 )
 
 
