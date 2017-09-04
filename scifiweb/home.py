@@ -175,32 +175,6 @@ MEMBERS = (
         """),
     ),
     Member(
-        'mpaoletti',
-        'Marcus Paoletti',
-        (),
-        dedent("""
-            Since a young age, Marcus has loved exploring the world. He went to
-            Berkeley High School, where he was introduced to biotechnology by
-            his AP Biology teacher. Her guidance sparked his interest in
-            microbiology, and still motivates him today as he pursues an
-            undergraduate degree in Molecular and Cellular Biology at UC
-            Berkeley. Outside of school, Marcus enjoys backpacking and
-            traveling.
-        """),
-    ),
-    Member(
-        'robertli',
-        'Robert Li',
-        (),
-        dedent("""
-            Robert grew up in the city of San Ramon, California. During high
-            school he developed a passion for the STEM and medicine. He is
-            currently a second year student at the University of California,
-            Berkeley, pursuing a degree in Molecular and Cell Biology. In his
-            free time, he enjoys exercising, reading, and pencil drawing.
-        """),
-    ),
-    Member(
         'rmakwana',
         'Rikki Makwana',
         (),
@@ -228,17 +202,6 @@ MEMBERS = (
             the future, he hopes to become a physician scientist and develop
             new brain-computer interface treatments. In his free time, Sandon
             enjoys carpentry, ice hockey, and playing with his cat.
-        """),
-    ),
-    Member(
-        'spatel',
-        'Shawn Patel',
-        (),
-        dedent("""
-            Shawn grew up in Riverside. He developed an interest in space very
-            early in life watching a lot of sci-fi movies. Once he grew up, his
-            interests in science shifted towards the biological side. Shawn one
-            day hopes to pursue his dream of working for NASA.
         """),
     ),
     Member(
