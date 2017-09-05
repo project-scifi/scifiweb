@@ -20,3 +20,15 @@
 .is-circle {
     border-radius: 290486px;
 }
+
+.is-pulled-left-tablet {
+    @media screen and (min-width: $tablet) {
+        float: left !important;
+    }
+}
+
+.is-pulled-right-tablet {
+    @media screen and (min-width: $tablet) {
+        float: right !important;
+    }
+}

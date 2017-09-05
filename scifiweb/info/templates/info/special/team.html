@@ -8,7 +8,11 @@
     {% for member in members %}
         <section class="scifi-bio" id="{{member.id}}">
             <div class="is-clearfix">
-                <figure {% if member.image|is_portrait %}class="is-pulled-left"{% endif %}>
+                <figure
+                    {% if member.image|is_portrait %}
+                        class="is-pulled-left-tablet"
+                    {% endif %}
+                >
                     <img
                         src="{% static member.image %}"
                         alt="{{member.name}}"
