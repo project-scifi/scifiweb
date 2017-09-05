@@ -82,7 +82,7 @@ MEMBERS = (
     Member(
         'spatil',
         'Shashank Patil',
-        ('Chief Executive Officer',),
+        ('Chief Product Officer',),
         dedent("""
             Shashank grew up in the suburbs of Fremont, California, and
             developed an early aptitude for science through reading comic books
@@ -192,7 +192,7 @@ MEMBERS = (
     Member(
         'sgriffin',
         'Sandon Griffin',
-        (),
+        ('Chief Executive Officer',),
         dedent("""
             Sandon grew up in Newport Beach, California. He developed an
             interest in the mind and brain during high school, which led him to
