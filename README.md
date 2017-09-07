@@ -11,7 +11,7 @@ The main website for Project SCIFI.
 
 Clone the repo and check out submodules:
 ```
-git clone https://github.com:project-scifi/scifiweb.git
+git clone https://github.com/project-scifi/scifiweb.git
 git submodule update --init
 ```
 If you get scss import errors, it's because you haven't run the second command.
@@ -65,8 +65,7 @@ possible, e.g. try `django` or `django>=1.10,<1.10.999` before
 
 -----
 
-`scifiweb` has used code from:
+`scifiweb` has "borrowed" code from:
 * [ocfweb](https://github.com/ocf/ocfweb)
-* [startbootstrap-creative](https://github.com/BlackrockDigital/startbootstrap-creative)
 
 See the associated repositories for the license under which their code is used.
