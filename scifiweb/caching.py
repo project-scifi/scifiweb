@@ -98,18 +98,19 @@ def retry(n, exceptions):
     retry. If the function raises an exception on the final try, the
     exception is not caught.
     """
-    if isinstance(exceptions, list):
+    if isinstance(exceptions, (list, set)):
         exceptions = tuple(exceptions)
     elif not isinstance(exceptions, tuple):
         exceptions = (exceptions,)
 
     def outer(fn):
         def inner(*args, **kwargs):
-            for _ in range(n):
+            for _ in range(n - 1):
                 try:
                     return fn(*args, **kwargs)
                 except exceptions:
                     continue
+            # Don't catch on the last call
             return fn(*args, **kwargs)
         return inner
     return outer

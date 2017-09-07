@@ -115,7 +115,7 @@ class Term(namedtuple('Term', (
         return term
 
 
-@retry(5, requests.ConnectionError)
+@retry(5, (requests.ConnectionError, requests.Timeout))
 def query_endpoint(endpoint, params=None, **kwargs):
     """Performs a generic query on an API endpoint.
 
