@@ -164,7 +164,7 @@ def query_keyed_endpoint(endpoint, key, params=None, **kwargs):
         return query_endpoint(
             pathappend(endpoint, str(key)),
             params,
-            **kwargs,
+            **kwargs
         )
     except requests.HTTPError as e:
         if e.response.status_code == 404:
