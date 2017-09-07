@@ -1,5 +1,5 @@
 [submodule "bulma"]
-	path = scifiweb/static/scss/bulma
+	path = bulma
 	url = https://github.com/jgthms/bulma
 [submodule "Font-Awesome"]
 	path = Font-Awesome
