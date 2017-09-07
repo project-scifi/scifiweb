@@ -2,3 +2,4 @@
 set -euxo pipefail
 venv/bin/sassc --style compressed scifiweb/static/scss/site.scss{,.css}
 rsync -aLviP --delete scifiweb/static/ ~/public_html/static/
+echo 'Header set Access-Control-Allow-Origin "https://projectscifi.org"' > ~/public_html/static/.htaccess
