@@ -64,37 +64,74 @@
     font-weight: $weight-bold;
 }
 
-.nav-item,.navbar-item svg {
-    fill: $navbar-item-color;
+// Support navbar colors
+@each $name, $triple in $colors-shades {
+    $color: nth($triple, 1);
+    $color-invert: nth($triple, 2);
+    $shades: nth($triple, 3);
+    $color-bg: nth($shades, 4);
 
-    &:hover {
-        fill: $navbar-item-hover-color;
-    }
+    $navbar-background-color: $color;
+    $navbar-item-color: $color-invert;
+    $navbar-item-hover-color: $color-invert;
+    $navbar-item-hover-background-color: $color-bg;
+    $navbar-item-active-color: $color-invert;
+    $navbar-item-active-background-color: $color-bg;
 
-    &:active {
-        fill: $navbar-item-active-color;
-    }
-}
+    .navbar.is-#{$name} {
+        background-color: $navbar-background-color;
 
-// Fix burger on dark background
-.navbar-burger {
-    span {
-        background-color: $navbar-item-color;
-    }
+        .navbar-item,
+        .navbar-link {
+            color: $navbar-item-color;
+        }
 
-    &:hover {
-        background-color: $navbar-item-hover-background-color;
+        a.navbar-item,
+        .navbar-link {
+            &:hover {
+                color: $navbar-item-hover-color;
+                background-color: $navbar-item-hover-background-color;
+            }
 
-        span {
-            background-color: $navbar-item-hover-color;
+            &.is-active {
+                color: $navbar-item-active-color;
+                background-color: $navbar-item-active-background-color;
+            }
+        }
+
+        .navbar-burger {
+            span {
+                background-color: $navbar-item-color;
+            }
+
+            &:hover {
+                background-color: $navbar-item-hover-background-color;
+
+                span {
+                    background-color: $navbar-item-hover-color;
+                }
+            }
+
+            &.is-active {
+                background-color: $navbar-item-active-background-color;
+
+                span {
+                    background-color: $navbar-item-active-color;
+                }
+            }
         }
     }
 
-    &.is-active {
-        background-color: $navbar-item-active-background-color;
+    .nav-item svg,
+    .navbar-item svg {
+        fill: $navbar-item-color;
 
-        span {
-            background-color: $navbar-item-active-color;
+        &:hover {
+            fill: $navbar-item-hover-color;
+        }
+
+        &.is-active {
+            fill: $navbar-item-active-color;
         }
     }
 }

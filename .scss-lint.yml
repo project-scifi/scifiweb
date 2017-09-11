@@ -46,3 +46,6 @@ linters:
 
     NameFormat:
         enabled: false
+
+    QualifyingElement:
+        enabled: false

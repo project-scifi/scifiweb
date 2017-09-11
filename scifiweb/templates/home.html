@@ -22,39 +22,7 @@
             </div>
         </div>
         <div class="hero-head is-foreground">
-            <nav class='nav'>
-                <div class="container">
-                    <div class="nav-left">
-                        <a class="nav-item" href="/#">
-                            {% svg 'img/scifi-logo-level.svg' %}
-                        </a>
-                        <a class="nav-item is-uppercase" href="{% url 'info/about' %}">
-                            About
-                        </a>
-                        <a class="nav-item is-uppercase" href="{% url 'news' %}">
-                            News
-                        </a>
-                        <a class="nav-item is-uppercase" href="{% url 'info' %}">
-                            More info
-                        </a>
-                        <a class="nav-item is-uppercase" href="{% url 'info/about/contact' %}">
-                            Contact
-                        </a>
-                    </div>
-                    <div class="nav-right">
-                        <a class="nav-item" href="https://www.facebook.com/ProjectSCIFI/">
-                            <span class="icon">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                        <a class="nav-item" href="https://www.linkedin.com/company/18138272/">
-                            <span class="icon">
-                                <i class="fa fa-linkedin"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </nav>
+            {% include 'partials/navbar.html' with navbar_color='primary' %}
         </div>
         <div class="hero-body is-foreground">
             <div class="container">
@@ -101,7 +69,7 @@
                 <div class="column">
                     <aside>
                         <div class="content">
-                            <h3 class="title is-4">News</h3>
+                            <h3 class="title is-4"><b>News</b></h3>
                             {% for post in posts %}
                                     <p>
                                         <big><b><a href="{{post.permalink}}">{{post.title}}</a></b></big>

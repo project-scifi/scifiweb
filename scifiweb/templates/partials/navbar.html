@@ -1,0 +1,45 @@
+{% load image %}
+
+<nav class="navbar is-{{navbar_color}}">
+    <input type="checkbox" class="toggle-collapse is-hidden" id="navbarToggle"/>
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{% url 'home' %}#">
+            {% svg 'img/scifi-logo-level.svg' %}
+        </a>
+        <a class="navbar-item is-hidden-desktop" href="https://www.facebook.com/ProjectSCIFI/">
+            <span class="icon">
+                <i class="fa fa-facebook"></i>
+            </span>
+        </a>
+        <a class="navbar-item is-hidden-desktop" href="https://www.linkedin.com/company/18138272/">
+            <span class="icon">
+                <i class="fa fa-linkedin"></i>
+            </span>
+        </a>
+        <label for="navbarToggle" class="navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="{% url 'info/about' %}">About</a>
+            <a class="navbar-item" href="{% url 'news' %}">News</a>
+            <a class="navbar-item" href="{% url 'info' %}">More info</a>
+            <a class="navbar-item" href="{% url 'info/about/contact' %}">Contact</a>
+        </div>
+        <div class="navbar-end is-hidden-mobile">
+            <a class="navbar-item" href="https://www.facebook.com/ProjectSCIFI/">
+                <span class="icon">
+                    <i class="fa fa-facebook"></i>
+                </span>
+            </a>
+            <a class="navbar-item" href="https://www.linkedin.com/company/18138272/">
+                <span class="icon">
+                    <i class="fa fa-linkedin"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>

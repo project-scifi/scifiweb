@@ -18,12 +18,10 @@
     z-index: 1;
 }
 
-@each $name, $color-dark in (
-    "primary": $primary-darker,
-    "complement": $complement-darker,
-    "secondary": $secondary-darker,
-    "subcomplement": $subcomplement-darker,
-) {
+@each $name, $triple in $colors-shades {
+    $shades: nth($triple, 3);
+    $color-dark: nth($shades, 1);
+
     .hero.is-layered.is-#{$name} .is-background svg {
         fill: $color-dark;
         stroke: $color-dark;

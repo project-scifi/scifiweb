@@ -52,12 +52,15 @@ $colors: map-merge($colors, (
     "subcomplement": ($subcomplement, $subcomplement-invert),
 ));
 
-$navbar-background-color: $grey-darker;
-$navbar-item-color: $white;
-$navbar-item-hover-color: $white;
-$navbar-item-hover-background-color: $grey-dark;
-$navbar-item-active-color: $white;
-$navbar-item-active-background-color: $grey-dark;
+$colors-shades: (
+    "primary": ($primary, $primary-invert, ($primary-darker, $primary-dark, $primary, $primary-light, $primary-lighter)),
+    "complement": ($complement, $complement-invert, ($complement-darker, $complement-dark, $complement, $complement-light, $complement-lighter)),
+    "secondary": ($secondary, $secondary-invert, ($secondary-darker, $secondary-dark, $secondary, $secondary-light, $secondary-lighter)),
+    "subcomplement": ($subcomplement, $subcomplement-invert, ($subcomplement-darker, $subcomplement-dark, $subcomplement, $subcomplement-light, $subcomplement-lighter)),
+    // Light is a dark-on-light scheme, so ordering is reversed
+    "light": ($grey-lighter, $text, ($white-bis, $white-ter, $grey-lighter, $grey-light, $grey)),
+    "dark": ($grey-darker, $white, ($black-bis, $black-ter, $grey-darker, $grey-dark, $grey)),
+);
 
 $footer-background-color: $dark;
 $footer-background-color-invert: findColorInvert($footer-background-color);
