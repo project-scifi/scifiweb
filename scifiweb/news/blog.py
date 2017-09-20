@@ -8,7 +8,7 @@ from django.core.cache import cache as django_cache
 from django.shortcuts import reverse
 from django.utils.safestring import mark_safe
 
-from scifiweb.caching import cache
+from scifiweb.caching import cache_lookup_only
 from scifiweb.caching import retry
 from scifiweb.utils import pathappend
 
@@ -57,7 +57,6 @@ class Post(namedtuple('Post', (
         )
 
         # Update caches
-        # XXX: @cached functions update the cache with the same value twice
         django_cache.set(('wp_post_by_id', post.id), post, _CACHE_TTL)
         django_cache.set(('wp_post_id_by_slug', post.slug), post.id, _CACHE_TTL)
 
@@ -187,7 +186,7 @@ def get_posts(params=None, **kwargs):
     return query_endpoint('posts', params, **kwargs)
 
 
-@cache(ttl=_CACHE_TTL, key=lambda id: ('wp_post_by_id', id))
+@cache_lookup_only(key=lambda id: ('wp_post_by_id', id))
 def get_post_by_id(id):
     """Retrieves a post given its unique identifier as an integer.
 
@@ -202,7 +201,7 @@ def get_post_by_id(id):
     )
 
 
-@cache(ttl=_CACHE_TTL, key=lambda slug: ('wp_post_id_by_slug', slug))
+@cache_lookup_only(key=lambda slug: ('wp_post_id_by_slug', slug))
 def _get_post_id_by_slug(slug):
     """Retrieves the ID of the post with the given slug.
 
@@ -233,7 +232,7 @@ def get_users(params=None, **kwargs):
     return query_endpoint('users', params, **kwargs)
 
 
-@cache(ttl=_CACHE_TTL, key=lambda id: ('wp_user_by_id', id))
+@cache_lookup_only(key=lambda id: ('wp_user_by_id', id))
 def get_user_by_id(id):
     """Retrieves a user given its unique identifier as an integer.
 
@@ -255,7 +254,7 @@ def get_tags(params=None, **kwargs):
     return query_endpoint('tags', params, **kwargs)
 
 
-@cache(ttl=_CACHE_TTL, key=lambda id: ('wp_term_by_id', id))
+@cache_lookup_only(key=lambda id: ('wp_term_by_id', id))
 def get_tag_by_id(id):
     """Retrieves a tag given its unique identifier as an integer.
 
@@ -277,7 +276,7 @@ def get_categories(params=None, **kwargs):
     return query_endpoint('categories', params, **kwargs)
 
 
-@cache(ttl=_CACHE_TTL, key=lambda id: ('wp_term_by_id', id))
+@cache_lookup_only(key=lambda id: ('wp_term_by_id', id))
 def get_category_by_id(id):
     """Retrieves a category given its unique identifier as an integer.
 

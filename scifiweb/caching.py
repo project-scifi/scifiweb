@@ -53,8 +53,8 @@ def cache(ttl=None, key=None, randomize=True):
     cached function and produce a unique key for the given call.
 
     By default, TTLs are augmented by a random factor to prevent a cache
-    stampede where many keys expire at once. This can be disabled per-
-    function.
+    stampede where many keys expire at once. This can be disabled
+    per-function.
     """
     if ttl and randomize:
         rand = random.Random()
@@ -112,5 +112,23 @@ def retry(n, exceptions):
                     continue
             # Don't catch on the last call
             return fn(*args, **kwargs)
+        return inner
+    return outer
+
+
+def cache_lookup_only(key):
+    """Turns a function into a fallback for a cache lookup.
+
+    Like the `cache` decorator, but never actually writes to the cache.
+    This is good for when a function already caches its return value
+    somewhere in its body, or for providing a default value for a value
+    that is supposed to be cached by a worker process.
+    """
+    def outer(fn):
+        def inner(*args, **kwargs):
+            try:
+                return cache_lookup(key(*args, **kwargs))
+            except KeyError:
+                return fn(*args, **kwargs)
         return inner
     return outer
