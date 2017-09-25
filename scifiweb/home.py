@@ -85,14 +85,15 @@ MEMBERS = (
         ('Chief Product Officer',),
         dedent("""
             Shashank grew up in the suburbs of Fremont, California, and
-            developed an early aptitude for science through reading comic books
-            and watching shows like Bill Nye. He was lucky enough to have an
-            incredible AP Biology teacher who solidified his growing interest
-            in the health sciences. His mentors encouraged him to pursue his
-            passions, which ultimately led him to graduate from UC Berkeley
-            with degrees in Molecular & Cell Biology, Integrative Biology, and
-            Psychology. in 2016. Since then, he has been working as a teacher
-            and a researcher in the Bay Area, both of which he loves.
+            developed an early interest in science by reading sci-fi comics and
+            watching TV shows like Bill Nye. He was fortunate enough to have
+            inspiring science teachers throughout primary and secondary school
+            who solidified his growing interest in the health sciences. His
+            mentors encouraged him to pursue his passions, which led him to
+            pursue degrees in Molecular & Cell Biology, Integrative Biology,
+            and Psychology in college. Since graduating, he has been working as
+            an instructor and researcher in the Bay Area - both of which he
+            loves.
         """),
     ),
     Member(
