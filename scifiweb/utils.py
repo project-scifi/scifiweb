@@ -1,10 +1,5 @@
 from collections import namedtuple
 
-from django.template import Context
-from django.template.loader import get_template
-from django.template.loader_tags import BlockNode
-from django.template.loader_tags import ExtendsNode
-
 
 class Link(namedtuple('Link', ('text', 'url', 'classes'))):
     """A configurable class for inserting links into templates."""
@@ -30,21 +25,14 @@ def pathappend(base, suffix, sep='/'):
     return base.rstrip(sep) + sep + suffix.lstrip(sep)
 
 
-def render_block(template_name, block_name, context=Context()):
-    """This code snippet renders the contents of the named block from a
-    template, which may extend other templates.
+def store_decorators(decorators):
+    """Sets a list of decorators as the attribute `_decorators` on a
+    function.
 
-    Optionally takes a context as a `dict` or a Django `Context` object.
+    This is for the purpose of applying decorators to a higher-level
+    wrapping function.
     """
-    def inner_render(template):
-        for node in template.nodelist:
-            if isinstance(node, BlockNode) and node.name == block_name:
-                return node.render(context)
-            elif isinstance(node, ExtendsNode):
-                return inner_render(node)
-        raise ValueError(
-            "Node '{}' could not be found in template '{}'."
-            .format(block_name, template_name)
-        )
-
-    return inner_render(get_template(template_name).template)
+    def outer(fn):
+        fn._decorators = decorators
+        return fn
+    return outer

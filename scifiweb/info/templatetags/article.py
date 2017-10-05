@@ -3,8 +3,8 @@ from collections import namedtuple
 from django import template
 from django.core.urlresolvers import reverse
 
-from scifiweb.info.urls import get_article_tree
-from scifiweb.info.urls import get_articles
+from scifiweb.info.urls import ARTICLE_TREE
+from scifiweb.info.urls import ARTICLES
 from scifiweb.utils import Link
 
 
@@ -25,7 +25,7 @@ def article_tree(highlight=None):
             tuple(to_link_node(child) for child in node.children),
         )
 
-    categories = list(map(to_link_node, get_article_tree().children))
+    categories = list(map(to_link_node, ARTICLE_TREE.children))
 
     for cat in categories:
         cat.link.classes.extend(('is-secondary', 'is-size-6'))
@@ -39,7 +39,7 @@ def article_tree(highlight=None):
 def article_breadcrumb(name):
     pieces = name.split('/') if name else []
     names = ['/'.join(pieces[:i]) for i in range(len(pieces) + 1)]
-    articles = [get_articles()[name] for name in names]
+    articles = [ARTICLES[name] for name in names]
     return {
         'components': [
             Link(article.title, reverse(article.url_name))

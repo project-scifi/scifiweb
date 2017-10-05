@@ -3,6 +3,9 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 from django.core.mail import get_connection
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+
+from scifiweb.utils import store_decorators
 
 
 # Hopefully these are reasonable numbers
@@ -17,6 +20,7 @@ class MessageForm(forms.Form):
     cc_sender = forms.BooleanField(required=False)
 
 
+@store_decorators((csrf_exempt,))
 def contact(article, request):
     success = False
     if request.method != 'POST':
@@ -45,7 +49,7 @@ def contact(article, request):
         request,
         'info/special/contact.html',
         {
-            'title': 'Contact us',
+            'title': article.title,
             'article': article,
             'form': form,
             'success': success,

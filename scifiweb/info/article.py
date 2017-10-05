@@ -1,35 +1,11 @@
-import os
 from collections import namedtuple
 from functools import partial
 
-from django.conf import settings
 from django.shortcuts import render
-
-from scifiweb.utils import render_block
-
-
-ARTICLES_ROOT = os.path.join(
-    settings.BASE_DIR, 'scifiweb/info/templates/info/articles/'
-)
 
 
 class Article(namedtuple('Article', ('name', 'title', 'view'))):
-    @staticmethod
-    def from_template(template_path):
-        """Constructs an article from the path to its template.
-
-        The given template path is relative to `info/articles/`, e.g.
-        `about/contact.html` creates the page `/info/about/contact/`
-        using the template `info/articles/about/contact.html`.
-
-        The view function must take an `article` object and a `request`.
-        """
-        assert not template_path.startswith('/')
-        name = os.path.splitext(template_path)[0]
-        template = os.path.join('info/articles/', template_path)
-        title = render_block(template, 'title')
-        return Article(name, title, article_view(template))
-
+    """Metadata about a page for organizing pages into a tree."""
     @property
     def url_name(self):
         """Returns the canonical URL rule name for this article, e.g.
@@ -42,7 +18,11 @@ class Article(namedtuple('Article', ('name', 'title', 'view'))):
 
     @property
     def render(self):
-        return partial(self.view, self)
+        result = partial(self.view, self)
+        if hasattr(self.view, '_decorators'):
+            for decorator in self.view._decorators:
+                result = decorator(result)
+        return result
 
 
 def article_view(template):
@@ -58,20 +38,6 @@ def article_view(template):
         )
 
     return inner
-
-
-def get_normal_articles():
-    """Walks the filesystem to find generic articles that don't require
-    their own view function."""
-    articles = []
-    for dirpath, _, filenames in os.walk(ARTICLES_ROOT):
-        for f in filenames:
-            fullpath = os.path.join(dirpath, f)
-            if os.path.isfile(fullpath):
-                relpath = os.path.relpath(fullpath, ARTICLES_ROOT)
-                articles.append(Article.from_template(relpath))
-
-    return articles
 
 
 def article_tree(articles):
