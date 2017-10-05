@@ -1,0 +1,43 @@
+{% extends 'info/article.html' %}
+
+{% block article %}
+
+{% if form.non_field_errors %}
+    <div class="notification is-error">
+        <ul>
+            {% for error in form.non_field_errors %}
+                <li>{{error}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% elif success %}
+    <div class="notification is-success">
+        Your message has been sent!
+    </div>
+{% endif %}
+
+<p>We'd love to hear your questions, proposals, comments, and feedback about anything regarding Project SCIFI! Please send us your messages about our organization, becoming a sponsor, our blog or website, getting involved, or whatever is on your mind.</p>
+
+<h2>Contact form</h2>
+
+{% include 'partials/contact-form.html' with form=form %}
+
+<h2>Other methods</h2>
+
+<h3>By email</h3>
+
+<p>Our primary point of contact is our email address, <b>info@projectscifi.org</b>. If you have questions or you are thinking about getting involved, let us know in an email and we'll explain where to go from there.</p>
+
+<h3>By phone or video call</h3>
+
+<p>We would love to have a live conversation with you! If you are interested in sponsoring or receiving lab coats, this is the fastest and easiest way to get things rolling. Please email us at <b>info@projectscifi.org</b> and let us know when you are available to talk with us.</p>
+
+<h3>Through social media</h3>
+
+<p>As a quick and easy alternative to email, you can also contact us on Facebook or Twitter to ask questions or schedule a conversation.</p>
+
+<h3>By physical mail</h3>
+
+<p>To get a physical address, please contact us through one of the above channels and we'll hook you up with an address.</p>
+
+{% endblock %}

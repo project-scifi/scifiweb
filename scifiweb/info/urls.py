@@ -7,6 +7,7 @@ from scifiweb.info.article import Article
 from scifiweb.info.article import article_tree
 from scifiweb.info.article import article_view
 from scifiweb.info.article import get_normal_articles
+from scifiweb.info.contact import contact
 
 
 def get_articles():
@@ -29,6 +30,7 @@ ARTICLES = {
         (
             INDEX,
             Article('about/team', 'Our team', views.team),
+            Article('about/contact', 'Contact us', contact),
         ),
     )
 }

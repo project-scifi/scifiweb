@@ -18,6 +18,10 @@ DEFAULT_CONFIG = {
         'scifiweb_log_level': 'INFO',
         'django_log_level': 'INFO',
     },
+    'email': {
+        'contact_address': None,
+        'unauthenticated_host': None,
+    }
 }
 
 config = configparser.RawConfigParser()
@@ -64,7 +68,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # Temporarily disabled due to limitations of csrf_exempt decorator
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -167,6 +172,12 @@ STATICFILES_DIRS = [
 ]
 
 
+# Email for visitors contact form
+# We don't want to (try to) send email with a non-matching from header
+UNAUTHENTICATED_EMAIL_HOST = config.get('email', 'unauthenticated_host')
+CONTACT_EMAIL = config.get('email', 'contact_address')
+
+
 if not DEBUG:
     EMAIL_HOST = config.get('email', 'host')
     EMAIL_HOST_USER = config.get('email', 'user')
@@ -175,6 +186,7 @@ if not DEBUG:
 
     ADMINS = [('Webmaster', 'webmaster@projectscifi.org')]
     SERVER_EMAIL = EMAIL_HOST_USER
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
     # We don't use cookies yet but these might be forgotten later on
     CSRF_COOKIE_SECURE = True
