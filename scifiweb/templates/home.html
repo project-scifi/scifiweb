@@ -31,7 +31,7 @@
                         <h1 class="title is-uppercase is-bold">Bringing lab gear to schools in need</h1>
                         <p/>
                         <p class="subtitle"><strong>Project SCIFI</strong> works together with schools and sponsors to promote hands-on science education at American schools and expose students to real careers in science.</p>
-                        <a class="button is-primary is-inverted is-medium is-hidden-mobile" href="{% url 'info/about' %}">Learn more</a>
+                        <a class="button is-primary is-inverted is-medium is-hidden-mobile" href="{% url 'about' %}">Learn more</a>
                     </div>
                 </div>
             </div>
@@ -54,16 +54,16 @@
                     <div class="content">
                         <h4>Schools</h4>
                         <p>Schools receive enough coats to outfit one or more laboratory classrooms. Along with other materials we provide, these coats enable schools to teach science in an engaging, dynamic manner.</p>
-                        <p><a href="{% url 'info/about/contact' %}">Get material &raquo;</a></p>
+                        <p><a href="{% url 'about/contact' %}">Get material &raquo;</a></p>
                         <h4>Sponsors</h4>
                         <p>Sponsors support their communities by purchasing laboratory coats embroidered with their trademark logo, thus demonstrating their commitment to the scientists of the future.</p>
-                        <p><a href="{% url 'info/about/contact' %}">Become a sponsor &raquo;</a></p>
+                        <p><a href="{% url 'about/contact' %}">Become a sponsor &raquo;</a></p>
                         <h4>Partners</h4>
                         <p>Partnership is a mutual relationships where SCIFI collaborates with another organization to spread awareness, share resources, and support the missions of both organizations.</p>
-                        <p><a href="{% url 'info/about/contact' %}">Partner with us &raquo;</a></p>
+                        <p><a href="{% url 'about/contact' %}">Partner with us &raquo;</a></p>
                         <h4>Team members</h4>
                         <p>Project SCIFI thrives on the efforts of scientists who want to put real science experiences on the agenda for K–12 students. If you're in the bay area and want to help, consider joining us as a member.</p>
-                        <p><a href="{% url 'info/about/contact' %}">Join the team &raquo;</a></p>
+                        <p><a href="{% url 'about/contact' %}">Join the team &raquo;</a></p>
                     </div>
                 </div>
                 <div class="column">
@@ -88,7 +88,7 @@
                             {% for member in members %}
                                 <a
                                     class="media scifi-bio-thumbnail"
-                                    href="{% url 'info/about/team' %}#{{member.id}}"
+                                    href="{% url 'about/team' %}#{{member.id}}"
                                 >
                                     <figure class="media-left">
                                         <p class="image is-64x64">
@@ -110,7 +110,7 @@
                                 </a>
                             {% endfor %}
                             <div class="content"></div>
-                            <p><a href="{% url 'info/about/team' %}">See all team members &raquo;</a></p>
+                            <p><a href="{% url 'about/team' %}">See all team members &raquo;</a></p>
                         </div>
                     </aside>
                 </div>

@@ -20,12 +20,12 @@ def article_tree(highlight=None):
         return LinkNode(
             Link(
                 node.article.title, reverse(node.article.url_name),
-                classes=['is-active'] if node.article.name == highlight else []
+                classes=['is-active'] if node.article.name == highlight else [],
             ),
-            tuple(to_link_node(child) for child in node.children),
+            tuple(to_link_node(v) for k, v in sorted(node.items())),
         )
 
-    categories = list(map(to_link_node, ARTICLE_TREE.children))
+    categories = tuple(to_link_node(v) for k, v in sorted(ARTICLE_TREE.items()))
 
     for cat in categories:
         cat.link.classes.extend(('is-secondary', 'is-size-6'))

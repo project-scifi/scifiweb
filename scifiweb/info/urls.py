@@ -9,14 +9,13 @@ from scifiweb.info.article import article_view
 from scifiweb.info.contact import contact
 
 
-INDEX = Article('', 'Info', article_view('info/index.html'))
+INDEX = Article('', 'About', article_view('info/index.html'))
 
 ARTICLES = {
     article.name: article for article in (
         INDEX,
-        Article('about', 'About', article_view('info/articles/about.html')),
-        Article('about/team', 'Our team', views.team),
-        Article('about/contact', 'Contact us', contact),
+        Article('team', 'Our team', views.team),
+        Article('contact', 'Contact us', contact),
     )
 }
 
@@ -25,7 +24,7 @@ ARTICLE_TREE = article_tree(ARTICLES.values())
 
 urlpatterns = list(chain(
     (
-        url(r'^$', INDEX.render, name='info'),
+        url(r'^$', INDEX.render, name='about'),
     ),
     (
         url(r'^{}/$'.format(name), article.render, name=article.url_name)

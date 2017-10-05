@@ -9,12 +9,12 @@ class Article(namedtuple('Article', ('name', 'title', 'view'))):
     @property
     def url_name(self):
         """Returns the canonical URL rule name for this article, e.g.
-        for `about/contact` it's `info/about/contact`."""
+        for `contact` it's `about/contact`."""
         assert not self.name.startswith('/')
         if self.name:
-            return 'info/' + self.name
+            return 'about/' + self.name
         else:
-            return 'info'
+            return 'about'
 
     @property
     def render(self):
