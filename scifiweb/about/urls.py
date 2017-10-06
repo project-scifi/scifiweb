@@ -5,11 +5,10 @@ from django.conf.urls import url
 import scifiweb.about.views as views
 from scifiweb.about.article import Article
 from scifiweb.about.article import article_tree
-from scifiweb.about.article import article_view
 from scifiweb.about.contact import contact
 
 
-INDEX = Article('', 'About', article_view('about/index.html'))
+INDEX = Article('', 'About', views.index)
 
 ARTICLES = {
     article.name: article for article in (

@@ -91,7 +91,46 @@
                 <div class="column is-two-thirds">
                     <div class="content">
                         <h2>Who we are</h2>
-                        <p>Project SCIFI is an all-volunteer organization run by students and scientists who love what they do and want to give young minds the chance to experience science the way they do. <a href="{% url 'about/team' %}">Click here to see bios for each of our team members.</a></p>
+                        <p>Project SCIFI is run by an incredible team of volunteer students and scientists who are passionate about their involvement in making scientific experiences available to youths everywhere. Our goal is to give every student the opportunity to see science with the same vigor and excitement we do.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <figure class="hero is-dark is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="columns is-centered">
+                    <div class="column is-10">
+                        <h3 class="title">Team members</h3>
+                        <div class="columns is-multiline">
+                            {% for member in members %}
+                                <div class="column is-one-third">
+                                    {% include 'partials/member-thumbnail.html' with member=member %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </figure>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-two-thirds">
+                    <div class="content">
+                        <h2>How you can take part</h2>
+                        <p>Project SCIFI gives unique embroidered lab coats and experiment guides to schools and provides individuals, industry, and higher learning institutes a direct way to give back to the communities which will power them in the future. To make it work, we need everyone to play a hand in the process! Here's how you can do your part.</p>
+                        <h3>Sponsors</h3>
+                        <p>For individuals who want to help purchase lab gear, we are currently grateful to accept donations through our <a href="https://www.gofundme.com/project-scifi-help-stem-education">GoFundMe page</a>.</p>
+                        <p>If you represent a company, a research lab, or a university department, please <a href="{% url 'about/contact' %}">get in touch with us directly</a> and we can organize a lab coat purchase with your name and logo embroidered.</p>
+                        <h3>Schools</h3>
+                        <p>Project SCIFI is always on the lookout for schools whom we can partner with to bring hands-on science experiences to classrooms. <a href="{% url 'about/contact' %}">Please send us a message</a> telling us more about your school and how we can help you.</p>
+                        <h3>Volunteers</h3>
+                        <p>Project SCIFI's membership is concentrated in the Bay Area and we currently are largely represented by UC Berkeley students and alumni. Interested candidates may find us recruiting on-campus near the start of a semester.</p>
+                        <h3>Education promoters</h3>
+                        <p>If you represent another organization which promotes science education in the Bay, we'd love to hear from you if youhave a unique idea for a partnership or you'd like to participate in a cross-promotion. Please <a href="{% url 'about/contact' %}">drop us a line</a></p>
                     </div>
                 </div>
             </div>

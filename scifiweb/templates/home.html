@@ -86,28 +86,7 @@
                         <div class="hero-body">
                             <h3 class="title is-4">Meet the team</h3>
                             {% for member in members %}
-                                <a
-                                    class="media scifi-bio-thumbnail"
-                                    href="{% url 'about/team' %}#{{member.id}}"
-                                >
-                                    <figure class="media-left">
-                                        <p class="image is-64x64">
-                                            <img src="{% static member.thumbnail %}"/>
-                                        </p>
-                                    </figure>
-                                    <div class="media-content">
-                                        <span>
-                                            <p class="title is-5">{{member.name}}</p>
-                                            <p class="subtitle is-6">
-                                                {% if member.roles %}
-                                                    {{member.roles|join:', '}}
-                                                {% else %}
-                                                    Team member
-                                                {% endif %}
-                                            </p>
-                                        </span>
-                                    </div>
-                                </a>
+                                {% include 'partials/member-thumbnail.html' with member=member %}
                             {% endfor %}
                             <div class="content"></div>
                             <p><a href="{% url 'about/team' %}">See all team members &raquo;</a></p>

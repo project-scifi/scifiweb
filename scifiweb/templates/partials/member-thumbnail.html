@@ -1,0 +1,23 @@
+{% load static %}
+<a
+    class="media scifi-bio-thumbnail"
+    href="{% url 'about/team' %}#{{member.id}}"
+>
+    <figure class="media-left">
+        <p class="image is-64x64">
+            <img src="{% static member.thumbnail %}"/>
+        </p>
+    </figure>
+    <div class="media-content">
+        <span>
+            <p class="title is-5">{{member.name}}</p>
+            <p class="subtitle is-6">
+                {% if member.roles %}
+                    {{member.roles|join:', '}}
+                {% else %}
+                    Team member
+                {% endif %}
+            </p>
+        </span>
+    </div>
+</a>
