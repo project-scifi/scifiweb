@@ -1,4 +1,5 @@
 from collections import namedtuple
+from itertools import chain
 
 from django import template
 from django.core.urlresolvers import reverse
@@ -16,16 +17,19 @@ def article_tree(highlight=None):
     """Renders the article hierarchy as a nested menu with links."""
     LinkNode = namedtuple('Node', ('link', 'children'))
 
-    def to_link_node(node):
+    def to_link_node(node, recurse=True):
         return LinkNode(
             Link(
                 node.article.title, reverse(node.article.url_name),
                 classes=['is-active'] if node.article.name == highlight else [],
             ),
-            tuple(to_link_node(v) for k, v in sorted(node.items())),
+            tuple(to_link_node(v) for k, v in sorted(node.items())) if recurse else (),
         )
 
-    categories = tuple(to_link_node(v) for k, v in sorted(ARTICLE_TREE.items()))
+    categories = tuple(chain(
+        (to_link_node(ARTICLE_TREE, recurse=False),),
+        (to_link_node(v) for k, v in sorted(ARTICLE_TREE.items()))
+    ))
 
     for cat in categories:
         cat.link.classes.extend(('is-secondary', 'is-size-6'))
