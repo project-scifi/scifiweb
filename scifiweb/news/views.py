@@ -10,6 +10,7 @@ from django.shortcuts import reverse
 from django.template.loader import render_to_string
 
 import scifiweb.news.blog as blog
+from scifiweb.templatetags.post import format_post_date
 
 
 def _post_404(name):
@@ -22,6 +23,7 @@ def render_post(request, post):
         'news/post.html',
         {
             'title': post.title,
+            'subtitle': format_post_date(post.date),
             'post': post,
         },
     )
