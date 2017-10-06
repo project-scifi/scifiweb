@@ -40,41 +40,20 @@
                     <div class="content has-text-centered">
                         <p>Thank you for supporting science education!</p>
                     </div>
-                    <div class="columns">
-                        <div class="column">
-                            <h6 class="is-title is-6">About Project SCIFI</h6>
-                            <ul>
-                                <li><a href="{% url 'about' %}">Overview</a></li>
-                                <li><a href="{% url 'news' %}">News</a></li>
-                                <li><a href="{% url 'about/contact' %}">Join the team</a></li>
-                                <li><a href="{% url 'about/contact' %}">Contact us</a></li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <h6 class="is-title is-6">Schools</h6>
-                            <ul>
-                                <li><a href="{% url 'about/contact' %}">Get lab coats</a></li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <h6 class="is-title is-6">Sponsors</h6>
-                            <ul>
-                                <li><a href="{% url 'about/contact' %}">Become a sponsor</a></li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <h6 class="is-title is-6">Partners</h6>
-                            <ul>
-                                <li><a href="{% url 'about/contact' %}">Partner with us</a></li>
-                            </ul>
-                        </div>
+                    <div class="breadcrumb has-bullet-separator is-centered">
+                        <ul>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About us</a></li>
+                            <li><a href="{% url 'news' %}">News</a></li>
+                            <li><a href="{% url 'about/contact' %}">Contact us</a></li>
+                        </ul>
                     </div>
                     <div class="level">
                         <div class="level-left">
                             <div class="content is-small">
                                 <p>
-                                    Copyright © 2017 Project SCIFI.<br/>
-                                    Issue with the website? Email <a href="mailto:webmaster@projectscifi.org">webmaster@projectscifi.org</a> or contact via <a href="https://github.com/project-scifi/scifiweb">GitHub</a>.
+                                    Copyright © 2017 Project SCIFI contributors.<br/>
+                                    Issue with the website? <a href="{% url 'about/contact' %}">Send a message</a> or contact via <a href="https://github.com/project-scifi/scifiweb">GitHub</a>.
                                 </p>
                             </div>
                         </div>
