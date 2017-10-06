@@ -92,8 +92,8 @@ MEMBERS = (
             mentors encouraged him to pursue his passions, which led him to
             pursue degrees in Molecular & Cell Biology, Integrative Biology,
             and Psychology in college. Since graduating, he has been working as
-            an instructor and researcher in the Bay Area - both of which he
-            loves.
+            a K-12 Academic Instructor at Classroom Matters and a Research
+            Associate at Verseon.
         """),
     ),
     Member(
