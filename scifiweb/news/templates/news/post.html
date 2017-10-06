@@ -17,7 +17,7 @@
                         </p>
                         <hr/>
                         <p><i>
-                            Posted {{post.modified|format_post_time}} by {% post_author post.author %}
+                            Posted {{post.date|format_post_time}} by {% post_author post.author %}
                             {% if post.categories %}
                                 in {% category_list post.categories %}
                             {% endif %}
