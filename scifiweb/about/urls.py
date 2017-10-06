@@ -2,14 +2,14 @@ from itertools import chain
 
 from django.conf.urls import url
 
-import scifiweb.info.views as views
-from scifiweb.info.article import Article
-from scifiweb.info.article import article_tree
-from scifiweb.info.article import article_view
-from scifiweb.info.contact import contact
+import scifiweb.about.views as views
+from scifiweb.about.article import Article
+from scifiweb.about.article import article_tree
+from scifiweb.about.article import article_view
+from scifiweb.about.contact import contact
 
 
-INDEX = Article('', 'About', article_view('info/index.html'))
+INDEX = Article('', 'About', article_view('about/index.html'))
 
 ARTICLES = {
     article.name: article for article in (

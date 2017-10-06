@@ -6,7 +6,7 @@ from scifiweb.home import MEMBERS
 def team(article, request):
     return render(
         request,
-        'info/special/team.html',
+        'about/team.html',
         {
             'title': article.title,
             'article': article,

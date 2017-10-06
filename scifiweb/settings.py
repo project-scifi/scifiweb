@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'scifiweb',
-    'scifiweb.info',
+    'scifiweb.about',
     'scifiweb.news',
 ]
 

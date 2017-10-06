@@ -47,7 +47,7 @@ def contact(article, request):
 
     return render(
         request,
-        'info/special/contact.html',
+        'about/contact.html',
         {
             'title': article.title,
             'article': article,

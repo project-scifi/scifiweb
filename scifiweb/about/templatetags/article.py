@@ -3,8 +3,8 @@ from collections import namedtuple
 from django import template
 from django.core.urlresolvers import reverse
 
-from scifiweb.info.urls import ARTICLE_TREE
-from scifiweb.info.urls import ARTICLES
+from scifiweb.about.urls import ARTICLE_TREE
+from scifiweb.about.urls import ARTICLES
 from scifiweb.utils import Link
 
 
