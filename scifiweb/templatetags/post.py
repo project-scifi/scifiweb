@@ -14,7 +14,7 @@ register = template.Library()
 
 @register.filter
 def format_post_date(date):
-    return date.strftime('%A, %B %-m, %Y')
+    return date.strftime('%A, %B %-d, %Y')
 
 
 @register.filter
