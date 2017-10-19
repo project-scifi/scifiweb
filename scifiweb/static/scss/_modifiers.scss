@@ -32,3 +32,11 @@
         float: right !important;
     }
 }
+
+.image.is-centered {
+    > svg,
+    > img {
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+}
