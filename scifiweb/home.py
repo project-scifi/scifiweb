@@ -91,9 +91,9 @@ MEMBERS = (
             who solidified his growing interest in the health sciences. His
             mentors encouraged him to pursue his passions, which led him to
             pursue degrees in Molecular & Cell Biology, Integrative Biology,
-            and Psychology in college. Since graduating, he has been working as
-            a K-12 Academic Instructor at Classroom Matters and a Research
-            Associate at Verseon.
+            and Psychology at UC Berkeley. Since graduating, he has been
+            working as a K-12 Academic Instructor at Classroom Matters
+            and a Research Associate at Verseon.
         """),
     ),
     Member(
