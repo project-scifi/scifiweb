@@ -10,6 +10,7 @@ from django.shortcuts import reverse
 from django.template.loader import render_to_string
 
 import scifiweb.news.blog as blog
+from scifiweb.home import MEMBERS_MAP
 from scifiweb.templatetags.post import format_post_date
 
 
@@ -18,6 +19,12 @@ def _post_404(name):
 
 
 def render_post(request, post):
+    member = MEMBERS_MAP.get(post.author.slug)
+    if member:
+        author_thumbnail = member.thumbnail
+    else:
+        author_thumbnail = None
+
     return render(
         request,
         'news/post.html',
@@ -25,6 +32,7 @@ def render_post(request, post):
             'title': post.title,
             'subtitle': format_post_date(post.date),
             'post': post,
+            'author_thumbnail': author_thumbnail,
         },
     )
 

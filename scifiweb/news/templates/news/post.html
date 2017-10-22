@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load post %}
 
 {% block content %}
-
     <section class="section">
         <div class="container">
             <div class="columns">
@@ -15,20 +15,32 @@
                             {% endfor %}
                         </p>
                         <hr/>
-                        <p><i>
-                            Posted {{post.date|format_post_time}} by {% post_author post.author %}
-                            {% if post.categories %}
-                                in {% category_list post.categories %}
-                            {% endif %}
-                            {% if post.modified %}
-                                <br/>
-                                Last updated {{post.modified|format_post_date}} at {{post.modified|format_post_time}}
-                            {% endif %}
-                        </i></p>
+                    </div>
+                    <div class="media">
+                        {% if author_thumbnail %}
+                            <figure class="media-left">
+                                <p class="image is-64x64">
+                                    <img class="is-circle" src="{% static author_thumbnail %}"/>
+                                </p>
+                            </figure>
+                        {% endif %}
+                        <div class="media-content">
+                            <span class="content">
+                                <p><i>
+                                    Posted {{post.date|format_post_time}} by {% post_author post.author %}
+                                    {% if post.categories %}
+                                        in {% category_list post.categories %}
+                                    {% endif %}
+                                    {% if post.modified %}
+                                        <br/>
+                                        Last updated {{post.modified|format_post_date}} at {{post.modified|format_post_time}}
+                                    {% endif %}
+                                </i></p>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 {% endblock %}

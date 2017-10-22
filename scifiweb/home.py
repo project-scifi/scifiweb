@@ -221,6 +221,8 @@ MEMBERS = (
     )
 )
 
+MEMBERS_MAP = {member.id: member for member in MEMBERS}
+
 
 def home(request):
     return render(
