@@ -32,6 +32,7 @@ def render_post(request, post):
             'title': post.title,
             'subtitle': format_post_date(post.date),
             'post': post,
+            'other_posts': blog.get_posts(per_page=5),
             'author_thumbnail': author_thumbnail,
         },
     )

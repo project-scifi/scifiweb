@@ -40,6 +40,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="column">
+                    <div class="content">
+                        <h3 class="title is-4"><b>More news</b></h3>
+                        {% for other_post in other_posts %}
+                            <p>
+                                <b><a href="{{other_post.permalink}}">{{other_post.title}}</a></b>
+                                <br/>
+                                {{other_post.date|format_post_date}}
+                            </p>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </section>
