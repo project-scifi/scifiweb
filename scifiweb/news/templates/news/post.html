@@ -1,6 +1,35 @@
 {% extends 'base.html' %}
+{% load image %}
 {% load static %}
 {% load post %}
+
+{% block hero %}
+    <header class="hero is-primary is-layered">
+        <div class="is-background is-hidden-mobile">
+            <div class="is-pulled-right scifi-masthead-image">
+                {% svg 'img/science-left.svg' %}
+            </div>
+        </div>
+        <div class="hero-body is-foreground">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <h1 class="title">
+                            {% if hero_title %}
+                                {{hero_title}}
+                            {% elif title %}
+                                {{title}}
+                            {% endif %}
+                        </h1>
+                        {% if subtitle %}
+                            <h2 class="subtitle">{{subtitle}}</h2>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
 
 {% block content %}
     <section class="section">

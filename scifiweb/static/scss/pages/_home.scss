@@ -7,11 +7,7 @@
     top: 0;
     left: 0;
     width: 100%;
-
-    img,
-    svg {
-        height: 100vh;
-    }
+    height: 100%;
 }
 
 .is-foreground {
@@ -23,6 +19,7 @@
     $color-dark: nth($shades, 1);
 
     .hero.is-layered.is-#{$name} .is-background svg {
+        height: 100vh;
         fill: $color-dark;
         stroke: $color-dark;
     }
