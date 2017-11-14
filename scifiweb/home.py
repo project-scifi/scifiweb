@@ -218,7 +218,23 @@ MEMBERS = (
             Chase de-stresses by getting on the ice and shooting some hockey
             pucks.
         """)
-    )
+    ),
+    Member(
+        'gbarnett',
+        'Garrett Barnett',
+        (),
+        dedent("""
+            Garrett grew up in McKinleyville, California, where he attended a
+            small high school and developed a love for science, specifically
+            biology. While in high school, Garrett spent his free time playing
+            for his high school football team and tutoring his fellow
+            classmates to help them develop an interest in STEM. Garrett is
+            currently majoring in Molecular and Cell Biology at UC Berkeley,
+            where he finds time to work in a research lab at UCSF. He joined
+            SCIFI so that he can help provide unprivileged students with the
+            opportunity to develop a love for science just as he has.
+        """)
+    ),
 )
 
 MEMBERS_MAP = {member.id: member for member in MEMBERS}
