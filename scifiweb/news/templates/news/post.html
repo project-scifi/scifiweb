@@ -8,6 +8,8 @@
             <div class="columns">
                 <div class="column is-three-quarters">
                     <div class="content">
+                        <p class="title is-4">{{post.title}}</p>
+                        <p class="subtitle is-5">{{post.date|format_post_date}}</p>
                         <p>{{post.content|forward_blog_links}}</p>
                         <p>
                             {% for tag in post.tags %}

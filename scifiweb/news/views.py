@@ -11,7 +11,9 @@ from django.template.loader import render_to_string
 
 import scifiweb.news.blog as blog
 from scifiweb.home import MEMBERS_MAP
-from scifiweb.templatetags.post import format_post_date
+
+
+EYECATCH_SUBTITLE = 'Making strides in STEM education'
 
 
 def _post_404(name):
@@ -30,7 +32,8 @@ def render_post(request, post):
         'news/post.html',
         {
             'title': post.title,
-            'subtitle': format_post_date(post.date),
+            'hero_title': 'Project SCIFI news',
+            'subtitle': EYECATCH_SUBTITLE,
             'post': post,
             'other_posts': blog.get_posts(per_page=5),
             'author_thumbnail': author_thumbnail,
@@ -176,6 +179,7 @@ def render_search_titles(search_params, page_params):
         before_date,
         after_date
     )):
+        did_search = True
         subtitle = render_to_string(
             'news/partials/title.html',
             {
@@ -188,7 +192,8 @@ def render_search_titles(search_params, page_params):
             }
         )
     else:
-        subtitle = None
+        did_search = False
+        subtitle = EYECATCH_SUBTITLE
 
     page = page_params.get('page', 1)
     if page > 1:
@@ -196,13 +201,13 @@ def render_search_titles(search_params, page_params):
     else:
         pagenum = None
 
-    if subtitle:
+    if did_search:
         hero_title = 'News search'
     else:
-        hero_title = 'News'
+        hero_title = 'Project SCIFI news'
 
     components = []
-    if subtitle:
+    if did_search:
         components.append(subtitle)
     if pagenum:
         components.append(pagenum)

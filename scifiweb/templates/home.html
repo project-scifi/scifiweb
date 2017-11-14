@@ -71,11 +71,11 @@
                         <div class="content">
                             <h3 class="title is-4"><b>News</b></h3>
                             {% for post in posts %}
-                                    <p>
-                                        <big><b><a href="{{post.permalink}}">{{post.title}}</a></b></big>
-                                        <br/>
-                                        {{post.date|format_post_date}}
-                                    </p>
+                                <p>
+                                    <big><b><a href="{{post.permalink}}">{{post.title}}</a></b></big>
+                                    <br/>
+                                    {{post.date|format_post_date}}
+                                </p>
                             {% endfor %}
                             <p><a href="{% url 'news' %}">See more news &raquo;</a></p>
                         </div>
