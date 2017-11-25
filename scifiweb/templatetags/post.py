@@ -32,7 +32,7 @@ def forward_blog_links(text):
     the source post.
     """
     return mark_safe(re.sub(
-        r'https?://wp.projectscifi.org',
+        r'https?://wp\.projectscifi\.org(?!/wp-content)',
         reverse('news').rstrip('/'),
         text,
     ))
