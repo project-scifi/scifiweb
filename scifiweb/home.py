@@ -235,6 +235,22 @@ MEMBERS = (
             opportunity to develop a love for science just as he has.
         """)
     ),
+    Member(
+        'kauschatt',
+        'Kaustav Chattopadhyay',
+        (),
+        dedent("""
+            Kaustav hails from Los Angeles, but he was born in India. His
+            father, who grew up in poverty, always emphasized the importance of
+            education and that has been one of the driving forces behind
+            Kaustav’s life. When in high school, he joined many organizations
+            to provide education for underdeveloped communities in his area. He
+            was able to help students win multiple awards and honors. Now,
+            Kaustav is pursuing a double major in Molecular and Cell Biology
+            and Public Health. During his free time, he likes to watch TV, play
+            piano, and play volleyball.
+        """)
+    ),
 )
 
 MEMBERS_MAP = {member.id: member for member in MEMBERS}
