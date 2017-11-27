@@ -191,21 +191,6 @@ MEMBERS = (
         """),
     ),
     Member(
-        'sgriffin',
-        'Sandon Griffin',
-        ('Chief Executive Officer',),
-        dedent("""
-            Sandon grew up in Newport Beach, California. He developed an
-            interest in the mind and brain during high school, which led him to
-            pursue degrees in Psychology and Neurobiology at UC Berkeley.
-            Currently, Sandon works at the Helen Wills Neuroscience Institute,
-            where he studies how emotions are encoded in the human brain. In
-            the future, he hopes to become a physician scientist and develop
-            new brain-computer interface treatments. In his free time, Sandon
-            enjoys carpentry, ice hockey, and playing with his cat.
-        """),
-    ),
-    Member(
         'cswerdlick',
         'Chase Swerdlick',
         (),
