@@ -24,7 +24,7 @@ py==1.4.34
 Pygments==2.2.0
 pytest==3.2.1
 pytest-django==3.1.2
-PyYAML==3.12
+PyYAML==5.4
 requests==2.18.4
 requirements-tools==1.1.2
 setuptools==36.4.0
